@@ -1,5 +1,39 @@
 yrewrite_metainfo = YRewrite Domain Meta-Infos
 yrewrite_metainfo_title = Meta-Infos
-yrewrite_metainfo_domain = Meta-Infos
+
+# Menü-Reiter
+yrewrite_metainfo_domain = Allgemein
+yrewrite_metainfo_domain_icon = Icons und PWA-Profile
+yrewrite_metainfo_domain_cssvars = CSS-Variablen-Profile
 
 yrewrite_metainfo_fields = Felder
+
+domain_meta_info_logo_label = Logo
+domain_meta_info_logo_notice = Logo, das im Template ausgegeben werden kann.
+
+domain_meta_info_type_label = og:type
+domain_meta_info_thumbnail_label = og:image
+
+domain_meta_info_icon_label = Profil (Icons, PWA)
+domain_meta_info_icon_notice = In diesem Profil können Favicon- und Browser-Icons, Farbschema u.v.a. Eigenschaften für Progessive Web Apps ggf. für mehrere Domains angegeben werden.
+
+domain_meta_info_cssvars_label = Profil (CSS-Variablen)
+domain_meta_info_cssvars_empty_label = Bitte Profilname vergeben
+domain_meta_info_cssvars_vars_label = Key-Value-Paare
+domain_meta_info_cssvars_name_label = Profilname
+domain_meta_info_cssvars_notice = In diesem Profil können CSS-Variablen definiert und ggf. von mehreren Domains verwendet werden.
+
+
+yrewrite_domain_meta_icon_name_label = Profilname
+domain_meta_info_shortname_label = Kurzname (App-Verknüpfung)
+domain_meta_info_display_label = Browser-UI
+theme_color = Theme-Farbe
+domain_meta_info_background_color_label = Hintergrund-Farbe 
+msapplication_tile_color = Titelleisten-Farbe
+
+shortcut_icon = Favicon
+icon_16 = 16x16
+icon_32 = 32x32
+apple_touch_icon = Apple Touch 
+safari_pinned_tab = Safari Pinned Tab
+manifest = webmanifest.json

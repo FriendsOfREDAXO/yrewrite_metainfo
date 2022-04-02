@@ -8,8 +8,8 @@ requires:
         version: ">7.3"
     redaxo: ^5.12
     packages:
+        yrewrite: "^2"
         yform: ">=4"
-        metainfo: ">1"
 
 pages:
     yrewrite/metainfo:
@@ -17,7 +17,12 @@ pages:
         perm: yrewrite_metainfo['fields']
     yrewrite/metainfo/domain:
         title: translate:yrewrite_metainfo_domain
-        prio: 15
+        perm: yrewrite_metainfo['domain']
+    yrewrite/metainfo/domain_cssvars:
+        title: translate:yrewrite_metainfo_domain_cssvars
+        perm: yrewrite_metainfo['domain']
+    yrewrite/metainfo/domain_icon:
+        title: translate:yrewrite_metainfo_domain_icon
         perm: yrewrite_metainfo['domain']
     yrewrite/metainfo/field:
         title: translate:yrewrite_metainfo_fields

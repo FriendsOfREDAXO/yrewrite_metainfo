@@ -1,38 +1,53 @@
 <?php
-class yrewrite_domain_meta extends \rex_yform_manager_dataset
+class domain extends \rex_yform_manager_dataset
 {
     public static function getCurrent()
     {
-        self::query()->where('yrewrite_domain_id', rex_yrewrite::getCurrent()->getId())->findOne();
+        return self::query()->where('yrewrite_domain_id', rex_yrewrite::getCurrentDomain()->getId())->findOne();
     }
     
+    public static function getHead()
+    {
+        $fragment = new rex_fragment();
+        return $fragment->parse('yrewrite_metainfo/head.php');
+    }
+
     public function getYRewrite()
     {
         return rex_yrewrite::getDomainById($this->getValue('yrewrite_domain_id'));
     }
 
-    public function getTitle() :string
+    public function getName() :string
     {
-        return $this->title;
+        return $this->getValue('name');
     }
 
-    public function getCssVars() :string
+    public function getCssVars()
     {
-        return $this->cssvars;
+        return $this->getRelatedDataset('cssvars');
+    }
+
+    public function getIcon()
+    {
+        return $this->getRelatedDataset('icon');
     }
 
     public function getColor() :string
     {
-        return $this->color;
+        $icon = $this->getRelatedDataset('icon');
+        if ($icon) {
+            return $this->getRelatedDataset('icon')->getColor();
+        }
+        return "";
     }
 
     public function getLogo() :string
     {
-        return $this->logo;
+        return $this->getValue('logo');
     }
 
-    public function getFavicon() :string
+    public function getType() :string
     {
-        return $this->favicon;
+        return $this->getValue('type');
     }
 }
