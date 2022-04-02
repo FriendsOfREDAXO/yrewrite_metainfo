@@ -1,9 +1,19 @@
-# Metainfos für YRewrite Domains auf Basis von YForm 4
+# Meta-Infos für YRewrite Domains auf Basis von YForm 4
 
-Ergänzt YRewrite um die Möglichkeit, Metainformationen an Domains zu verwalten. Mit vorgefertigten, einfachen aber sinnvollen Konfigurationsfeldern, einer YOrm-Dataset-Methode und passenden Backend-Seiten.
+Ergänzt YRewrite um die Möglichkeit, Metainformationen an Domains zu verwalten. Mit vorgefertigten, einfachen aber sinnvollen Konfigurationsfeldern, passender YOrm-Dataset-Methoden und Backend-Seiten für die Eingabe.
 
+## Installation und Ersteinrichtung
+
+Voraussetzungen: YRewrite mit mind. einer eingerichteten Domain, YForm 4.0.
+
+1. Installiere das Addon über den REDAXO-Installer
+2. Fülle in `YRewrite` > `Allgemein` Angaben zu deiner YRewrite-Domain aus
+3. Füge in den `<head>`-Bereich deines oder deiner Templates folgenden Code ein: `<?= echo domain::getHead() ?>`.
+
+Anschließend werden die passenden Meta-Informationen, soweit ausgefüllt, ausgegeben.
+
+> **Hinweis:** Das YRewrite-SEO-Objekt sowie OpenGraph- und weitere Meta-Tags, die bereits durch dieses Addon kommen, sollten aus deinem Template entfernt werden.
 ## Features
-
 ### Überblick
 
 > Was unterscheidet dieses Addon von anderen REDAXO-Addons für Domain-Metainformationen?
@@ -16,34 +26,36 @@ Ergänzt YRewrite um die Möglichkeit, Metainformationen an Domains zu verwalten
 
 Wenn du dich mit anderen auf YForm basierten Addons wie YCom, Events, Neues, QandA o.ä. auskennst, weißt du, dass dies zwar möglich ist, aber unvorhergesehene Dinge bei Updates oder in der aktiven Verwendung des Addons passieren können. Wenn du bestimmte Felder nicht benötigst, dann blende sie am besten über ein eigenes Backend-CSS aus.
 
-### Die Einstellungsseiten
+### Die Einstellungsseite
 
 Anders als das Metainfo-Addon selbst oder abgeleitete Addons wie das Addon "Globale Einstellungen" basiert dieses Addon auf YForm. Um sich trotzdem nahtlos in die REDAXO-Struktur einzufügen, ergänzt dieses Addon folgende Backend-Seiten:
 
-1. Metainfos - neben Artikel, Kategorien, Medien und Sprachen gibt es einen neuen Reiter "Domains". Du kannst aber auch wie gewohnt über `Tabelle editieren` in YForm gehen.
-2. YRewrite - neben "Domains", "Alias" und Co. gibt es einen neuen Reiter "Metainfos".
+1. `YRewrite` > `Allgemein`  - Lege hier Meta-Informationen für deine Domain an
+2. `YRewrite` > `Icons und PWA-Profile` - Optional: Verwalte bequem PWA-Angaben und Favicon-Sets über das Backend und den Medienpool - ordne diese einer oder mehreren YRewrite-Domains zu.
+3. `YRewrite` > `CSS-Variablen-Profile` - Optional: Verwalte bequem Profile mit CSS-Variablen für ein oder mehrere YRewrite-Domains
 
-### Die Klasse `rex_yrewrite_domain_meta`
+### Die Klasse `domain` - Meta-Infos für deine YRewrite-Domain
 
 Einfache Methoden erleichtern dir die Nutzung:
 
-* `$yrewrite_domain rex_yrewrite_domain_meta::getYRewrite()` das klassische YRewrite-Objekt zur aktuellen Domain (ohne Metainfos)
-* `$domain = rex_yrewrite_domain_meta::getCurrent()` ein YOrm Dataset mit allen Metainfos zur aktuellen Domain
-* `$domain->getTitle()` Titel der Website, wird verwendet im Title-Tag, App-Titel, `og:title` u.a.
-* `$domain->getColor()` Hauptfarbe der Website als Hexwert, z.B. `#0088FF`;
+* `$domain::getCurrent()` Erhalte das YOrm-Dataset mit Meta-Informationen zu deiner aktuellen YRewrite-Domain
+* `$yrewrite_domain $domain->getYRewrite()` das Original YRewrite-Domain-Objekt
+* `$domain->getName()` Titel der Website, wird verwendet als, PWA-Titel, `og:title` u.a.
 * `$domain->getLogo()` Logo der Website aus dem Medienpool, z.B. `file.svg`;
+
+Weitere Methoden für die vorinstallierten Felder findest du in der Klasse `lib/domain.php` sowie in den zugehörigen Klassen `icon.php` und `cssvars.php`.
 
 ### Fragmente
 
-#### `domain_cssvars.php`
+#### `cssvars.php`
 
-Deine Seite verfügt über CSS-Variablen? Mach diese anpassbar pro YRewrite-Domain. Füge das Fragment `domain_cssvars.php` im Head ein oder generiere eine passende CSS-Datei daraus und füge diese in dein Template ein.
+Deine Seite verfügt über CSS-Variablen? Mach diese anpassbar pro YRewrite-Domain. Füge das Fragment `yrewrite_metainfo/cssvars.php` im Head ein oder generiere eine passende CSS-Datei daraus und füge diese in dein Template ein.
 
-#### `domain_html_head.php` optimiert Metadaten deiner Website/Arikel für soziale Netzwerke
+#### `head.php` optimiert Metadaten deiner Website/Arikel für soziale Netzwerke
 
 Die Standard-Methoden von YRewrite zum anpassen des Titelschemas reichen oft nicht aus. Soziale Netzwerke, Messenger und andere Dienste erwarten heute vollständige Metadaten, Redakteure können diese in REDAXO passend pflegen und Besucher deiner Website erhalten beim Teilen von Links eine sinnvolle Linkvorschau.
 
-Füge das Fragment `domain_html_head.php` im Head anstelle der YRewrite-Methoden ein. Überschreibe dieses Fragment  in deinem `project`-Addon, wenn du zusätzliche Metadaten ausgeben möchtest - z.B. anhand des URL-Addons.
+Füge das Fragment `yrewrite_metainfo/head.php` im Head anstelle der YRewrite-SEO-Methoden ein. Überschreibe dieses Fragment in deinem `project`-Addon, wenn du zusätzliche Metadaten ausgeben möchtest - z.B. anhand des URL-Addons.
 
 ## Lizenz
 
