@@ -19,7 +19,7 @@ Anschließend werden die passenden Meta-Informationen, soweit ausgefüllt, ausge
 > Was unterscheidet dieses Addon von anderen REDAXO-Addons für Domain-Metainformationen?
 
 - Dieses Addon kommt mit sinnvoll vorinstallierten Standard-Feldern als YForm Tableset. Installieren und loslegen!
-- Die Klasse `rex_yrewrite_domain_meta` ist ein YOrm-Dataset. Du hast in deinem Code alle Features von YOrm zur Verfügung und kannst direkt loslegen, z.B. `rex_yrewrite_domain_meta::getCurrent()->getValue('mein_feld')`.
+- Die Klasse `domain` ist ein YOrm-Dataset. Du hast in deinem Code alle Features von YOrm zur Verfügung und kannst direkt loslegen, z.B. `domain::getCurrent()->getValue('mein_feld')`, oder vorhandene Dataset-Methoden verwendest.
 - Bonus: Standard-Fragmente für den `<head>`-Bereich deiner Templates sind blitzschnell kopiert und eingefügt, wenn du bspw. das Design jeder Domain mit eigenen CSS-Variablen anpassen willst (Bootstrap 5 und CSS-Frameworks) oder die Linkvorschau und Metadaten für Suchmaschinen, soziale Netzwerke und Messenger mit einem Klick optimieren willst.
 
 > Kann ich nicht benötigte Standard-Felder auch löschen?
