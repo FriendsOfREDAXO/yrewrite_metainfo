@@ -24,6 +24,7 @@ if (!$domain = $this->getVar('domain')) {
 <!-- YRewrite Meta-Infos Domain -->
 <meta property="og:site_name" content="<?= $domain->getName(); ?>" />
 <meta property="og:type" content="<?= $domain->getType(); ?>" />
+<!-- / YRewrite Meta-Infos Domain -->
 <?php
 if ($icon = $domain->getIcon()) {
     ?>
