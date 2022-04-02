@@ -8,7 +8,7 @@ Voraussetzungen: YRewrite mit mind. einer eingerichteten Domain, YForm 4.0.
 
 1. Installiere das Addon über den REDAXO-Installer
 2. Fülle in `YRewrite` > `Allgemein` Angaben zu deiner YRewrite-Domain aus
-3. Füge in den `<head>`-Bereich deines oder deiner Templates folgenden Code ein: `<?= echo domain::getHead() ?>`.
+3. Füge in den `<head>`-Bereich deines oder deiner Templates folgenden Code ein: `<?= domain::getHead() ?>`.
 
 Anschließend werden die passenden Meta-Informationen, soweit ausgefüllt, ausgegeben.
 
