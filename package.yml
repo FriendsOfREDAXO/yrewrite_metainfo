@@ -1,5 +1,5 @@
 package: yrewrite_metainfo
-version: "3.0.0"
+version: "0.0.1"
 author: "Alexander Walther"
 supportpage: https://github.com/alexplusde/yrewrite_metainfo/
 
@@ -11,16 +11,14 @@ requires:
         yform: ">=4"
         metainfo: ">1"
 
-page:
-    title: translate:yrewrite_metainfo
-    icon: rex-icon fa-globe
-
 pages:
-    metainfo/yrewrite_fields:
-        title: translate:yrewrite_metainfo_fields
-        perm: yrewrite_metainfo['fields']
     yrewrite/metainfo:
+        title: translate:yrewrite_metainfo_title
+        perm: yrewrite_metainfo['fields']
+    yrewrite/metainfo/domain:
         title: translate:yrewrite_metainfo_domain
         prio: 15
-        icon: rex-icon fa-globe
         perm: yrewrite_metainfo['domain']
+    yrewrite/metainfo/field:
+        title: translate:yrewrite_metainfo_fields
+        perm: yrewrite_metainfo['fields']

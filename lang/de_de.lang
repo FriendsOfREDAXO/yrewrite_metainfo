@@ -1,9 +1,5 @@
-yrewrite_metainfo_title: Meta-Infos
+yrewrite_metainfo = YRewrite Domain Meta-Infos
+yrewrite_metainfo_title = Meta-Infos
+yrewrite_metainfo_domain = Meta-Infos
 
-# Konfigurationsformulare
-yrewrite_metainfo_config_field_label = Test-Feld
-yrewrite_metainfo_config_field_notice = Notiz, die etwas erklärt und bspw. einen Standardwert nennt. Hier: <code>Test</code>
-
-# YForm Tablelen-Übersetzung
-yrewrite_metainfo_table_name_label = Name
-yrewrite_metainfo_table_name_notice = Notiz, die etwas erklärt und auch einen Beispielwert nennen kann, z.B.: <code>Mein Name</code> 
+yrewrite_metainfo_fields = Felder

@@ -1,11 +1,13 @@
 <?php
 class yrewrite_domain_meta extends \rex_yform_manager_dataset
 {
-    public static function getCurrent() {
+    public static function getCurrent()
+    {
         self::query()->where('yrewrite_domain_id', rex_yrewrite::getCurrent()->getId())->findOne();
     }
     
-    public static function getYRewrite() {
+    public function getYRewrite()
+    {
         return rex_yrewrite::getDomainById($this->getValue('yrewrite_domain_id'));
     }
 
@@ -33,5 +35,4 @@ class yrewrite_domain_meta extends \rex_yform_manager_dataset
     {
         return $this->favicon;
     }
-
 }
