@@ -7,7 +7,7 @@ if (!$domain = $this->getVar('domain')) {
     :root {
         <?php
         foreach ($domain->getValue('cssvars') as $key => $var) {
-            echo '--'.rex_string::normalize($key).': '.$var.';'.PHP_EOL;
+            echo '--'.$key.': '.$var.';'.PHP_EOL;
         }
         ?>
     }

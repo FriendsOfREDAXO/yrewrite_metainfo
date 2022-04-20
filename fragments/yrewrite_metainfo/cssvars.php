@@ -9,10 +9,10 @@ if (!$domain = $this->getVar('domain')) {
     }); ?>
 <style>
     :root {
-        <?php
-foreach ($vars as $key => $value) {
-        echo '--'.rex_string::normalize($key).': '.$value.';'.PHP_EOL.'        ';
+        <?php foreach ($vars as $key=> $value) {
+        echo '--'.$key.': '.$value.';'.PHP_EOL.'';
     }
+
     echo PHP_EOL; ?>
     }
 </style>
