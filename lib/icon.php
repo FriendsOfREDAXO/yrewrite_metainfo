@@ -27,22 +27,22 @@ class icon extends \rex_yform_manager_dataset
     }
     public function getFavicon() :string
     {
-        return rex_path::media().$this->getValue('shortcut_icon');
+        return rex_url::media().$this->getValue('shortcut_icon');
     }
     public function getIcon($size = 32) :string
     {
-        return rex_path::media().$this->getValue('icon_'.$size);
+        return rex_url::media().$this->getValue('icon_'.$size);
     }
     public function getTouchIcon() :string
     {
-        return rex_path::media().$this->getValue('apple_touch_icon');
+        return rex_file::media().$this->getValue('apple_touch_icon');
     }
     public function getPinnedTab() :string
     {
-        return rex_path::media().$this->getValue('safari_pinned_tab');
+        return rex_url::media().$this->getValue('safari_pinned_tab');
     }
     public function getManifest() :string
     {
-        return rex_path::media().$this->getValue('manifest');
+        return rex_url::media().$this->getValue('manifest');
     }
 }
