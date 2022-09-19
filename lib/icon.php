@@ -35,7 +35,7 @@ class icon extends \rex_yform_manager_dataset
     }
     public function getTouchIcon() :string
     {
-        return rex_file::media().$this->getValue('apple_touch_icon');
+        return rex_url::media().$this->getValue('apple_touch_icon');
     }
     public function getPinnedTab() :string
     {
