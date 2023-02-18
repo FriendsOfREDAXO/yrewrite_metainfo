@@ -29,16 +29,28 @@ if (!$domain = $this->getVar('domain')) {
 if ($icon = $domain->getIcon()) {
     ?>
 <!-- YRewrite Meta-Infos Icon-Profil -->
+<?php if($icon->getTouchIcon()) { ?>
 <link rel="apple-touch-icon" sizes="180x180"
     href="<?= $icon->getTouchIcon() ?>">
+<?php } ?>
+<?php if($icon->getIcon(32)) { ?>
 <link rel="icon" type="image/png" sizes="32x32"
     href="<?= $icon->getIcon(32) ?>">
+<?php } ?>
+<?php if($icon->getIcon(16)) { ?>
 <link rel="icon" type="image/png" sizes="16x16"
     href="<?= $icon->getIcon(16) ?>">
+<?php } ?>
+<?php if($icon->getManifest()) { ?>
 <link rel="manifest" href="<?= $icon->getManifest() ?>">
+<?php } ?>
+<?php if($icon->getPinnedTab()) { ?>
 <link rel="mask-icon" href="<?= $icon->getPinnedTab() ?>"
     color="<?= $icon->getThemeColor() ?>">
+<?php } ?>
+<?php if($icon->getFavicon()) { ?>
 <link rel="shortcut icon" href="<?= $icon->getFavicon() ?>">
+<?php } ?>
 <meta name="apple-mobile-web-app-title"
     content="<?= $icon->getShortName() ?>">
 <meta name="application-name" content="<?= $icon->getShortName() ?>">
