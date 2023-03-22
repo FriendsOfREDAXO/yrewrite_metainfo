@@ -1,22 +1,16 @@
 <?php
-# YRewrite
-$seo = new rex_yrewrite_seo();
-if ($seo) {
-    ?>
-<!-- YRewrite SEO -->
-<?= $seo->getTitleTag() ?>
-<?= $seo->getDescriptionTag() ?>
-<?= $seo->getRobotsTag() ?>
-<?= $seo->getHreflangTags() ?>
-<?= $seo->getCanonicalUrlTag() ?>
-<?= '<meta property="og:title" content="'. $seo->getTitle() .'" />' ?>
-<?= '<meta property="og:description" content="'. $seo->getDescription().'" />' ?>
-<?= '<meta property="og:url" content="'. $seo->getCanonicalUrl().'" />' ?>
-<!-- / YRewrite SEO -->
-<?php
-} // $seo
-?>
-<?php
+
+# YRewrite + URL
+use Url\Seo;
+
+$seo = new Seo();
+if(!is_array($seo->getTags())) {
+    echo $seo->getTags();
+} else {
+    $seo = new rex_yrewrite_seo();
+    echo $seo->getTags();
+}
+
 if (!$domain = $this->getVar('domain')) {
     $domain = domain::getCurrent();
 }
