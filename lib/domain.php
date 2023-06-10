@@ -22,6 +22,15 @@ class domain extends \rex_yform_manager_dataset
         return $this->getValue('name');
     }
 
+    public function getStyles() :array
+    {
+        return explode(",", $this->getValue('styles'));
+    }
+    public function getScripts() :array
+    {
+        return explode(",", $this->getValue('scripts'));
+    }
+
     public function getCssVars()
     {
         return $this->getRelatedDataset('cssvars');
@@ -49,5 +58,33 @@ class domain extends \rex_yform_manager_dataset
     public function getType() :string
     {
         return $this->getValue('type');
+    }
+
+    public static function getAvailableStyles() {
+
+        $files = scandir(rex_path::assets('styles'));
+        $cssFiles = array();
+    
+        foreach ($files as $file) {
+            if (pathinfo($file, PATHINFO_EXTENSION) === 'css') {
+                $cssFiles[$file] = $file;
+            }
+        }
+    
+        return $cssFiles;
+    }
+
+    public static function getAvailableScripts() {
+
+        $files = scandir(rex_path::assets('scripts'));
+        $jsFiles = array();
+
+        foreach ($files as $file) {
+            if (pathinfo($file, PATHINFO_EXTENSION) === 'js') {
+                $jsFiles[$file] = $file;
+            }
+        }
+
+        return $jsFiles;
     }
 }
