@@ -1,11 +1,12 @@
 <?php
+
 class domain extends \rex_yform_manager_dataset
 {
     public static function getCurrent()
     {
         return self::query()->where('yrewrite_domain_id', rex_yrewrite::getCurrentDomain()->getId())->findOne();
     }
-    
+
     public static function getHead()
     {
         $fragment = new rex_fragment();
@@ -17,18 +18,19 @@ class domain extends \rex_yform_manager_dataset
         return rex_yrewrite::getDomainById($this->getValue('yrewrite_domain_id'));
     }
 
-    public function getName() :string
+    public function getName(): string
     {
         return $this->getValue('name');
     }
 
-    public function getStyles() :array
+    public function getStyles(): array
     {
-        return explode(",", $this->getValue('styles'));
+        return explode(',', $this->getValue('styles'));
     }
-    public function getScripts() :array
+
+    public function getScripts(): array
     {
-        return explode(",", $this->getValue('scripts'));
+        return explode(',', $this->getValue('scripts'));
     }
 
     public function getCssVars()
@@ -41,46 +43,48 @@ class domain extends \rex_yform_manager_dataset
         return $this->getRelatedDataset('icon');
     }
 
-    public function getColor() :string
+    public function getColor(): string
     {
         $icon = $this->getRelatedDataset('icon');
         if ($icon) {
             return $this->getRelatedDataset('icon')->getColor();
         }
-        return "";
+        return '';
     }
 
-    public function getLogo() :string
+    public function getLogo(): string
     {
         return $this->getValue('logo');
     }
 
-    public function getType() :string
+    public function getType(): string
     {
         return $this->getValue('type');
     }
 
-    public static function getAvailableStyles() {
+    public static function getAvailableStyles()
+    {
 
         $files = scandir(rex_path::assets('styles'));
-        $cssFiles = array();
-    
+        $cssFiles = [];
+
         foreach ($files as $file) {
-            if (pathinfo($file, PATHINFO_EXTENSION) === 'css') {
+            if ('css' === pathinfo($file, PATHINFO_EXTENSION)) {
                 $cssFiles[$file] = $file;
             }
         }
-    
+
         return $cssFiles;
     }
 
-    public static function getAvailableScripts() {
+    public static function getAvailableScripts()
+    {
 
         $files = scandir(rex_path::assets('scripts'));
-        $jsFiles = array();
+        $jsFiles = [];
 
         foreach ($files as $file) {
-            if (pathinfo($file, PATHINFO_EXTENSION) === 'js') {
+            if ('js' === pathinfo($file, PATHINFO_EXTENSION)) {
                 $jsFiles[$file] = $file;
             }
         }
