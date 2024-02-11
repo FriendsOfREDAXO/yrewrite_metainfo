@@ -57,14 +57,14 @@ if ($icon = $domain->getIcon()) {
 <?php
 } // $icon
 
-foreach ($domain->getStyles() as $style) {
+foreach (array_filter($domain->getStyles()) as $style) {
     ?>
 <link href="/assets/styles/<?= $style ?>" rel="stylesheet">
 
 <?php
 }
 
-foreach ($domain->getScripts() as $script) {
+foreach (array_filter($domain->getScripts()) as $script) {
     ?>
 <script src="/assets/scripts/<?= $script ?>"></script>
 

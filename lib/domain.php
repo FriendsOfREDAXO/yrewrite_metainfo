@@ -57,6 +57,14 @@ class domain extends \rex_yform_manager_dataset
         return $this->getValue('logo');
     }
 
+    public function getLogoImg(): ?string
+    {
+        if ($this->getValue('logo')) {
+            return rex_media_plus::get($this->getValue('logo'))->getImg();
+        };
+        return null; 
+    }
+
     public function getType(): string
     {
         return $this->getValue('type');
@@ -65,7 +73,9 @@ class domain extends \rex_yform_manager_dataset
     public static function getAvailableStyles()
     {
 
-        $files = scandir(rex_path::assets('styles'));
+        if(!$files = @scandir(rex_path::assets('styles'))) {
+            $files = [];
+        }
         $cssFiles = [];
 
         foreach ($files as $file) {
@@ -80,7 +90,10 @@ class domain extends \rex_yform_manager_dataset
     public static function getAvailableScripts()
     {
 
-        $files = scandir(rex_path::assets('scripts'));
+
+        if(!$files = @scandir(rex_path::assets('scripts'))) {
+            $files = [];
+        }        
         $jsFiles = [];
 
         foreach ($files as $file) {
