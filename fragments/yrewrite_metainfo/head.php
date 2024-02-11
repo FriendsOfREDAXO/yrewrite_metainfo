@@ -72,13 +72,12 @@ foreach (array_filter($domain->getScripts()) as $script) {
 <?php
 }
 
-if (\rex_addon::get('speed_up') && \rex_addon::get('speed_up')->isAvailable()) {
+if (rex_addon::get('speed_up') && rex_addon::get('speed_up')->isAvailable()) {
     $speed_up = new speed_up();
     $speed_up->show();
 }
 
 if (rex_addon::get('wenns_sein_muss') && rex_addon::get('wenns_sein_muss')->isAvailable()) {
-
     echo wsm_fragment::getCss();
     echo wsm_fragment::getScripts();
     echo wsm_fragment::getJs();

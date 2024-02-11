@@ -1,6 +1,6 @@
 <?php
 
-class domain extends \rex_yform_manager_dataset
+class domain extends rex_yform_manager_dataset
 {
     public static function getCurrent()
     {
@@ -61,8 +61,8 @@ class domain extends \rex_yform_manager_dataset
     {
         if ($this->getValue('logo')) {
             return rex_media_plus::get($this->getValue('logo'))->getImg();
-        };
-        return null; 
+        }
+        return null;
     }
 
     public function getType(): string
@@ -72,8 +72,7 @@ class domain extends \rex_yform_manager_dataset
 
     public static function getAvailableStyles()
     {
-
-        if(!$files = @scandir(rex_path::assets('styles'))) {
+        if (!$files = @scandir(rex_path::assets('styles'))) {
             $files = [];
         }
         $cssFiles = [];
@@ -89,11 +88,9 @@ class domain extends \rex_yform_manager_dataset
 
     public static function getAvailableScripts()
     {
-
-
-        if(!$files = @scandir(rex_path::assets('scripts'))) {
+        if (!$files = @scandir(rex_path::assets('scripts'))) {
             $files = [];
-        }        
+        }
         $jsFiles = [];
 
         foreach ($files as $file) {

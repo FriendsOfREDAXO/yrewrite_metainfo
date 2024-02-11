@@ -1,6 +1,6 @@
 <?php
 
-class icon extends \rex_yform_manager_dataset
+class icon extends rex_yform_manager_dataset
 {
     public function getName(): string
     {
