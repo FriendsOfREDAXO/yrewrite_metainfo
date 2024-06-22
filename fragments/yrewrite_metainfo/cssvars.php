@@ -10,8 +10,8 @@ if (!$domain = $this->getVar('domain')) {
 <style>
     :root {
         <?php foreach ($vars as $key => $value) {
-        echo '--' . $key . ': ' . $value . ';' . PHP_EOL . '';
-    }
+            echo '--' . $key . ': ' . $value . ';' . PHP_EOL . '';
+        }
 
     echo PHP_EOL ?>
     }
