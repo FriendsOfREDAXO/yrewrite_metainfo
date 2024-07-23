@@ -1,8 +1,11 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <?php
+
+use Url\Seo;
+
 if (rex_addon::get('url')->isAvailable()) {
-    $seo = new \Url\Seo();
+    $seo = new Seo();
 } else {
     $seo = new rex_yrewrite_seo();
 }
