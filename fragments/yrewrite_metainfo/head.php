@@ -1,15 +1,12 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <?php
-
-// YRewrite + URL
-use Url\Seo;
-
-$seo = new Seo();
-if (!is_array($seo->getTags())) {
-    echo $seo->getTags();
+if (rex_addon::get('url')->isAvailable()) {
+    $seo = new \Url\Seo();
 } else {
     $seo = new rex_yrewrite_seo();
+}
+if (!is_array($seo->getTags())) {
     echo $seo->getTags();
 }
 
