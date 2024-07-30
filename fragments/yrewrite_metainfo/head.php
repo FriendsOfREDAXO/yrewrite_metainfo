@@ -2,6 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <?php
 
+use Alexplusde\YrewriteMetainfo\Domain;
 use Url\Seo;
 
 if (rex_addon::get('url')->isAvailable()) {
@@ -14,7 +15,7 @@ if (!is_array($seo->getTags())) {
 }
 
 if (!$domain = $this->getVar('domain')) {
-    $domain = domain::getCurrent();
+    $domain = Domain::getCurrent();
 }
 ?>
 <!-- YRewrite Meta-Infos Domain -->

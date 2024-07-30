@@ -1,6 +1,15 @@
 <?php
 
-class domain extends rex_yform_manager_dataset
+namespace Alexplusde\YrewriteMetainfo;
+
+use rex_yform_manager_dataset;
+use rex_fragment;
+use rex_yrewrite;
+use rex_addon;
+use rex_media;
+use rex_path;
+
+class Domain extends rex_yform_manager_dataset
 {
     public static function getCurrent()
     {
@@ -47,7 +56,7 @@ class domain extends rex_yform_manager_dataset
     {
         $icon = $this->getRelatedDataset('icon');
         if ($icon) {
-            return $this->getRelatedDataset('icon')->getColor();
+            return $this->getRelatedDataset('icon')->getValue('color');
         }
         return '';
     }
@@ -60,7 +69,12 @@ class domain extends rex_yform_manager_dataset
     public function getLogoImg(): ?string
     {
         if ($this->getValue('logo')) {
-            return rex_media_plus::get($this->getValue('logo'))->getImg();
+            // Wenn Addon media_manager_responsive installiert ist, wird das responsive Bild zurückgegeben
+            if(rex_addon::get('media_manager_responsive')->isAvailable()) {
+                return \rex_media_plus::get($this->getValue('logo'))->getImg();
+            } else {
+                return rex_media::get($this->getValue('logo'))->getUrl();
+            }
         }
         return null;
     }
