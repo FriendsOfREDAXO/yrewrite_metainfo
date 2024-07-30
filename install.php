@@ -1,4 +1,5 @@
 <?php
+
 $addon = rex_addon::get('yrewrite_metainfo');
 
 if (rex_addon::get('yform')->isAvailable() && !rex::isSafeMode()) {
