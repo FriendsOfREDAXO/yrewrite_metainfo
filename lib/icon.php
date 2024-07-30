@@ -1,6 +1,11 @@
 <?php
 
-class icon extends rex_yform_manager_dataset
+namespace Alexplusde\YrewriteMetainfo;
+
+use rex_yform_manager_dataset;
+use rex_url;
+
+class Icon extends rex_yform_manager_dataset
 {
     public function getName(): string
     {
