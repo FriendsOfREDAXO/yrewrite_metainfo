@@ -2,12 +2,15 @@
 
 namespace Alexplusde\YrewriteMetainfo;
 
-use rex_yform_manager_dataset;
-use rex_fragment;
-use rex_yrewrite;
 use rex_addon;
+use rex_fragment;
 use rex_media;
+use rex_media_plus;
 use rex_path;
+use rex_yform_manager_dataset;
+use rex_yrewrite;
+
+use const PATHINFO_EXTENSION;
 
 class Domain extends rex_yform_manager_dataset
 {
@@ -70,11 +73,10 @@ class Domain extends rex_yform_manager_dataset
     {
         if ($this->getValue('logo')) {
             // Wenn Addon media_manager_responsive installiert ist, wird das responsive Bild zurückgegeben
-            if(rex_addon::get('media_manager_responsive')->isAvailable()) {
-                return \rex_media_plus::get($this->getValue('logo'))->getImg();
-            } else {
-                return rex_media::get($this->getValue('logo'))->getUrl();
+            if (rex_addon::get('media_manager_responsive')->isAvailable()) {
+                return rex_media_plus::get($this->getValue('logo'))->getImg();
             }
+            return rex_media::get($this->getValue('logo'))->getUrl();
         }
         return null;
     }
