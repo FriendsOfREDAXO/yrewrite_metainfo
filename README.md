@@ -1,4 +1,4 @@
-# Meta-Infos für YRewrite Domains auf Basis von YForm 4
+# Meta-Infos und Globale Einstellungen für YRewrite Domains auf Basis von YForm 4
 
 Ergänzt YRewrite um die Möglichkeit, Metainformationen an Domains zu verwalten. Mit vorgefertigten, einfachen aber sinnvollen Konfigurationsfeldern, passender YOrm-Dataset-Methoden und Backend-Seiten für die Eingabe.
 
@@ -20,7 +20,7 @@ Anschließend werden die passenden Meta-Informationen, soweit ausgefüllt, ausge
 
 - Dieses Addon kommt mit sinnvoll vorinstallierten Standard-Feldern als YForm Tableset. Installieren und loslegen!
 - Die Klasse `domain` ist ein YOrm-Dataset. Du hast in deinem Code alle Features von YOrm zur Verfügung und kannst direkt loslegen, z.B. `domain::getCurrent()->getValue('mein_feld')`, oder vorhandene Dataset-Methoden verwendest.
-- Bonus: Standard-Fragmente für den `<head>`-Bereich deiner Templates sind blitzschnell kopiert und eingefügt, wenn du bspw. das Design jeder Domain mit eigenen CSS-Variablen anpassen willst (Bootstrap 5 und CSS-Frameworks) oder die Linkvorschau und Metadaten für Suchmaschinen, soziale Netzwerke und Messenger mit einem Klick optimieren willst.
+- Bonus: Standard-Fragmente für den <head>-Bereich deiner Templates sind blitzschnell kopiert und eingefügt, wenn du bspw. eigene Metadaten pro Domain oder zusätzliche Einstellungen vergeben willst.
 
 > Kann ich nicht benötigte Standard-Felder auch löschen?
 
@@ -32,7 +32,6 @@ Anders als das Metainfo-Addon selbst oder abgeleitete Addons wie das Addon "Glob
 
 1. `YRewrite` > `Allgemein`  - Lege hier Meta-Informationen für deine Domain an
 2. `YRewrite` > `Icons und PWA-Profile` - Optional: Verwalte bequem PWA-Angaben und Favicon-Sets über das Backend und den Medienpool - ordne diese einer oder mehreren YRewrite-Domains zu.
-3. `YRewrite` > `CSS-Variablen-Profile` - Optional: Verwalte bequem Profile mit CSS-Variablen für ein oder mehrere YRewrite-Domains
 
 ### Die Klasse `domain` - Meta-Infos für deine YRewrite-Domain
 
@@ -46,10 +45,6 @@ Einfache Methoden erleichtern dir die Nutzung:
 Weitere Methoden für die vorinstallierten Felder findest du in der Klasse `lib/domain.php` sowie in den zugehörigen Klassen `icon.php` und `cssvars.php`.
 
 ### Fragmente
-
-#### `cssvars.php`
-
-Deine Seite verfügt über CSS-Variablen? Mach diese anpassbar pro YRewrite-Domain. Füge das Fragment `yrewrite_metainfo/cssvars.php` im Head ein oder generiere eine passende CSS-Datei daraus und füge diese in dein Template ein.
 
 #### `head.php` optimiert Metadaten deiner Website/Arikel für soziale Netzwerke
 
