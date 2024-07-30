@@ -42,7 +42,7 @@ Einfache Methoden erleichtern dir die Nutzung:
 * `$domain->getName()` Titel der Website, wird verwendet als, PWA-Titel, `og:title` u.a.
 * `$domain->getLogo()` Logo der Website aus dem Medienpool, z.B. `file.svg`;
 
-Weitere Methoden für die vorinstallierten Felder findest du in der Klasse `lib/domain.php` sowie in den zugehörigen Klassen `icon.php` und `cssvars.php`.
+Weitere Methoden für die vorinstallierten Felder findest du in der Klasse `lib/domain.php` sowie in der zugehörigen Klasse `icon.php`.
 
 ### Fragmente
 
