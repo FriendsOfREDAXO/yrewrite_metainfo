@@ -2,9 +2,9 @@
 
 namespace Alexplusde\YrewriteMetainfo;
 
-use rex_yform_manager_dataset;
 use rex_url;
 use rex_media;
+use rex_yform_manager_dataset;
 
 class Icon extends rex_yform_manager_dataset
 {
