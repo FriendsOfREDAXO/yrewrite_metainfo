@@ -8,19 +8,19 @@ use rex_media;
 use rex_media_plus;
 use rex_path;
 use rex_yform_manager_dataset;
-use rex_yrewrite_domain;
 use rex_yrewrite;
+use rex_yrewrite_domain;
 
 use const PATHINFO_EXTENSION;
 
 class Domain extends rex_yform_manager_dataset
 {
-    public static function getCurrent() : ?self
+    public static function getCurrent(): ?self
     {
         return self::query()->where('yrewrite_domain_id', rex_yrewrite::getCurrentDomain()->getId())->findOne();
     }
 
-    public static function getHead() : string
+    public static function getHead(): string
     {
         $fragment = new rex_fragment();
         return $fragment->parse('yrewrite_metainfo/head.php');
@@ -98,12 +98,12 @@ class Domain extends rex_yform_manager_dataset
         return $jsFiles;
     }
 
-    
     /* Domain */
     /** @api */
     public function getYrewriteDomainId() : int {
         return (int) $this->getValue("yrewrite_domain_id");
     }
+
     /** @api */
     public function setYrewriteDomainId(int $value) : self {
         $this->setValue("yrewrite_domain_id", $value);
@@ -112,34 +112,42 @@ class Domain extends rex_yform_manager_dataset
 
     /* Website-Titel */
     /** @api */
-    public function getName() : ?string {
-        return $this->getValue("name");
+    public function getName(): ?string
+    {
+        return $this->getValue('name');
     }
+
     /** @api */
-    public function setName(mixed $value) : self {
-        $this->setValue("name", $value);
+    public function setName(mixed $value): self
+    {
+        $this->setValue('name', $value);
         return $this;
     }
 
     /* og:type */
     /** @api */
-    public function getType() : ?string {
-        return $this->getValue("type");
+    public function getType(): ?string
+    {
+        return $this->getValue('type');
     }
+
     /** @api */
-    public function setType(mixed $value) : self {
-        $this->setValue("type", $value);
+    public function setType(mixed $value): self
+    {
+        $this->setValue('type', $value);
         return $this;
     }
 
     /* og:image */
     /** @api */
-    public function getThumbnail(bool $asMedia = false) : mixed {
-        if($asMedia) {
-            return rex_media::get($this->getValue("thumbnail"));
+    public function getThumbnail(bool $asMedia = false): mixed
+    {
+        if ($asMedia) {
+            return rex_media::get($this->getValue('thumbnail'));
         }
-        return $this->getValue("thumbnail");
+        return $this->getValue('thumbnail');
     }
+
     /** @api */
     public function setThumbnail(string $filename) : self {
         if(null !== rex_media::get($filename)) {
@@ -147,15 +155,17 @@ class Domain extends rex_yform_manager_dataset
         }
         return $this;
     }
-            
+
     /* Logo */
     /** @api */
-    public function getLogo(bool $asMedia = false) : mixed {
-        if($asMedia) {
-            return rex_media::get($this->getValue("logo"));
+    public function getLogo(bool $asMedia = false): mixed
+    {
+        if ($asMedia) {
+            return rex_media::get($this->getValue('logo'));
         }
-        return $this->getValue("logo");
+        return $this->getValue('logo');
     }
+
     /** @api */
     public function setLogo(string $filename) : self {
         if(null !== rex_media::get($filename)) {
@@ -163,11 +173,12 @@ class Domain extends rex_yform_manager_dataset
         }
         return $this;
     }
-            
+
     /* Profil (Icons, PWA) */
     /** @api */
-    public function getIcon() : ?rex_yform_manager_dataset {
-        return $this->getRelatedDataset("icon");
+    public function getIcon(): ?rex_yform_manager_dataset
+    {
+        return $this->getRelatedDataset('icon');
     }
 
     /* JS-Dateien */

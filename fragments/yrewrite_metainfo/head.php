@@ -58,14 +58,14 @@ if ($icon = $domain->getIcon()) {
 <?php
 } // $icon
 
-foreach (array_filter($domain->getStyles(), function($file) { return (bool) $file; }) as $style) {
+foreach (array_filter($domain->getStyles(), static function ($file) { return (bool) $file; }) as $style) {
     ?>
 <link href="/assets/styles/<?= $style ?>" rel="stylesheet">
 
 <?php
 }
 
-foreach (array_filter($domain->getScripts(), function($file) { return (bool) $file; }) as $script) {
+foreach (array_filter($domain->getScripts(), static function ($file) { return (bool) $file; }) as $script) {
     ?>
 <script src="/assets/scripts/<?= $script ?>"></script>
 

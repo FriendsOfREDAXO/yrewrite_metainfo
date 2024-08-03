@@ -2,195 +2,239 @@
 
 namespace Alexplusde\YrewriteMetainfo;
 
-use rex_url;
 use rex_media;
+use rex_url;
 use rex_yform_manager_dataset;
 
 class Icon extends rex_yform_manager_dataset
 {
-
     /* Profilname */
     /** @api */
-    public function getName() : ?string {
-        return $this->getValue("name");
+    public function getName(): ?string
+    {
+        return $this->getValue('name');
     }
+
     /** @api */
-    public function setName(mixed $value) : self {
-        $this->setValue("name", $value);
+    public function setName(mixed $value): self
+    {
+        $this->setValue('name', $value);
         return $this;
     }
 
     /* PWA Kurzname (App-Verknüpfung) */
     /** @api */
-    public function getShortName() : ?string {
-        return $this->getValue("short_name");
+    public function getShortName(): ?string
+    {
+        return $this->getValue('short_name');
     }
+
     /** @api */
-    public function setShortName(mixed $value) : self {
-        $this->setValue("short_name", $value);
+    public function setShortName(mixed $value): self
+    {
+        $this->setValue('short_name', $value);
         return $this;
     }
 
     /* PWA Browser-UI */
     /** @api */
-    public function getDisplay() : ?string {
-        return $this->getValue("display");
+    public function getDisplay(): ?string
+    {
+        return $this->getValue('display');
     }
+
     /** @api */
-    public function setDisplay(mixed $value) : self {
-        $this->setValue("display", $value);
+    public function setDisplay(mixed $value): self
+    {
+        $this->setValue('display', $value);
         return $this;
     }
 
     /* PWA Theme-Farbe */
     /** @api */
-    public function getThemeColor() : ?string {
-        return $this->getValue("theme_color");
+    public function getThemeColor(): ?string
+    {
+        return $this->getValue('theme_color');
     }
+
     /** @api */
-    public function setThemeColor(mixed $value) : self {
-        $this->setValue("theme_color", $value);
+    public function setThemeColor(mixed $value): self
+    {
+        $this->setValue('theme_color', $value);
         return $this;
     }
 
     /* PWA Hintergrund-Farbe */
     /** @api */
-    public function getBackgroundColor() : ?string {
-        return $this->getValue("background_color");
+    public function getBackgroundColor(): ?string
+    {
+        return $this->getValue('background_color');
     }
+
     /** @api */
-    public function setBackgroundColor(mixed $value) : self {
-        $this->setValue("background_color", $value);
+    public function setBackgroundColor(mixed $value): self
+    {
+        $this->setValue('background_color', $value);
         return $this;
     }
 
     /* [translate:msapplication_title_color] */
     /** @api */
-    public function getMsapplicationTitleColor() : ?string {
-        return $this->getValue("msapplication_title_color");
+    public function getMsapplicationTitleColor(): ?string
+    {
+        return $this->getValue('msapplication_title_color');
     }
+
     /** @api */
-    public function setMsapplicationTitleColor(mixed $value) : self {
-        $this->setValue("msapplication_title_color", $value);
+    public function setMsapplicationTitleColor(mixed $value): self
+    {
+        $this->setValue('msapplication_title_color', $value);
         return $this;
     }
 
     /* Favicon */
     /** @api */
-    public function getShortcutIcon(bool $asMedia = false) : mixed {
-        if($asMedia) {
-            return rex_media::get($this->getValue("shortcut_icon"));
+    public function getShortcutIcon(bool $asMedia = false): mixed
+    {
+        if ($asMedia) {
+            return rex_media::get($this->getValue('shortcut_icon'));
         }
-        return $this->getValue("shortcut_icon");
+        return $this->getValue('shortcut_icon');
     }
+
     /** @api */
-    public function getShortcutIconUrl() : string {
+    public function getShortcutIconUrl(): string
+    {
         return rex_url::media() . $this->getShortcutIcon();
     }
+
     /** @api */
-    public function setShortcutIcon(string $filename) : self {
-        if(null !== rex_media::get($filename)) {
-            $this->setValue("shortcut_icon", $filename);
+    public function setShortcutIcon(string $filename): self
+    {
+        if (null !== rex_media::get($filename)) {
+            $this->setValue('shortcut_icon', $filename);
         }
         return $this;
     }
-            
+
     /* 16x16 */
     /** @api */
-    public function getIcon16(bool $asMedia = false) : mixed {
-        if($asMedia) {
-            return rex_media::get($this->getValue("icon_16"));
+    public function getIcon16(bool $asMedia = false): mixed
+    {
+        if ($asMedia) {
+            return rex_media::get($this->getValue('icon_16'));
         }
-        return $this->getValue("icon_16");
+        return $this->getValue('icon_16');
     }
+
     /** @api */
-    public function getIcon16Url() : string {
+    public function getIcon16Url(): string
+    {
         return rex_url::media() . $this->getIcon16();
     }
+
     /** @api */
-    public function setIcon16(string $filename) : self {
-        if(null !== rex_media::get($filename)) {
-            $this->setValue("icon_16", $filename);
+    public function setIcon16(string $filename): self
+    {
+        if (null !== rex_media::get($filename)) {
+            $this->setValue('icon_16', $filename);
         }
         return $this;
     }
-            
+
     /* 32x32 */
     /** @api */
-    public function getIcon32(bool $asMedia = false) : mixed {
-        if($asMedia) {
-            return rex_media::get($this->getValue("icon_32"));
+    public function getIcon32(bool $asMedia = false): mixed
+    {
+        if ($asMedia) {
+            return rex_media::get($this->getValue('icon_32'));
         }
-        return $this->getValue("icon_32");
+        return $this->getValue('icon_32');
     }
+
     /** @api */
-    public function getIcon32Url() : string {
+    public function getIcon32Url(): string
+    {
         return rex_url::media() . $this->getIcon32();
     }
+
     /** @api */
-    public function setIcon32(string $filename) : self {
-        if(null !== rex_media::get($filename)) {
-            $this->setValue("icon_32", $filename);
+    public function setIcon32(string $filename): self
+    {
+        if (null !== rex_media::get($filename)) {
+            $this->setValue('icon_32', $filename);
         }
         return $this;
     }
-            
+
     /* Apple Touch */
     /** @api */
-    public function getAppleTouchIcon(bool $asMedia = false) : mixed {
-        if($asMedia) {
-            return rex_media::get($this->getValue("apple_touch_icon"));
+    public function getAppleTouchIcon(bool $asMedia = false): mixed
+    {
+        if ($asMedia) {
+            return rex_media::get($this->getValue('apple_touch_icon'));
         }
-        return $this->getValue("apple_touch_icon");
+        return $this->getValue('apple_touch_icon');
     }
+
     /** @api */
     public function getAppleTouchIconUrl() : string{
         return rex_url::media() . $this->getAppleTouchIcon();
     }
+
     /** @api */
-    public function setAppleTouchIcon(string $filename) : self {
-        if(null !== rex_media::get($filename)) {
-            $this->setValue("apple_touch_icon", $filename);
+    public function setAppleTouchIcon(string $filename): self
+    {
+        if (null !== rex_media::get($filename)) {
+            $this->setValue('apple_touch_icon', $filename);
         }
         return $this;
     }
-            
+
     /* Safari Pinned Tab */
     /** @api */
-    public function getSafariPinnedTab(bool $asMedia = false) : mixed {
-        if($asMedia) {
-            return rex_media::get($this->getValue("safari_pinned_tab"));
+    public function getSafariPinnedTab(bool $asMedia = false): mixed
+    {
+        if ($asMedia) {
+            return rex_media::get($this->getValue('safari_pinned_tab'));
         }
-        return $this->getValue("safari_pinned_tab");
+        return $this->getValue('safari_pinned_tab');
     }
+
     /** @api */
     public function getSafariPinnedTabUrl() :string {
         return rex_url::media() . $this->getSafariPinnedTab();
     }
+
     /** @api */
-    public function setSafariPinnedTab(string $filename) : self {
-        if(null !== rex_media::get($filename)) {
-            $this->setValue("safari_pinned_tab", $filename);
+    public function setSafariPinnedTab(string $filename): self
+    {
+        if (null !== rex_media::get($filename)) {
+            $this->setValue('safari_pinned_tab', $filename);
         }
         return $this;
     }
-            
+
     /* webmanifest.json */
     /** @api */
-    public function getManifest(bool $asMedia = false) : mixed {
-        if($asMedia) {
-            return rex_media::get($this->getValue("manifest"));
+    public function getManifest(bool $asMedia = false): mixed
+    {
+        if ($asMedia) {
+            return rex_media::get($this->getValue('manifest'));
         }
-        return $this->getValue("manifest");
+        return $this->getValue('manifest');
     }
+
     /** @api */
     public function getManifestUrl() :string {
         return rex_url::media() . $this->getManifest();
     }
+
     /** @api */
-    public function setManifest(string $filename) : self {
-        if(null !== rex_media::get($filename)) {
-            $this->setValue("manifest", $filename);
+    public function setManifest(string $filename): self
+    {
+        if (null !== rex_media::get($filename)) {
+            $this->setValue('manifest', $filename);
         }
         return $this;
     }
