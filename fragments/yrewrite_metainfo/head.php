@@ -28,25 +28,25 @@ if ($icon = $domain->getIcon()) {
 <!-- YRewrite Meta-Infos Icon-Profil -->
 <?php if ($icon->getTouchIcon()) { ?>
 <link rel="apple-touch-icon" sizes="180x180"
-	href="<?= $icon->getTouchIcon() ?>">
+	href="<?= $icon->getTouchIconUrl() ?>">
 <?php } ?>
-<?php if ($icon->getIcon(32)) { ?>
+<?php if ($icon->getIcon32(true)) { ?>
 <link rel="icon" type="image/png" sizes="32x32"
-	href="<?= $icon->getIcon(32) ?>">
+	href="<?= $icon->getIcon32Url() ?>">
 <?php } ?>
-<?php if ($icon->getIcon(16)) { ?>
+<?php if ($icon->getIcon16(true)) { ?>
 <link rel="icon" type="image/png" sizes="16x16"
-	href="<?= $icon->getIcon(16) ?>">
+	href="<?= $icon->getIcon16Url() ?>">
 <?php } ?>
 <?php if ($icon->getManifest()) { ?>
-<link rel="manifest" href="<?= $icon->getManifest() ?>">
+<link rel="manifest" href="<?= $icon->getManifestUrl() ?>">
 <?php } ?>
 <?php if ($icon->getPinnedTab()) { ?>
-<link rel="mask-icon" href="<?= $icon->getPinnedTab() ?>"
+<link rel="mask-icon" href="<?= $icon->getPinnedTabUrl() ?>"
 	color="<?= $icon->getThemeColor() ?>">
 <?php } ?>
 <?php if ($icon->getFavicon()) { ?>
-<link rel="shortcut icon" href="<?= $icon->getFavicon() ?>">
+<link rel="shortcut icon" href="<?= $icon->getFaviconUrl() ?>">
 <?php } ?>
 <meta name="apple-mobile-web-app-title"
 	content="<?= $icon->getShortName() ?>">
@@ -58,14 +58,14 @@ if ($icon = $domain->getIcon()) {
 <?php
 } // $icon
 
-foreach (array_filter($domain->getStyles()) as $style) {
+foreach (array_filter($domain->getStyles(), function($file) { return (bool) $file; }) as $style) {
     ?>
 <link href="/assets/styles/<?= $style ?>" rel="stylesheet">
 
 <?php
 }
 
-foreach (array_filter($domain->getScripts()) as $script) {
+foreach (array_filter($domain->getScripts(), function($file) { return (bool) $file; }) as $script) {
     ?>
 <script src="/assets/scripts/<?= $script ?>"></script>
 
@@ -73,12 +73,12 @@ foreach (array_filter($domain->getScripts()) as $script) {
 <?php
 }
 
-if (rex_addon::get('speed_up') && rex_addon::get('speed_up')->isAvailable()) {
+if (class_exists('speed_up')) {
     $speed_up = new speed_up();
     $speed_up->show();
 }
 
-if (rex_addon::get('wenns_sein_muss') && rex_addon::get('wenns_sein_muss')->isAvailable()) {
+if (class_exists('wsm_fragment')) {
     echo wsm_fragment::getCss();
     echo wsm_fragment::getScripts();
     echo wsm_fragment::getJs();
