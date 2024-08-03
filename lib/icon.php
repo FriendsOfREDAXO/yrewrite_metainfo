@@ -178,7 +178,8 @@ class Icon extends rex_yform_manager_dataset
     }
 
     /** @api */
-    public function getAppleTouchIconUrl() : string{
+    public function getAppleTouchIconUrl(): string
+    {
         return rex_url::media() . $this->getAppleTouchIcon();
     }
 
@@ -202,7 +203,8 @@ class Icon extends rex_yform_manager_dataset
     }
 
     /** @api */
-    public function getSafariPinnedTabUrl() :string {
+    public function getSafariPinnedTabUrl(): string
+    {
         return rex_url::media() . $this->getSafariPinnedTab();
     }
 
@@ -226,7 +228,8 @@ class Icon extends rex_yform_manager_dataset
     }
 
     /** @api */
-    public function getManifestUrl() :string {
+    public function getManifestUrl(): string
+    {
         return rex_url::media() . $this->getManifest();
     }
 

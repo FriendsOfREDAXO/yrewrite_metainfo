@@ -2,7 +2,6 @@
 
 namespace Alexplusde\YrewriteMetainfo;
 
-use rex_addon;
 use rex_fragment;
 use rex_media;
 use rex_media_plus;
@@ -10,6 +9,8 @@ use rex_path;
 use rex_yform_manager_dataset;
 use rex_yrewrite;
 use rex_yrewrite_domain;
+
+use function is_object;
 
 use const PATHINFO_EXTENSION;
 
@@ -27,7 +28,7 @@ class Domain extends rex_yform_manager_dataset
     }
 
     /** @api */
-    public function getYRewrite() : ?rex_yrewrite_domain
+    public function getYRewrite(): ?rex_yrewrite_domain
     {
         return rex_yrewrite::getDomainById($this->getYrewriteDomainId());
     }
@@ -45,7 +46,7 @@ class Domain extends rex_yform_manager_dataset
     /** @api */
     public function getLogoImg(): ?string
     {
-        if (class_exists("rex_media_plus") && is_object(rex_media_plus::get($this->getValue('logo')))) {
+        if (class_exists('rex_media_plus') && is_object(rex_media_plus::get($this->getValue('logo')))) {
             return rex_media_plus::get($this->getValue('logo'))->getImg();
         }
         if (is_object(rex_media::get($this->getValue('logo')))) {
@@ -56,13 +57,13 @@ class Domain extends rex_yform_manager_dataset
     }
 
     /** Kann in einem Choice-Feld verwendet werden */
-    /** @api 
-     * @return array<string,string> 
+    /** @api
+     * @return array<string,string>
      * */
-    public static function getAvailableStyles() : array
+    public static function getAvailableStyles(): array
     {
         $files = @scandir(rex_path::assets('styles'));
-        if ($files === false) {
+        if (false === $files) {
             $files = [];
         }
         $cssFiles = [];
@@ -77,16 +78,16 @@ class Domain extends rex_yform_manager_dataset
     }
 
     /** Kann in einem Choice-Feld verwendet werden */
-    /** @api 
-     * @return array<string,string> 
+    /** @api
+     * @return array<string,string>
      * */
-    public static function getAvailableScripts() : array
+    public static function getAvailableScripts(): array
     {
         $files = scandir(rex_path::assets('scripts'));
-        if ($files === false) {
+        if (false === $files) {
             $files = [];
         }
-        
+
         $jsFiles = [];
 
         foreach ($files as $file) {
@@ -100,13 +101,15 @@ class Domain extends rex_yform_manager_dataset
 
     /* Domain */
     /** @api */
-    public function getYrewriteDomainId() : int {
-        return (int) $this->getValue("yrewrite_domain_id");
+    public function getYrewriteDomainId(): int
+    {
+        return (int) $this->getValue('yrewrite_domain_id');
     }
 
     /** @api */
-    public function setYrewriteDomainId(int $value) : self {
-        $this->setValue("yrewrite_domain_id", $value);
+    public function setYrewriteDomainId(int $value): self
+    {
+        $this->setValue('yrewrite_domain_id', $value);
         return $this;
     }
 
@@ -149,9 +152,10 @@ class Domain extends rex_yform_manager_dataset
     }
 
     /** @api */
-    public function setThumbnail(string $filename) : self {
-        if(null !== rex_media::get($filename)) {
-            $this->setValue("thumbnail", $filename);
+    public function setThumbnail(string $filename): self
+    {
+        if (null !== rex_media::get($filename)) {
+            $this->setValue('thumbnail', $filename);
         }
         return $this;
     }
@@ -167,9 +171,10 @@ class Domain extends rex_yform_manager_dataset
     }
 
     /** @api */
-    public function setLogo(string $filename) : self {
-        if(null !== rex_media::get($filename)) {
-            $this->setValue("logo", $filename);
+    public function setLogo(string $filename): self
+    {
+        if (null !== rex_media::get($filename)) {
+            $this->setValue('logo', $filename);
         }
         return $this;
     }
@@ -182,32 +187,38 @@ class Domain extends rex_yform_manager_dataset
     }
 
     /* JS-Dateien */
-    /** @api 
-     * @return array<int,string> 
+    /** @api
+     * @return array<int,string>
      * */
-    public function getScripts() : ?array {
+    public function getScripts(): ?array
+    {
         return explode(',', $this->getValue('scripts'));
     }
-    /** @api 
+
+    /** @api
      * @param array<mixed,string> $value
-    */
-    public function setScripts(array $value) : self {
-        $this->setValue("scripts", implode(',', $value));
+     */
+    public function setScripts(array $value): self
+    {
+        $this->setValue('scripts', implode(',', $value));
         return $this;
     }
 
     /* CSS-Dateien */
-    /** @api 
-     * @return array<int,string> 
+    /** @api
+     * @return array<int,string>
      * */
-    public function getStyles() : ?array {
+    public function getStyles(): ?array
+    {
         return explode(',', $this->getValue('styles'));
     }
-    /** @api 
+
+    /** @api
      * @param array<mixed,string> $value
-    */
-    public function setStyles(array $value) : self {
-        $this->setValue("styles", implode(',', $value));
+     */
+    public function setStyles(array $value): self
+    {
+        $this->setValue('styles', implode(',', $value));
         return $this;
     }
 }
