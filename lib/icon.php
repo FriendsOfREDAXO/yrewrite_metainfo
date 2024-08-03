@@ -144,7 +144,7 @@ class Icon extends rex_yform_manager_dataset
         return $this->getValue("apple_touch_icon");
     }
     /** @api */
-    public function getAppleTouchIconUrl() {
+    public function getAppleTouchIconUrl() : string{
         return rex_url::media() . $this->getAppleTouchIcon();
     }
     /** @api */
@@ -164,7 +164,7 @@ class Icon extends rex_yform_manager_dataset
         return $this->getValue("safari_pinned_tab");
     }
     /** @api */
-    public function getSafariPinnedTabUrl() {
+    public function getSafariPinnedTabUrl() :string {
         return rex_url::media() . $this->getSafariPinnedTab();
     }
     /** @api */
@@ -184,7 +184,7 @@ class Icon extends rex_yform_manager_dataset
         return $this->getValue("manifest");
     }
     /** @api */
-    public function getManifestUrl() {
+    public function getManifestUrl() :string {
         return rex_url::media() . $this->getManifest();
     }
     /** @api */

@@ -26,35 +26,43 @@ class Domain extends rex_yform_manager_dataset
         return $fragment->parse('yrewrite_metainfo/head.php');
     }
 
+    /** @api */
     public function getYRewrite() : ?rex_yrewrite_domain
     {
-        return rex_yrewrite::getDomainById($this->getValue('yrewrite_domain_id'));
+        return rex_yrewrite::getDomainById($this->getYrewriteDomainId());
     }
 
-    public function getColor(): string
+    /** @api */
+    public function getColor(): ?string
     {
         $icon = $this->getRelatedDataset('icon');
-        if ($icon) {
-            return $this->getRelatedDataset('icon')->getValue('color');
+        if ($icon instanceof Icon) {
+            return $icon->getThemeColor();
         }
-        return '';
+        return null;
     }
 
+    /** @api */
     public function getLogoImg(): ?string
     {
-        if ($this->getValue('logo')) {
+        if (class_exists("rex_media_plus") && is_object(rex_media_plus::get($this->getValue('logo')))) {
+            return rex_media_plus::get($this->getValue('logo'))->getImg();
+        }
+        if (is_object(rex_media::get($this->getValue('logo')))) {
             // Wenn Addon media_manager_responsive installiert ist, wird das responsive Bild zurückgegeben
-            if (rex_addon::get('media_manager_responsive')->isAvailable()) {
-                return rex_media_plus::get($this->getValue('logo'))->getImg();
-            }
             return rex_media::get($this->getValue('logo'))->getUrl();
         }
         return null;
     }
 
+    /** Kann in einem Choice-Feld verwendet werden */
+    /** @api 
+     * @return array<string,string> 
+     * */
     public static function getAvailableStyles() : array
     {
-        if (!$files = @scandir(rex_path::assets('styles'))) {
+        $files = @scandir(rex_path::assets('styles'));
+        if ($files === false) {
             $files = [];
         }
         $cssFiles = [];
@@ -68,11 +76,17 @@ class Domain extends rex_yform_manager_dataset
         return $cssFiles;
     }
 
+    /** Kann in einem Choice-Feld verwendet werden */
+    /** @api 
+     * @return array<string,string> 
+     * */
     public static function getAvailableScripts() : array
     {
-        if (!$files = @scandir(rex_path::assets('scripts'))) {
+        $files = scandir(rex_path::assets('scripts'));
+        if ($files === false) {
             $files = [];
         }
+        
         $jsFiles = [];
 
         foreach ($files as $file) {
@@ -87,11 +101,11 @@ class Domain extends rex_yform_manager_dataset
     
     /* Domain */
     /** @api */
-    public function getYrewriteDomainId() : ?string {
-        return $this->getValue("yrewrite_domain_id");
+    public function getYrewriteDomainId() : int {
+        return (int) $this->getValue("yrewrite_domain_id");
     }
     /** @api */
-    public function setYrewriteDomainId(mixed $value) : self {
+    public function setYrewriteDomainId(int $value) : self {
         $this->setValue("yrewrite_domain_id", $value);
         return $this;
     }
@@ -128,7 +142,7 @@ class Domain extends rex_yform_manager_dataset
     }
     /** @api */
     public function setThumbnail(string $filename) : self {
-        if(rex_media::get($filename)) {
+        if(null !== rex_media::get($filename)) {
             $this->setValue("thumbnail", $filename);
         }
         return $this;
@@ -144,7 +158,7 @@ class Domain extends rex_yform_manager_dataset
     }
     /** @api */
     public function setLogo(string $filename) : self {
-        if(rex_media::get($filename)) {
+        if(null !== rex_media::get($filename)) {
             $this->setValue("logo", $filename);
         }
         return $this;
@@ -157,22 +171,30 @@ class Domain extends rex_yform_manager_dataset
     }
 
     /* JS-Dateien */
-    /** @api */
+    /** @api 
+     * @return array<int,string> 
+     * */
     public function getScripts() : ?array {
         return explode(',', $this->getValue('scripts'));
     }
-    /** @api */
+    /** @api 
+     * @param array<mixed,string> $value
+    */
     public function setScripts(array $value) : self {
         $this->setValue("scripts", implode(',', $value));
         return $this;
     }
 
     /* CSS-Dateien */
-    /** @api */
+    /** @api 
+     * @return array<int,string> 
+     * */
     public function getStyles() : ?array {
         return explode(',', $this->getValue('styles'));
     }
-    /** @api */
+    /** @api 
+     * @param array<mixed,string> $value
+    */
     public function setStyles(array $value) : self {
         $this->setValue("styles", implode(',', $value));
         return $this;
