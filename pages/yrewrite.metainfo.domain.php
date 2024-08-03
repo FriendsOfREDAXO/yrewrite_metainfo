@@ -14,6 +14,6 @@ rex_extension::register(
     ['table_name' => $table_name],
 );
 
-$_REQUEST['table_name'] = $table_name; // @phpstan-ignore-line
+$_REQUEST['table_name'] = $table_name; /** @phpstan-ignore-line */
 
 include rex_path::plugin('yform', 'manager', 'pages/data_edit.php');
