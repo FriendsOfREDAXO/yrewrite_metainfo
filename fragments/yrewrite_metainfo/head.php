@@ -5,11 +5,7 @@
 use Alexplusde\YrewriteMetainfo\Domain;
 use Url\Seo;
 
-if (rex_addon::get('url')->isAvailable()) {
-    $seo = new Seo();
-} else {
-    $seo = new rex_yrewrite_seo();
-}
+$seo = rex_addon::get('url')->isAvailable() ? new Seo() : new rex_yrewrite_seo();
 if (!is_array($seo->getTags())) {
     echo $seo->getTags();
 }
