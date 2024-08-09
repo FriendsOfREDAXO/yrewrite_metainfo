@@ -1,6 +1,8 @@
 <?php
 
-class rex_var_domain_setting extends rex_var
+namespace Alexplusde\YrewriteMetainfo;
+
+class rex_var_domain_setting extends \rex_var
 {
     protected function getOutput()
     {
@@ -8,6 +10,6 @@ class rex_var_domain_setting extends rex_var
         if (null === $key) {
             return false;
         }
-        return "Alexplusde\\YrewriteMetainfo\\Domain::getCurrentValue($key)";
+        return "Alexplusde\YrewriteMetainfo\Domain::getCurrentValue($key)";
     }
 }
