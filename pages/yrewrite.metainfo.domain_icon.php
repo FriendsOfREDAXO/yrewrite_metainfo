@@ -1,7 +1,7 @@
 <?php
 
 $addon = rex_addon::get('yrewrite_metainfo');
-$table_name = 'rex_yrewrite_domain_meta_icon';
+$table_name = 'rex_yrewrite_metainfo_icon';
 
 rex_extension::register(
     'YFORM_MANAGER_DATA_PAGE_HEADER',

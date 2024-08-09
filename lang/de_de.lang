@@ -4,44 +4,35 @@ yrewrite_metainfo_title = Meta-Infos
 # Menü-Reiter
 yrewrite_metainfo_domain = 🌏Allgemein
 yrewrite_metainfo_domain_icon = 🌎 Icons und PWA-Profile
-yrewrite_metainfo_domain_cssvars = 🌍 CSS-Variablen-Profile
 
 yrewrite_metainfo_fields = Felder
 
-domain_meta_info_logo_label = Logo
-domain_meta_info_logo_notice = Logo, das im Template ausgegeben werden kann.
+yrewrite_metainfo_logo_label = Logo
+yrewrite_metainfo_logo_notice = Logo, das im Template ausgegeben werden kann.
 
-domain_meta_info_type_label = og:type
-domain_meta_info_type_notice = OpenGraph-Type (Standard: <code>website</code>)
-domain_meta_info_thumbnail_label = og:image
-domain_meta_info_thumbnail_notification = OpenGraph-Bild (Linkvorschau, wird zu einer späteren Version dynamisch pro Artikelseite)
+yrewrite_metainfo_type_label = og:type
+yrewrite_metainfo_type_notice = OpenGraph-Type (Standard: <code>website</code>)
+yrewrite_metainfo_thumbnail_label = og:image
+yrewrite_metainfo_thumbnail_notification = OpenGraph-Bild (Linkvorschau, wird zu einer späteren Version dynamisch pro Artikelseite)
 
-domain_meta_info_icon_label = Profil (Icons, PWA)
-domain_meta_info_icon_notice = In diesem Profil können Favicon- und Browser-Icons, Farbschema u.v.a. Eigenschaften für Progessive Web Apps ggf. für mehrere Domains angegeben werden.
+yrewrite_metainfo_icon_label = Profil (Icons, PWA)
+yrewrite_metainfo_icon_notice = In diesem Profil können Favicon- und Browser-Icons, Farbschema u.v.a. Eigenschaften für Progessive Web Apps ggf. für mehrere Domains angegeben werden.
 
-domain_meta_info_cssvars_label = Profil (CSS-Variablen)
-domain_meta_info_cssvars_empty_label = Bitte Profilname vergeben
-domain_meta_info_cssvars_vars_label = Key-Value-Paare
-domain_meta_info_cssvars_name_label = Profilname
-domain_meta_info_cssvars_notice = In diesem Profil können CSS-Variablen definiert und ggf. von mehreren Domains verwendet werden.
-domain_meta_info_cssvars_vars_notice = Siehe Hilfe für weitere Informationen
+yrewrite_metainfo_icon_name_label = Profilname
+yrewrite_metainfo_icon_name_notice = Name des Profils (wird nur für die Anzeige unter "Allgemein" verwendet)
+yrewrite_metainfo_shortname_label = PWA Kurzname (App-Verknüpfung)
+yrewrite_metainfo_shortname_notice = Wird verwendet, wenn die Website als PWA-Verknüpfung auf dem Home-Screen oder Startmenü dargestellt wird.
+yrewrite_metainfo_display_label = PWA Browser-UI
+yrewrite_metainfo_display_notice = Gibt an, wie viel Browser-UI innerhalb der PWA noch sichtbar ist, z.B. Reload-Button 
+yrewrite_metainfo_theme_color = PWA Theme-Farbe
+yrewrite_metainfo_background_color_label = PWA Hintergrund-Farbe 
+yrewrite_metainfo_background_color_notice = Hintergrundfarbe, z.B. beim Starten der PWA
+yrewrite_metainfo_msapplication_tile_color = PWA Titelleisten-Farbe
+yrewrite_metainfo_msapplication_tile_color_notice = (nur Microsoft Windows)
 
-
-yrewrite_domain_meta_icon_name_label = Profilname
-yrewrite_domain_meta_icon_name_notice = Name des Profils (wird nur für die Anzeige unter "Allgemein" verwendet)
-domain_meta_info_shortname_label = PWA Kurzname (App-Verknüpfung)
-domain_meta_info_shortname_notice = Wird verwendet, wenn die Website als PWA-Verknüpfung auf dem Home-Screen oder Startmenü dargestellt wird.
-domain_meta_info_display_label = PWA Browser-UI
-domain_meta_info_display_notice = Gibt an, wie viel Browser-UI innerhalb der PWA noch sichtbar ist, z.B. Reload-Button 
-theme_color = PWA Theme-Farbe
-domain_meta_info_background_color_label = PWA Hintergrund-Farbe 
-domain_meta_info_background_color_notice = Hintergrundfarbe, z.B. beim Starten der PWA
-msapplication_tile_color = PWA Titelleisten-Farbe
-msapplication_tile_color_notice = (nur Microsoft Windows)
-
-shortcut_icon = Favicon
-icon_16 = 16x16
-icon_32 = 32x32
-apple_touch_icon = Apple Touch 
-safari_pinned_tab = Safari Pinned Tab
-manifest = webmanifest.json
+yrewrite_metainfo_shortcut_icon = Favicon
+yrewrite_metainfo_icon_16 = 16x16
+yrewrite_metainfo_icon_32 = 32x32
+yrewrite_metainfo_apple_touch_icon = Apple Touch 
+yrewrite_metainfo_safari_pinned_tab = Safari Pinned Tab
+yrewrite_metainfo_manifest = webmanifest.json

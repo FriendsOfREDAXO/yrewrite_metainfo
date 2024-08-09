@@ -1,8 +1,8 @@
 {
-    "rex_yrewrite_domain_meta": {
+    "rex_yrewrite_metainfo": {
         "table": {
             "status": 1,
-            "table_name": "rex_yrewrite_domain_meta",
+            "table_name": "rex_yrewrite_metainfo",
             "name": "translate:yrewrite_metainfo_domain",
             "description": "",
             "list_amount": 50,
@@ -23,7 +23,7 @@
         },
         "fields": [
             {
-                "table_name": "rex_yrewrite_domain_meta",
+                "table_name": "rex_yrewrite_metainfo",
                 "prio": 1,
                 "type_id": "value",
                 "type_name": "html",
@@ -36,7 +36,7 @@
                 "html": "<div class=\"row\">\r\n    <div class=\"col-md-9\">"
             },
             {
-                "table_name": "rex_yrewrite_domain_meta",
+                "table_name": "rex_yrewrite_metainfo",
                 "prio": 2,
                 "type_id": "value",
                 "type_name": "choice",
@@ -61,7 +61,7 @@
                 "choice_label": ""
             },
             {
-                "table_name": "rex_yrewrite_domain_meta",
+                "table_name": "rex_yrewrite_metainfo",
                 "prio": 3,
                 "type_id": "value",
                 "type_name": "text",
@@ -79,7 +79,7 @@
                 "prepend": ""
             },
             {
-                "table_name": "rex_yrewrite_domain_meta",
+                "table_name": "rex_yrewrite_metainfo",
                 "prio": 4,
                 "type_id": "value",
                 "type_name": "text",
@@ -87,17 +87,17 @@
                 "list_hidden": 1,
                 "search": 0,
                 "name": "type",
-                "label": "translate:domain_meta_info_type_label",
+                "label": "translate:yrewrite_metainfo_type_label",
                 "not_required": "",
                 "attributes": "{\"readonly\":\"readonly\"}",
                 "default": "website",
                 "no_db": "0",
-                "notice": "translate:domain_meta_info_type_notice",
+                "notice": "translate:yrewrite_metainfo_type_notice",
                 "append": "",
                 "prepend": ""
             },
             {
-                "table_name": "rex_yrewrite_domain_meta",
+                "table_name": "rex_yrewrite_metainfo",
                 "prio": 5,
                 "type_id": "value",
                 "type_name": "be_media",
@@ -105,16 +105,16 @@
                 "list_hidden": 1,
                 "search": 0,
                 "name": "thumbnail",
-                "label": "translate:domain_meta_info_thumbnail_label",
+                "label": "translate:yrewrite_metainfo_thumbnail_label",
                 "not_required": "",
                 "multiple": "0",
-                "notice": "translate:domain_meta_info_thumbnail_notification",
+                "notice": "translate:yrewrite_metainfo_thumbnail_notification",
                 "types": "jpg,jpeg,png,gif",
                 "preview": "0",
                 "category": ""
             },
             {
-                "table_name": "rex_yrewrite_domain_meta",
+                "table_name": "rex_yrewrite_metainfo",
                 "prio": 6,
                 "type_id": "value",
                 "type_name": "be_media",
@@ -122,16 +122,16 @@
                 "list_hidden": 0,
                 "search": 0,
                 "name": "logo",
-                "label": "translate:domain_meta_info_logo_label",
+                "label": "translate:yrewrite_metainfo_logo_label",
                 "not_required": "",
                 "multiple": "0",
-                "notice": "translate:domain_meta_info_logo_notice",
+                "notice": "translate:yrewrite_metainfo_logo_notice",
                 "types": "svg,png,gif",
                 "preview": "0",
                 "category": ""
             },
             {
-                "table_name": "rex_yrewrite_domain_meta",
+                "table_name": "rex_yrewrite_metainfo",
                 "prio": 7,
                 "type_id": "validate",
                 "type_name": "unique",
@@ -146,7 +146,7 @@
                 "message": "Bitte Domain zun\u00e4chst in YRewrite anlegen und ausw\u00e4hlen"
             },
             {
-                "table_name": "rex_yrewrite_domain_meta",
+                "table_name": "rex_yrewrite_metainfo",
                 "prio": 8,
                 "type_id": "value",
                 "type_name": "html",
@@ -159,7 +159,7 @@
                 "html": "<\/div>\r\n    <div class=\"col-md-3\">"
             },
             {
-                "table_name": "rex_yrewrite_domain_meta",
+                "table_name": "rex_yrewrite_metainfo",
                 "prio": 9,
                 "type_id": "value",
                 "type_name": "be_manager_relation",
@@ -167,21 +167,21 @@
                 "list_hidden": 0,
                 "search": 0,
                 "name": "icon",
-                "label": "translate:domain_meta_info_icon_label",
+                "label": "translate:yrewrite_metainfo_icon_label",
                 "not_required": "",
                 "attributes": "",
-                "notice": "translate:domain_meta_info_icon_notice",
-                "table": "rex_yrewrite_domain_meta_icon",
+                "notice": "translate:yrewrite_metainfo_icon_notice",
+                "table": "rex_yrewrite_metainfo_icon",
                 "empty_option": "1",
                 "size": "",
                 "field": "name",
                 "type": "2",
-                "empty_value": "translate:domain_meta_info_icon_error",
+                "empty_value": "translate:yrewrite_metainfo_icon_error",
                 "relation_table": "",
                 "filter": ""
             },
             {
-                "table_name": "rex_yrewrite_domain_meta",
+                "table_name": "rex_yrewrite_metainfo",
                 "prio": 11,
                 "type_id": "value",
                 "type_name": "choice",
@@ -206,7 +206,7 @@
                 "choice_label": ""
             },
             {
-                "table_name": "rex_yrewrite_domain_meta",
+                "table_name": "rex_yrewrite_metainfo",
                 "prio": 12,
                 "type_id": "value",
                 "type_name": "choice",
@@ -231,7 +231,7 @@
                 "choice_label": ""
             },
             {
-                "table_name": "rex_yrewrite_domain_meta",
+                "table_name": "rex_yrewrite_metainfo",
                 "prio": 13,
                 "type_id": "value",
                 "type_name": "html",
@@ -245,10 +245,10 @@
             }
         ]
     },
-    "rex_yrewrite_domain_meta_icon": {
+    "rex_yrewrite_metainfo_icon": {
         "table": {
             "status": 1,
-            "table_name": "rex_yrewrite_domain_meta_icon",
+            "table_name": "rex_yrewrite_metainfo_icon",
             "name": "translate:yrewrite_metainfo_domain_icon",
             "description": "",
             "list_amount": 50,
@@ -269,7 +269,7 @@
         },
         "fields": [
             {
-                "table_name": "rex_yrewrite_domain_meta_icon",
+                "table_name": "rex_yrewrite_metainfo_icon",
                 "prio": 1,
                 "type_id": "value",
                 "type_name": "html",
@@ -282,7 +282,7 @@
                 "html": "<div class=\"row\">\r\n    <div class=\"col-md-6\">"
             },
             {
-                "table_name": "rex_yrewrite_domain_meta_icon",
+                "table_name": "rex_yrewrite_metainfo_icon",
                 "prio": 2,
                 "type_id": "value",
                 "type_name": "text",
@@ -290,17 +290,17 @@
                 "list_hidden": 0,
                 "search": 0,
                 "name": "name",
-                "label": "translate:yrewrite_domain_meta_icon_name_label",
+                "label": "translate:yrewrite_metainfo_icon_name_label",
                 "not_required": "",
                 "attributes": "",
                 "default": "",
                 "no_db": "0",
-                "notice": "translate:yrewrite_domain_meta_icon_name_notice",
+                "notice": "translate:yrewrite_metainfo_icon_name_notice",
                 "append": "",
                 "prepend": ""
             },
             {
-                "table_name": "rex_yrewrite_domain_meta_icon",
+                "table_name": "rex_yrewrite_metainfo_icon",
                 "prio": 3,
                 "type_id": "value",
                 "type_name": "text",
@@ -308,17 +308,17 @@
                 "list_hidden": 0,
                 "search": 0,
                 "name": "short_name",
-                "label": "translate:domain_meta_info_shortname_label",
+                "label": "translate:yrewrite_metainfo_shortname_label",
                 "not_required": "",
                 "attributes": "",
                 "default": "",
                 "no_db": "0",
-                "notice": "translate:domain_meta_info_shortname_notice",
+                "notice": "translate:yrewrite_metainfo_shortname_notice",
                 "append": "",
                 "prepend": ""
             },
             {
-                "table_name": "rex_yrewrite_domain_meta_icon",
+                "table_name": "rex_yrewrite_metainfo_icon",
                 "prio": 4,
                 "type_id": "value",
                 "type_name": "choice",
@@ -326,7 +326,7 @@
                 "list_hidden": 1,
                 "search": 0,
                 "name": "display",
-                "label": "translate:domain_meta_info_display_label",
+                "label": "translate:yrewrite_metainfo_display_label",
                 "not_required": "",
                 "multiple": "0",
                 "expanded": "0",
@@ -335,7 +335,7 @@
                 "attributes": "",
                 "default": "browser",
                 "no_db": "0",
-                "notice": "translate:domain_meta_info_display_notice",
+                "notice": "translate:yrewrite_metainfo_display_notice",
                 "preferred_choices": "",
                 "group_by": "",
                 "placeholder": "",
@@ -343,15 +343,15 @@
                 "choice_label": ""
             },
             {
-                "table_name": "rex_yrewrite_domain_meta_icon",
+                "table_name": "rex_yrewrite_metainfo_icon",
                 "prio": 5,
                 "type_id": "value",
                 "type_name": "text",
                 "db_type": "varchar(191)",
                 "list_hidden": 0,
                 "search": 0,
-                "name": "theme_color",
-                "label": "translate:theme_color",
+                "name": "yrewrite_metainfo_theme_color",
+                "label": "translate:yrewrite_metainfo_theme_color",
                 "not_required": "",
                 "attributes": "{\"type\":\"color\"}",
                 "default": "#ffffff",
@@ -361,7 +361,7 @@
                 "prepend": ""
             },
             {
-                "table_name": "rex_yrewrite_domain_meta_icon",
+                "table_name": "rex_yrewrite_metainfo_icon",
                 "prio": 6,
                 "type_id": "value",
                 "type_name": "text",
@@ -369,17 +369,17 @@
                 "list_hidden": 1,
                 "search": 0,
                 "name": "background_color",
-                "label": "translate:domain_meta_info_background_color_label",
+                "label": "translate:yrewrite_metainfo_background_color_label",
                 "not_required": "",
                 "attributes": "{\"type\":\"color\"}",
                 "default": "",
                 "no_db": "0",
-                "notice": "translate:domain_meta_info_background_color_notice",
+                "notice": "translate:yrewrite_metainfo_background_color_notice",
                 "append": "",
                 "prepend": ""
             },
             {
-                "table_name": "rex_yrewrite_domain_meta_icon",
+                "table_name": "rex_yrewrite_metainfo_icon",
                 "prio": 7,
                 "type_id": "value",
                 "type_name": "text",
@@ -387,7 +387,7 @@
                 "list_hidden": 1,
                 "search": 0,
                 "name": "msapplication_title_color",
-                "label": "translate:msapplication_title_color",
+                "label": "translate:yrewrite_metainfo_msapplication_title_color",
                 "not_required": "",
                 "attributes": "{\"type\":\"color\"}",
                 "default": "#ffffff",
@@ -397,7 +397,7 @@
                 "prepend": ""
             },
             {
-                "table_name": "rex_yrewrite_domain_meta_icon",
+                "table_name": "rex_yrewrite_metainfo_icon",
                 "prio": 8,
                 "type_id": "value",
                 "type_name": "html",
@@ -410,7 +410,7 @@
                 "html": "<\/div>\r\n    <div class=\"col-md-6\">"
             },
             {
-                "table_name": "rex_yrewrite_domain_meta_icon",
+                "table_name": "rex_yrewrite_metainfo_icon",
                 "prio": 9,
                 "type_id": "value",
                 "type_name": "be_media",
@@ -418,7 +418,7 @@
                 "list_hidden": 1,
                 "search": 0,
                 "name": "shortcut_icon",
-                "label": "translate:shortcut_icon",
+                "label": "translate:yrewrite_metainfo_shortcut_icon",
                 "not_required": "",
                 "multiple": "0",
                 "notice": "<code>favicon.ico<\/code>",
@@ -427,7 +427,7 @@
                 "category": ""
             },
             {
-                "table_name": "rex_yrewrite_domain_meta_icon",
+                "table_name": "rex_yrewrite_metainfo_icon",
                 "prio": 10,
                 "type_id": "value",
                 "type_name": "be_media",
@@ -435,7 +435,7 @@
                 "list_hidden": 0,
                 "search": 0,
                 "name": "icon_16",
-                "label": "translate:icon_16",
+                "label": "translate:yrewrite_metainfo_icon_16",
                 "not_required": "",
                 "multiple": "0",
                 "notice": "16\u00d716px",
@@ -444,7 +444,7 @@
                 "category": ""
             },
             {
-                "table_name": "rex_yrewrite_domain_meta_icon",
+                "table_name": "rex_yrewrite_metainfo_icon",
                 "prio": 11,
                 "type_id": "value",
                 "type_name": "be_media",
@@ -452,7 +452,7 @@
                 "list_hidden": 0,
                 "search": 0,
                 "name": "icon_32",
-                "label": "translate:icon_32",
+                "label": "translate:yrewrite_metainfo_icon_32",
                 "not_required": "",
                 "multiple": "0",
                 "notice": "32\u00d732px",
@@ -461,7 +461,7 @@
                 "category": ""
             },
             {
-                "table_name": "rex_yrewrite_domain_meta_icon",
+                "table_name": "rex_yrewrite_metainfo_icon",
                 "prio": 12,
                 "type_id": "value",
                 "type_name": "be_media",
@@ -469,7 +469,7 @@
                 "list_hidden": 1,
                 "search": 0,
                 "name": "apple_touch_icon",
-                "label": "translate:apple_touch_icon",
+                "label": "translate:yrewrite_metainfo_apple_touch_icon",
                 "not_required": "",
                 "multiple": "0",
                 "notice": "180\u00d7180px",
@@ -478,7 +478,7 @@
                 "category": ""
             },
             {
-                "table_name": "rex_yrewrite_domain_meta_icon",
+                "table_name": "rex_yrewrite_metainfo_icon",
                 "prio": 13,
                 "type_id": "value",
                 "type_name": "be_media",
@@ -486,7 +486,7 @@
                 "list_hidden": 1,
                 "search": 0,
                 "name": "safari_pinned_tab",
-                "label": "translate:safari_pinned_tab",
+                "label": "translate:yrewrite_metainfo_safari_pinned_tab",
                 "not_required": "",
                 "multiple": "0",
                 "notice": "<code>safari-pinned-tab.svg<\/code>",
@@ -495,7 +495,7 @@
                 "category": ""
             },
             {
-                "table_name": "rex_yrewrite_domain_meta_icon",
+                "table_name": "rex_yrewrite_metainfo_icon",
                 "prio": 14,
                 "type_id": "value",
                 "type_name": "be_media",
@@ -503,7 +503,7 @@
                 "list_hidden": 1,
                 "search": 0,
                 "name": "manifest",
-                "label": "translate:manifest",
+                "label": "translate:yrewrite_metainfo_manifest",
                 "not_required": "",
                 "multiple": "0",
                 "notice": "<code>site.webmanifest<\/code>",
@@ -512,7 +512,7 @@
                 "category": ""
             },
             {
-                "table_name": "rex_yrewrite_domain_meta_icon",
+                "table_name": "rex_yrewrite_metainfo_icon",
                 "prio": 15,
                 "type_id": "value",
                 "type_name": "html",

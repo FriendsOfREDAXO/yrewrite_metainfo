@@ -5,11 +5,11 @@ namespace Alexplusde\YrewriteMetainfo;
 use rex_yform_manager_dataset;
 
 rex_yform_manager_dataset::setModelClass(
-    'rex_yrewrite_domain_meta',
+    'rex_yrewrite_metainfo',
     Domain::class,
 );
 rex_yform_manager_dataset::setModelClass(
-    'rex_yrewrite_domain_meta_icon',
+    'rex_yrewrite_metainfo_icon',
     Icon::class,
 );
 
