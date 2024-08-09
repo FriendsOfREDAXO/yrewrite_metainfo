@@ -26,7 +26,11 @@ rex_extension::register('REX_LIST_GET', static function (rex_extension_point $ep
     /** @var rex_list $list */
     $list->addColumn(rex_i18n::msg('yrewrite_metainfo_title'), '', 3);
     $list->setColumnFormat(rex_i18n::msg('yrewrite_metainfo_title'), 'custom', static function ($a) {
-        $_csrf_key = rex_yform_manager_table::get('rex_yrewrite_metainfo')->getCSRFKey();
+        $table = rex_yform_manager_table::get('rex_yrewrite_metainfo');
+        if(!$table) {
+            return '';
+        }
+        $_csrf_key = $table->getCSRFKey();
         $token = rex_csrf_token::factory($_csrf_key)->getUrlParams();
 
         $params = [];
