@@ -26,25 +26,26 @@ Anschließend werden die passenden Meta-Informationen, soweit ausgefüllt, ausge
 
 ### Gemeinsamkeiten und Unterschiede zu anderen Addons
 
-| Funktionen                 | Globale Einstellungen | Domain Settings     | YRewrite Metainfo     |
-|----------------------------|-----------------------|---------------------|-----------------------|
-| Mindest-Anforderung        | REDAXO ^5.0           | REDAXO 5.3, PHP >=5 | REDAXO 5.17, PHP ^8.0 |
-| Aktive Entwicklung         | ❌ Nein               | ⚠️ Unbekannt        | ✅ Ja                |
-| Multidomain-fähig          | ❌ Nein               | ✅ Ja               | ✅ Ja                |
-| Mehrsprachigkeit           | ❌ Nein               | ✅ Ja               | ✅ Ja                |
-| Backend-Sprachen           | DE, EN, ES, SV        | DE                   | DE, EN               |
-| YForm-basiert              | ❌ Nein               | ⚠️ Teilweise        | ✅ Ja                |
-| Feldtypen                  | ⚠️ 8                  | Alle YForm-Feldtypen | Alle YForm-Feldtypen |
-| Eigene Feldtypen           | ❌ Nein               | ✅ Ja               | ✅ Ja                |
-| HTML5-Feldtypen            | ❌ Nein               | ✅ Ja               | ✅ Ja                |
-| YOrm-Dataset-Methoden      | ❌ Nein               | ❌ Nein             | ✅ Ja                |
-| Head-Fragment              | ❌ Nein               | ❌ Nein             | ✅ Ja                |
-| Unterstützung von PWA      | ❌ Nein               | ❌ Nein             | ✅ Ja                |
-| Integration von `url`      | ❌ Nein               | ❌ Nein             | ✅ Ja                |
-| Integration von `speed_up` | ❌ Nein               | ❌ Nein             | ✅ Ja                |
-| Integration von `wsm`      | ❌ Nein               | ❌ Nein             | ✅ Ja                |
-| Umfangreiche Dokumentation | ✅ Ja                 | ❌ Nein             | ✅ Ja                |
-| Berechtigungssystem        | ❌ Nein               | ✅ Ja               | ❌ Nein              |
+| Funktionen                 | Globale Einstellungen | Domain Settings     | YRewrite Metainfo      |
+|----------------------------|-----------------------|---------------------|------------------------|
+| Mindest-Anforderung        | REDAXO ^5.0           | REDAXO 5.3, PHP >=5 | REDAXO 5.17, PHP >=8.3 |
+| Aktive Entwicklung         | ❌ Nein               | ⚠️ Unbekannt        | ✅ Ja                 |
+| Multidomain-fähig          | ❌ Nein               | ✅ Ja               | ✅ Ja                 |
+| Mehrsprachigkeit           | ❌ Nein               | ✅ Ja               | ✅ Ja                 |
+| Backend-Sprachen           | DE, EN, ES, SV        | DE                   | DE, EN                |
+| YForm-basiert              | ❌ Nein               | ⚠️ Teilweise        | ✅ Ja                 |
+| Feldtypen                  | ⚠️ 8                  | Alle YForm-Feldtypen | Alle YForm-Feldtypen  |
+| Eigene Feldtypen           | ❌ Nein               | ✅ Ja               | ✅ Ja                 |
+| HTML5-Feldtypen            | ❌ Nein               | ✅ Ja               | ✅ Ja                 |
+| YOrm-Dataset-Methoden      | ❌ Nein               | ❌ Nein             | ✅ Ja                 |
+| Head-Fragment              | ❌ Nein               | ❌ Nein             | ✅ Ja                 |
+| Unterstützung von PWA      | ❌ Nein               | ❌ Nein             | ✅ Ja                 |
+| Integration von `url`      | ❌ Nein               | ❌ Nein             | ✅ Ja                 |
+| Integration von `speed_up` | ❌ Nein               | ❌ Nein             | ✅ Ja                 |
+| Integration von `wsm`      | ❌ Nein               | ❌ Nein             | ✅ Ja                 |
+| Umfangreiche Dokumentation | ✅ Ja                 | ❌ Nein             | ✅ Ja                 |
+| Berechtigungssystem        | ❌ Nein               | ✅ Ja               | ❌ Nein               |
+| rexstan-Level              | ⚠️ Unbekannt          | ⚠️ Unbekannt        | 🏆 Level 9            |
 
 ### Fragen
 
@@ -52,7 +53,7 @@ Anschließend werden die passenden Meta-Informationen, soweit ausgefüllt, ausge
 
 - Dieses Addon kommt mit sinnvoll vorinstallierten Standard-Feldern als YForm Tableset. Installieren und loslegen!
 - Die Klasse `domain` ist ein YOrm-Dataset. Du hast in deinem Code alle Features von YOrm zur Verfügung und kannst direkt loslegen, z.B. `domain::getCurrent()->getValue('mein_feld')`, oder vorhandene Dataset-Methoden verwendest.
-- Standard-Fragment für den <head>-Bereich deiner Templates sind blitzschnell kopiert und eingefügt, wenn du bspw. eigene Metadaten pro Domain oder zusätzliche Einstellungen vergeben willst.
+- Standard-Fragment für den `<head>`-Bereich deiner Templates sind blitzschnell kopiert und eingefügt, wenn du bspw. eigene Metadaten pro Domain oder zusätzliche Einstellungen vergeben willst.
 
 #### Kann ich nicht benötigte Standard-Felder auch löschen?
 
