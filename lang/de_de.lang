@@ -36,3 +36,6 @@ yrewrite_metainfo_icon_32 = 32x32
 yrewrite_metainfo_apple_touch_icon = Apple Touch 
 yrewrite_metainfo_safari_pinned_tab = Safari Pinned Tab
 yrewrite_metainfo_manifest = webmanifest.json
+
+yrewrite_metainfo_add = Hinzufügen
+yrewrite_metainfo_edit = Bearbeiten

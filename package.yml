@@ -1,5 +1,5 @@
 package: yrewrite_metainfo
-version: "2.0.0-dev-2024-08-03"
+version: "2.0.0-dev-2024-08-09"
 author: "Alexander Walther"
 supportpage: https://github.com/alexplusde/yrewrite_metainfo/
 
@@ -20,9 +20,6 @@ pages:
         perm: yrewrite_metainfo['domain']
     yrewrite/metainfo/domain_icon:
         title: translate:yrewrite_metainfo_domain_icon
-        perm: yrewrite_metainfo['domain']
-    yrewrite/metainfo/domain_cssvars:
-        title: translate:yrewrite_metainfo_domain_cssvars
         perm: yrewrite_metainfo['domain']
     yrewrite/metainfo/field:
         title: translate:yrewrite_metainfo_fields
