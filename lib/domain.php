@@ -21,6 +21,14 @@ class Domain extends rex_yform_manager_dataset
         return self::query()->where('yrewrite_domain_id', rex_yrewrite::getCurrentDomain()->getId())->findOne();
     }
 
+    public static function getCurrentValue(string $key): mixed {
+        $domain = self::getCurrent();
+        if ($domain) {
+            return $domain->getValue($key);
+        }
+        return null;
+    }
+
     public static function getHead(): string
     {
         $fragment = new rex_fragment();
@@ -181,7 +189,7 @@ class Domain extends rex_yform_manager_dataset
 
     /* Profil (Icons, PWA) */
     /** @api */
-    public function getIcon(): ?rex_yform_manager_dataset
+    public function getIcon(): ?Icon
     {
         return $this->getRelatedDataset('icon');
     }
