@@ -25,7 +25,7 @@ class Domain extends rex_yform_manager_dataset
     public static function getCurrentValue(string $key): mixed
     {
         $domain = self::getCurrent();
-        if ($domain instanceof Domain) {
+        if ($domain instanceof self) {
             return $domain->getValue($key);
         }
         return null;
