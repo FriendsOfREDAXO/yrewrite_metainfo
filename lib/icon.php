@@ -94,7 +94,7 @@ class Icon extends rex_yform_manager_dataset
 
     /* Favicon */
     /** @api */
-    public function getShortcutIcon(bool $asMedia = false): mixed
+    public function getShortcutIcon(bool $asMedia = false): string|rex_media|null
     {
         if ($asMedia) {
             return rex_media::get($this->getValue('shortcut_icon'));
@@ -105,7 +105,7 @@ class Icon extends rex_yform_manager_dataset
     /** @api */
     public function getShortcutIconUrl(): string
     {
-        return rex_url::media() . $this->getShortcutIcon();
+        return rex_url::media() . $this->getValue('shortcut_icon');
     }
 
     /** @api */
@@ -119,7 +119,7 @@ class Icon extends rex_yform_manager_dataset
 
     /* 16x16 */
     /** @api */
-    public function getIcon16(bool $asMedia = false): mixed
+    public function getIcon16(bool $asMedia = false): string|rex_media|null
     {
         if ($asMedia) {
             return rex_media::get($this->getValue('icon_16'));
@@ -130,7 +130,7 @@ class Icon extends rex_yform_manager_dataset
     /** @api */
     public function getIcon16Url(): string
     {
-        return rex_url::media() . $this->getIcon16();
+        return rex_url::media() . $this->getValue('icon_16');
     }
 
     /** @api */
@@ -144,7 +144,7 @@ class Icon extends rex_yform_manager_dataset
 
     /* 32x32 */
     /** @api */
-    public function getIcon32(bool $asMedia = false): mixed
+    public function getIcon32(bool $asMedia = false): string|rex_media|null
     {
         if ($asMedia) {
             return rex_media::get($this->getValue('icon_32'));
@@ -155,7 +155,7 @@ class Icon extends rex_yform_manager_dataset
     /** @api */
     public function getIcon32Url(): string
     {
-        return rex_url::media() . $this->getIcon32();
+        return rex_url::media() . $this->getValue('icon_32');
     }
 
     /** @api */
@@ -169,7 +169,7 @@ class Icon extends rex_yform_manager_dataset
 
     /* Apple Touch */
     /** @api */
-    public function getAppleTouchIcon(bool $asMedia = false): mixed
+    public function getAppleTouchIcon(bool $asMedia = false): string|rex_media|null
     {
         if ($asMedia) {
             return rex_media::get($this->getValue('apple_touch_icon'));
@@ -180,7 +180,7 @@ class Icon extends rex_yform_manager_dataset
     /** @api */
     public function getAppleTouchIconUrl(): string
     {
-        return rex_url::media() . $this->getAppleTouchIcon();
+        return rex_url::media() . $this->getValue('apple_touch_icon');
     }
 
     /** @api */
@@ -194,7 +194,7 @@ class Icon extends rex_yform_manager_dataset
 
     /* Safari Pinned Tab */
     /** @api */
-    public function getSafariPinnedTab(bool $asMedia = false): mixed
+    public function getSafariPinnedTab(bool $asMedia = false): string|rex_media|null
     {
         if ($asMedia) {
             return rex_media::get($this->getValue('safari_pinned_tab'));
@@ -205,7 +205,7 @@ class Icon extends rex_yform_manager_dataset
     /** @api */
     public function getSafariPinnedTabUrl(): string
     {
-        return rex_url::media() . $this->getSafariPinnedTab();
+        return rex_url::media() . $this->getValue('safari_pinned_tab');
     }
 
     /** @api */
@@ -230,7 +230,7 @@ class Icon extends rex_yform_manager_dataset
     /** @api */
     public function getManifestUrl(): string
     {
-        return rex_url::media() . $this->getManifest();
+        return rex_url::media() . $this->getValue('manifest');
     }
 
     /** @api */

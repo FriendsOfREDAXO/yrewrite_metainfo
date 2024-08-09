@@ -6,8 +6,9 @@
  */
 
 $mdFiles = [];
-foreach (glob(rex_addon::get('yrewrite_metainfo')->getPath('docs') . '/*.md') ?: [] as $file) {
-    $mdFiles[mb_substr(basename($file), 0, -3)] = $file;
+$files = (array) glob(rex_addon::get('yrewrite_metainfo')->getPath('docs') . '/*.md');
+foreach ($files as $file) {
+    $mdFiles[mb_substr(basename((string) $file), 0, -3)] = $file;
 }
 
 $currentMDFile = rex_request('mdfile', 'string', '01_intro');
@@ -23,16 +24,16 @@ if (null !== $page) {
         $currentMDFileWithoudPrio = mb_substr($currentMDFile, 3);
         $page->addSubpage(
             (new rex_be_page($key, rex_i18n::msg('yrewrite_metainfo_docs_' . $keyWithoudPrio)))
-            ->setSubPath($mdFile)
+            ->setSubPath((string) $mdFile)
             ->setHref('index.php?page=yrewrite/metainfo/docs&mdfile=' . $key)
-            ->setIsActive($key == $currentMDFile),
+            ->setIsActive($key === $currentMDFile),
         );
     }
 }
 
 echo rex_view::title($this->i18n('yrewrite_metainfo_title'));
 
-[$Toc, $Content] = rex_markdown::factory()->parseWithToc(rex_file::require($mdFiles[$currentMDFile]), 2, 3, [
+[$Toc, $Content] = rex_markdown::factory()->parseWithToc(rex_file::require((string) $mdFiles[$currentMDFile]), 2, 3, [
     rex_markdown::SOFT_LINE_BREAKS => false,
     rex_markdown::HIGHLIGHT_PHP => true,
 ]);

@@ -21,10 +21,11 @@ class Domain extends rex_yform_manager_dataset
         return self::query()->where('yrewrite_domain_id', rex_yrewrite::getCurrentDomain()->getId())->findOne();
     }
 
+    /** @api */
     public static function getCurrentValue(string $key): mixed
     {
         $domain = self::getCurrent();
-        if ($domain) {
+        if ($domain instanceof Domain) {
             return $domain->getValue($key);
         }
         return null;
@@ -112,7 +113,7 @@ class Domain extends rex_yform_manager_dataset
     /** @api */
     public function getYrewriteDomainId(): int
     {
-        return (int) $this->getValue('yrewrite_domain_id');
+        return $this->getValue('yrewrite_domain_id');
     }
 
     /** @api */
