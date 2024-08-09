@@ -1,6 +1,6 @@
 <?php
 
-namespace Alexplusde\YrewriteMetainfo;
+namespace FriendsOfRedaxo\YrewriteMetainfo;
 
 use rex_fragment;
 use rex_media;

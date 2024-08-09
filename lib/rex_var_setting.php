@@ -1,6 +1,6 @@
 <?php
 
-namespace Alexplusde\YrewriteMetainfo;
+namespace FriendsOfRedaxo\YrewriteMetainfo;
 
 use rex_var;
 
@@ -12,6 +12,6 @@ class rex_var_domain_setting extends rex_var
         if (null === $key) {
             return false;
         }
-        return "Alexplusde\\YrewriteMetainfo\\Domain::getCurrentValue($key)";
+        return "FriendsOfRedaxo\\YrewriteMetainfo\\Domain::getCurrentValue($key)";
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use Alexplusde\YrewriteMetainfo\Domain;
+use FriendsOfRedaxo\YrewriteMetainfo\Domain;
 use Url\Seo;
 
 $seo = rex_addon::get('url')->isAvailable() ? new Seo() : new rex_yrewrite_seo();
