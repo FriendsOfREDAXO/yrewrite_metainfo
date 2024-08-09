@@ -1,0 +1,41 @@
+yrewrite_metainfo = YRewrite Domain Meta-Infos
+yrewrite_metainfo_title = Meta-Infos
+
+# Menu Tabs
+yrewrite_metainfo_domain = 🌏General
+yrewrite_metainfo_domain_icon = 🌎 Icons and PWA Profiles
+
+yrewrite_metainfo_fields = Fields
+
+yrewrite_metainfo_logo_label = Logo
+yrewrite_metainfo_logo_notice = Logo that can be output in the template.
+
+yrewrite_metainfo_type_label = og:type
+yrewrite_metainfo_type_notice = OpenGraph-Type (default: <code>website</code>)
+yrewrite_metainfo_thumbnail_label = og:image
+yrewrite_metainfo_thumbnail_notification = OpenGraph image (link preview, will be dynamically generated per article page in a later version)
+
+yrewrite_metainfo_icon_label = Profile (Icons, PWA)
+yrewrite_metainfo_icon_notice = In this profile, favicon and browser icons, color scheme, and many other properties for Progressive Web Apps can be specified, possibly for multiple domains.
+
+yrewrite_metainfo_icon_name_label = Profile name
+yrewrite_metainfo_icon_name_notice = Name of the profile (used only for display under "General")
+yrewrite_metainfo_shortname_label = PWA Short name (App shortcut)
+yrewrite_metainfo_shortname_notice = Used when the website is displayed as a PWA shortcut on the home screen or start menu.
+yrewrite_metainfo_display_label = PWA Browser UI
+yrewrite_metainfo_display_notice = Specifies how much browser UI is still visible within the PWA, e.g., reload button
+yrewrite_metainfo_theme_color = PWA Theme color
+yrewrite_metainfo_background_color_label = PWA Background color
+yrewrite_metainfo_background_color_notice = Background color, e.g., when starting the PWA
+yrewrite_metainfo_msapplication_tile_color = PWA Title bar color
+yrewrite_metainfo_msapplication_tile_color_notice = (only Microsoft Windows), <code>&lt;meta name="msapplication-TileColor"&gt;</code>
+
+yrewrite_metainfo_shortcut_icon = Favicon
+yrewrite_metainfo_icon_16 = 16x16
+yrewrite_metainfo_icon_32 = 32x32
+yrewrite_metainfo_apple_touch_icon = Apple Touch
+yrewrite_metainfo_safari_pinned_tab = Safari Pinned Tab
+yrewrite_metainfo_manifest = webmanifest.json
+
+yrewrite_metainfo_add = Add
+yrewrite_metainfo_edit = Edit

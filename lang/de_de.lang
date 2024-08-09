@@ -28,7 +28,7 @@ yrewrite_metainfo_theme_color = PWA Theme-Farbe
 yrewrite_metainfo_background_color_label = PWA Hintergrund-Farbe 
 yrewrite_metainfo_background_color_notice = Hintergrundfarbe, z.B. beim Starten der PWA
 yrewrite_metainfo_msapplication_tile_color = PWA Titelleisten-Farbe
-yrewrite_metainfo_msapplication_tile_color_notice = (nur Microsoft Windows)
+yrewrite_metainfo_msapplication_tile_color_notice = (nur Microsoft Windows), <code>&lt;meta name="msapplication-TileColor"&gt;</code>
 
 yrewrite_metainfo_shortcut_icon = Favicon
 yrewrite_metainfo_icon_16 = 16x16
