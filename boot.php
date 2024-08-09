@@ -27,7 +27,7 @@ rex_extension::register('REX_LIST_GET', static function (rex_extension_point $ep
     $list->addColumn(rex_i18n::msg('yrewrite_metainfo_title'), '', 3);
     $list->setColumnFormat(rex_i18n::msg('yrewrite_metainfo_title'), 'custom', static function ($a) {
         $table = rex_yform_manager_table::get('rex_yrewrite_metainfo');
-        if(!$table) {
+        if (!$table) {
             return '';
         }
         $_csrf_key = $table->getCSRFKey();
