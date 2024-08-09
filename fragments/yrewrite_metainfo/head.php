@@ -1,5 +1,3 @@
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
 <?php
 
 use Alexplusde\YrewriteMetainfo\Domain;
@@ -14,6 +12,8 @@ if (!$domain = $this->getVar('domain')) {
     $domain = Domain::getCurrent();
 }
 ?>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- YRewrite Meta-Infos Domain -->
 <meta property="og:site_name" content="<?= $domain->getName() ?>" />
 <meta property="og:type" content="<?= $domain->getType() ?>" />
@@ -53,21 +53,6 @@ if ($icon = $domain->getIcon()) {
 <!-- / YRewrite Meta-Infos Icon-Profil -->
 <?php
 } // $icon
-
-foreach (array_filter($domain->getStyles(), static function ($file) { return (bool) $file; }) as $style) {
-    ?>
-<link href="/assets/styles/<?= $style ?>" rel="stylesheet">
-
-<?php
-}
-
-foreach (array_filter($domain->getScripts(), static function ($file) { return (bool) $file; }) as $script) {
-    ?>
-<script src="/assets/scripts/<?= $script ?>"></script>
-
-
-<?php
-}
 
 if (class_exists('speed_up')) {
     $speed_up = new speed_up();
