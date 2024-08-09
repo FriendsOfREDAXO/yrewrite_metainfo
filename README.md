@@ -16,7 +16,7 @@ Voraussetzungen: YRewrite ^2.10 mit mindestens einer eingerichteten Domain sowie
 
 1. Installiere das Addon über den REDAXO-Installer
 2. Fülle in `YRewrite` > `Metainfo` Angaben zu deiner YRewrite-Domain aus
-3. Füge in den `<head>`-Bereich deines oder deiner Templates folgenden Code ein: `<?= domain::getHead() ?>`.
+3. Füge in den `<head>`-Bereich deines oder deiner Templates folgenden Code ein: `<?= Domain::getHead() ?>`.
 
 Anschließend werden die passenden Meta-Informationen, soweit ausgefüllt, ausgegeben.
 
