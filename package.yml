@@ -11,16 +11,24 @@ requires:
         yrewrite: "^2"
         yform: "^4"
 
+conflicts:
+    packages:
+        yrewrite_metainfo: "^1"
+
 pages:
     yrewrite/metainfo:
         title: translate:yrewrite_metainfo_title
-        perm: yrewrite_metainfo['fields']
+        perm: yrewrite_metainfo[]
     yrewrite/metainfo/domain:
         title: translate:yrewrite_metainfo_domain
-        perm: yrewrite_metainfo['domain']
+        perm: yrewrite_metainfo[domain]
     yrewrite/metainfo/domain_icon:
         title: translate:yrewrite_metainfo_domain_icon
-        perm: yrewrite_metainfo['domain']
+        perm: yrewrite_metainfo[icon]
     yrewrite/metainfo/field:
         title: translate:yrewrite_metainfo_fields
-        perm: yrewrite_metainfo['fields']
+        perm: yrewrite_metainfo[fields]
+    yrewrite/metainfo/docs:
+        title: translate:yrewrite_metainfo_docs
+        perm: yrewrite_metainfo[]
+        itemClass: pull-right
