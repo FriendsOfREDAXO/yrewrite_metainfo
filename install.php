@@ -1,4 +1,5 @@
 <?php
+
 rex_sql_table::get(rex::getTable('yrewrite_metainfo'))
     ->ensurePrimaryIdColumn()
     ->ensureColumn(new rex_sql_column('yrewrite_domain_id', 'int(10) unsigned'))
