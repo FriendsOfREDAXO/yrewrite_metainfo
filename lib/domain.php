@@ -12,7 +12,7 @@ use rex_yrewrite_domain;
 
 use function is_object;
 
-use const PATHINFO_EXTENSION; 
+use const PATHINFO_EXTENSION;
 
 class Domain extends rex_yform_manager_dataset
 {
