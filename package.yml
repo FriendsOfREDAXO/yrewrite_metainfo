@@ -9,7 +9,7 @@ requires:
     redaxo: ^5.17
     packages:
         yrewrite: "^2"
-        yform: "^4"
+        yform/manager: "^4"
 
 conflicts:
     packages:
