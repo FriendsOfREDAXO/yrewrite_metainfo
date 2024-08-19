@@ -6,7 +6,7 @@ use rex_var;
 
 class rex_var_domain_setting extends rex_var
 {
-    protected function getOutput()
+    protected function getOutput() :string
     {
         $key = $this->getParsedArg('key', null, true);
         if (null === $key) {
