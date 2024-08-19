@@ -2,8 +2,8 @@ yrewrite_metainfo = YRewrite Domain Meta-Infos
 yrewrite_metainfo_title = Meta-Infos
 
 # Menu Tabs
-yrewrite_metainfo_domain = 🌏General
-yrewrite_metainfo_domain_icon = 🌎 Icons and PWA Profiles
+yrewrite_metainfo_domain = General
+yrewrite_metainfo_domain_icon = Icons and PWA Profiles
 
 yrewrite_metainfo_fields = Fields
 

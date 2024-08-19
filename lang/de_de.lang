@@ -2,9 +2,11 @@ yrewrite_metainfo = YRewrite Domain Meta-Infos
 yrewrite_metainfo_title = Meta-Infos
 
 # Menü-Reiter
-yrewrite_metainfo_domain = 🌏Allgemein
-yrewrite_metainfo_domain_icon = 🌎 Icons und PWA-Profile
+yrewrite_metainfo_domain = Allgemein
+yrewrite_metainfo_domain_icon = Icons und PWA-Profile
+yrewrite_metainfo_docs = Docs
 
+# YForm Felder
 yrewrite_metainfo_fields = Felder
 
 yrewrite_metainfo_logo_label = Logo

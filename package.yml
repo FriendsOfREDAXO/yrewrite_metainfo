@@ -19,16 +19,21 @@ pages:
     yrewrite/metainfo:
         title: translate:yrewrite_metainfo_title
         perm: yrewrite_metainfo[]
+        icon: rex-icon fa-globe
     yrewrite/metainfo/domain:
         title: translate:yrewrite_metainfo_domain
         perm: yrewrite_metainfo[domain]
+        icon: rex-icon fa-globe
     yrewrite/metainfo/domain_icon:
         title: translate:yrewrite_metainfo_domain_icon
         perm: yrewrite_metainfo[icon]
+        icon: rex-icon fa-image
     yrewrite/metainfo/field:
         title: translate:yrewrite_metainfo_fields
         perm: yrewrite_metainfo[fields]
+        icon: rex-icon fa-list
     yrewrite/metainfo/docs:
         title: translate:yrewrite_metainfo_docs
         perm: yrewrite_metainfo[]
+        icon: rex-icon fa-info-circle
         itemClass: pull-right
