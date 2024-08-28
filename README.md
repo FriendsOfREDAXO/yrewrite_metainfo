@@ -31,7 +31,7 @@ Anschließend werden die passenden Meta-Informationen, soweit ausgefüllt, ausge
 | Mindest-Anforderung        | REDAXO ^5.0           | REDAXO 5.3, PHP >=5 | REDAXO 5.17, PHP >=8.3 |
 | Aktive Entwicklung         | ❌ Nein               | ⚠️ Unbekannt        | ✅ Ja                 |
 | Multidomain-fähig          | ❌ Nein               | ✅ Ja               | ✅ Ja                 |
-| Mehrsprachigkeit           | ❌ Nein               | ✅ Ja               | ✅ Ja                 |
+| Mehrsprachigkeit           | ✅ Ja                 | ✅ Ja               | ✅ Ja                 |
 | Backend-Sprachen           | DE, EN, ES, SV        | DE                   | DE, EN                |
 | YForm-basiert              | ❌ Nein               | ⚠️ Teilweise        | ✅ Ja                 |
 | Feldtypen                  | ⚠️ 8                  | Alle YForm-Feldtypen | Alle YForm-Feldtypen  |
