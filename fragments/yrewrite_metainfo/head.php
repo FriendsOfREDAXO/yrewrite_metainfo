@@ -1,9 +1,9 @@
 <?php
 
+use Alexplusde\Wsm\Fragment;
 use FriendsOfRedaxo\YrewriteMetainfo\Domain;
 use FriendsOfRedaxo\YrewriteMetainfo\Icon;
 use Url\Seo;
-use Alexplusde\Wsm\Fragment;
 
 $seo = rex_addon::get('url')->isAvailable() ? new Seo() : new rex_yrewrite_seo();
 if (!is_array($seo->getTags())) {
@@ -13,7 +13,7 @@ if (!is_array($seo->getTags())) {
 if (!$domain = $this->getVar('domain')) {
     $domain = Domain::getCurrent();
 }
-if($domain instanceof Domain) {
+if ($domain instanceof Domain) {
 ?>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -57,7 +57,6 @@ if ($icon = $domain->getIcon()) {
 <!-- / YRewrite Meta-Infos Icon-Profil -->
 <?php
 } // $icon
-
 }
 
 if (class_exists('speed_up')) {
