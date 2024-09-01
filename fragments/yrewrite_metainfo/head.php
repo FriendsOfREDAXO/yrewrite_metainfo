@@ -1,7 +1,9 @@
 <?php
 
 use FriendsOfRedaxo\YrewriteMetainfo\Domain;
+use FriendsOfRedaxo\YrewriteMetainfo\Icon;
 use Url\Seo;
+use Alexplusde\Wsm\Fragment;
 
 $seo = rex_addon::get('url')->isAvailable() ? new Seo() : new rex_yrewrite_seo();
 if (!is_array($seo->getTags())) {
@@ -11,6 +13,7 @@ if (!is_array($seo->getTags())) {
 if (!$domain = $this->getVar('domain')) {
     $domain = Domain::getCurrent();
 }
+if($domain instanceof Domain) {
 ?>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,11 +23,12 @@ if (!$domain = $this->getVar('domain')) {
 <!-- / YRewrite Meta-Infos Domain -->
 <?php
 if ($icon = $domain->getIcon()) {
+    /** @var Icon $icon */
     ?>
 <!-- YRewrite Meta-Infos Icon-Profil -->
-<?php if ($icon->getTouchIcon()) { ?>
+<?php if ($icon->getAppleTouchIcon()) { ?>
 <link rel="apple-touch-icon" sizes="180x180"
-	href="<?= $icon->getTouchIconUrl() ?>">
+	href="<?= $icon->getAppleTouchIconUrl() ?>">
 <?php } ?>
 <?php if ($icon->getIcon32(true)) { ?>
 <link rel="icon" type="image/png" sizes="32x32"
@@ -37,30 +41,32 @@ if ($icon = $domain->getIcon()) {
 <?php if ($icon->getManifest()) { ?>
 <link rel="manifest" href="<?= $icon->getManifestUrl() ?>">
 <?php } ?>
-<?php if ($icon->getPinnedTab()) { ?>
-<link rel="mask-icon" href="<?= $icon->getPinnedTabUrl() ?>"
+<?php if ($icon->getSafariPinnedTab()) { ?>
+<link rel="mask-icon" href="<?= $icon->getSafariPinnedTabUrl() ?>"
 	color="<?= $icon->getThemeColor() ?>">
 <?php } ?>
-<?php if ($icon->getFavicon()) { ?>
-<link rel="shortcut icon" href="<?= $icon->getFaviconUrl() ?>">
+<?php if ($icon->getShortcutIcon()) { ?>
+<link rel="shortcut icon" href="<?= $icon->getShortcutIconUrl() ?>">
 <?php } ?>
 <meta name="apple-mobile-web-app-title"
 	content="<?= $icon->getShortName() ?>">
 <meta name="application-name" content="<?= $icon->getShortName() ?>">
 <meta name="msapplication-TileColor"
-	content="<?= $icon->getTitleColor() ?>">
+	content="<?= $icon->getMsapplicationTitleColor() ?>">
 <meta name="theme-color" content="<?= $icon->getThemeColor() ?>">
 <!-- / YRewrite Meta-Infos Icon-Profil -->
 <?php
 } // $icon
+
+}
 
 if (class_exists('speed_up')) {
     $speed_up = new speed_up();
     $speed_up->show();
 }
 
-if (class_exists('wsm_fragment')) {
-    echo wsm_fragment::getCss();
-    echo wsm_fragment::getScripts();
-    echo wsm_fragment::getJs();
+if (rex_addon::get('wenns_sein_muss')->isAvailable()) {
+    echo Fragment::getCss();
+    echo Fragment::getScripts();
+    echo Fragment::getJs();
 } ?>
