@@ -89,15 +89,13 @@ Füge das Fragment `yrewrite_metainfo/head.php` im Head anstelle der YRewrite-SE
 
 ## Lizenz
 
-MIT Lizenz, siehe [LICENSE.md](https://github.com/alexplusde/dummy/blob/master/LICENSE.md)  
+MIT Lizenz, siehe [LICENSE.md](https://github.com/friendsofredaxo/yrewrite_metainfo/blob/main/LICENSE.md)  
 
 ## Autoren
 
-**Alexander Walther**  
-<http://www.alexplus.de>  
-<https://github.com/alexplusde>  
+**Friends Of REDAXO**
+http://www.redaxo.org
+https://github.com/FriendsOfREDAXO
 
 **Projekt-Lead**  
 [Alexander Walther](https://github.com/alexplusde)
-
-## Credits
