@@ -5,10 +5,8 @@ use FriendsOfRedaxo\YrewriteMetainfo\Domain;
 use FriendsOfRedaxo\YrewriteMetainfo\Icon;
 use Url\Seo;
 
-$seo = rex_addon::get('url')->isAvailable() ? new Seo() : new rex_yrewrite_seo();
-if (!is_array($seo->getTags())) {
-    echo $seo->getTags();
-}
+$seo = new rex_yrewrite_seo();
+
 
 if (!$domain = $this->getVar('domain')) {
     $domain = Domain::getCurrent();
@@ -21,6 +19,9 @@ if ($domain instanceof Domain) {
 <meta property="og:site_name" content="<?= $domain->getName() ?>" />
 <meta property="og:type" content="<?= $domain->getType() ?>" />
 <!-- / YRewrite Meta-Infos Domain -->
+<?php
+echo $seo->getTags();
+?>
 <?php
 if ($icon = $domain->getIcon()) {
     /** @var Icon $icon */
