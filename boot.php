@@ -24,6 +24,9 @@ rex_yform_manager_dataset::setModelClass(
 
 // Listendarstellung von YRewrite Domains um eine Spalte ergänzen mit Link zu YRewrite Metainfos
 rex_extension::register('REX_LIST_GET', static function (rex_extension_point $ep) {
+    if ($ep->getSubject()->getParams()['page'] !== 'yrewrite/domains') {
+        return;
+    }
     $list = $ep->getSubject();
     /** @var rex_list $list */
     $list->addColumn(rex_i18n::msg('yrewrite_metainfo_title'), '', 3);
