@@ -43,3 +43,13 @@ yrewrite_metainfo_manifest = webmanifest.json
 
 yrewrite_metainfo_add = Hinzufügen
 yrewrite_metainfo_edit = Bearbeiten
+
+yrewrite_metainfo_domain_icon_zip_upload_title = realfavicon.com ZIP hochladen
+yrewrite_metainfo_domain_icon_zip_upload_notice = Lade ein ZIP-Archiv von realfavicon.com hoch, um die Icons automatisch zu importieren.
+yrewrite_metainfo_domain_icon_zip_upload_label = ZIP-Datei
+yrewrite_metainfo_domain_icon_zip_upload_submit = Hochladen und hinzufügen
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_option_root = -- keine Kategorie --
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_option_new = Neue Kategorie autoamtisch anlegen
+
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_label = Medien-Kategorie
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_notice = Meiden-Kategorie für die hochgeladenen Dateien
