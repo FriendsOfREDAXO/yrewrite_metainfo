@@ -1,5 +1,7 @@
 <?php
 
+use FriendsOfRedaxo\YrewriteMetainfo\Icon;
+
 /**
  * @var rex_addon $this
  * @psalm-scope-this rex_addon
@@ -22,27 +24,25 @@ rex_extension::register(
 $_REQUEST['table_name'] = $table_name; /** @phpstan-ignore-line */
 
 // Wenn ein ZIP-File hochgeladen wurde, entpacken und in die Datenbank speichern
-if (isset($_FILES['realfaviconzip']) && $_FILES['realfaviconzip']['error'] === 0) {
-
+if (isset($_FILES['realfaviconzip']) && 0 === $_FILES['realfaviconzip']['error']) {
     $zip = new ZipArchive();
     $res = $zip->open($_FILES['realfaviconzip']['tmp_name']);
-    if ($res === true) {
-        $zip->extractTo(rex_path::addonCache('yrewrite_metainfo', date("Y-m-d h-i-s")));
+    if (true === $res) {
+        $zip->extractTo(rex_path::addonCache('yrewrite_metainfo', date('Y-m-d h-i-s')));
         $zip->close();
 
-
-        $files = glob(rex_path::addonCache('yrewrite_metainfo', date("Y-m-d h-i-s")) . DIRECTORY_SEPARATOR . '*');
-        $manifest = file_get_contents(rex_path::addonCache('yrewrite_metainfo', date("Y-m-d h-i-s")) . DIRECTORY_SEPARATOR . 'site.webmanifest');
+        $files = glob(rex_path::addonCache('yrewrite_metainfo', date('Y-m-d h-i-s')) . DIRECTORY_SEPARATOR . '*');
+        $manifest = file_get_contents(rex_path::addonCache('yrewrite_metainfo', date('Y-m-d h-i-s')) . DIRECTORY_SEPARATOR . 'site.webmanifest');
 
         $manifest = json_decode($manifest, true);
-        if($manifest['short_name'] == '') {
-            $manifest['short_name'] = date("Y-m-d-h-i-s");
+        if ('' == $manifest['short_name']) {
+            $manifest['short_name'] = date('Y-m-d-h-i-s');
         }
 
         $media_category_id = rex_post('media_category_id', 'int', 0);
 
         /* Neue Medienpool-Kategorie hinzufügen, wenn -1 */
-        if ($media_category_id === -1) {
+        if (-1 === $media_category_id) {
             $category = new rex_media_category_service();
             $category->addCategory('Favicon ' . $manifest['short_name'], 0);
             /* Finde zuletzt angelegte Kategorie */
@@ -50,11 +50,10 @@ if (isset($_FILES['realfaviconzip']) && $_FILES['realfaviconzip']['error'] === 0
             $media_category_id = array_shift($latest_category)['id'];
         }
 
-        $prefix = $manifest['short_name'] . "_"; 
+        $prefix = $manifest['short_name'] . '_';
 
         foreach ($files as $file) {
             if (is_file($file)) {
-
                 $filename = basename($file);
 
                 $data = [];
@@ -68,7 +67,7 @@ if (isset($_FILES['realfaviconzip']) && $_FILES['realfaviconzip']['error'] === 0
             }
         }
 
-        $dataset = \FriendsOfRedaxo\YrewriteMetainfo\Icon::create();
+        $dataset = Icon::create();
         $dataset->setName($manifest['name']);
         $dataset->setShortName($manifest['short_name']);
         $dataset->setDisplay($manifest['display']);
@@ -95,10 +94,10 @@ $form = '<form id="realfavicon" action="" method="post" enctype="multipart/form-
     <label for="realfaviconzip">' . $this->i18n('yrewrite_metainfo_domain_icon_zip_upload_label') . '</label>
     <input type="file" name="realfaviconzip" id="realfaviconzip" class="form-control">
     <p class="notice">' . $this->i18n('yrewrite_metainfo_domain_icon_zip_upload_notice') . '</p>
-    <label for="media_category_id">' .$this->i18n('yrewrite_metainfo_domain_icon_zip_upload_media_category_id_label') . '</label>
+    <label for="media_category_id">' . $this->i18n('yrewrite_metainfo_domain_icon_zip_upload_media_category_id_label') . '</label>
     ' . $select->get() . '
     <p class="notice">' . $this->i18n('yrewrite_metainfo_domain_icon_zip_upload_media_category_id_notice') . '</p>
-    <input class="btn btn-primary" type="submit" value="'.$this->i18n('yrewrite_metainfo_domain_icon_zip_upload_submit').'">
+    <input class="btn btn-primary" type="submit" value="' . $this->i18n('yrewrite_metainfo_domain_icon_zip_upload_submit') . '">
 </form>';
 
 $fragment = new rex_fragment();

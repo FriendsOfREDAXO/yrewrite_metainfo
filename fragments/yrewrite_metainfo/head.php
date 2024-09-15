@@ -3,10 +3,8 @@
 use Alexplusde\Wsm\Fragment;
 use FriendsOfRedaxo\YrewriteMetainfo\Domain;
 use FriendsOfRedaxo\YrewriteMetainfo\Icon;
-use Url\Seo;
 
 $seo = new rex_yrewrite_seo();
-
 
 if (!$domain = $this->getVar('domain')) {
     $domain = Domain::getCurrent();
@@ -19,8 +17,7 @@ if ($domain instanceof Domain) {
 <meta property="og:site_name" content="<?= $domain->getName() ?>" />
 <meta property="og:type" content="<?= $domain->getType() ?>" />
 <!-- / YRewrite Meta-Infos Domain -->
-<?php
-echo $seo->getTags();
+<?= $seo->getTags();
 ?>
 <?php
 if ($icon = $domain->getIcon()) {
