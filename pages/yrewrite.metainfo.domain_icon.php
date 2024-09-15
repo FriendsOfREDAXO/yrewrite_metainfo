@@ -50,7 +50,7 @@ if (isset($_FILES['realfaviconzip']) && 0 === $_FILES['realfaviconzip']['error']
             $media_category_id = array_shift($latest_category)['id'];
         }
 
-        $prefix = $manifest['short_name'] . '_';
+        $prefix = rex_string::normalize($manifest['short_name']) . '_';
 
         foreach ($files as $file) {
             if (is_file($file)) {
