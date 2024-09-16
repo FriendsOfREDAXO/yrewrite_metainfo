@@ -1,6 +1,6 @@
 package: yrewrite_metainfo
 version: "2.1.1"
-author: "Alexander Walther"
+author: Friends of REDAXO
 supportpage: https://github.com/FriendsOfRedaxo/yrewrite_metainfo/
 
 requires:
