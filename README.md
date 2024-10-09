@@ -46,6 +46,7 @@ Anschließend werden die passenden Meta-Informationen, soweit ausgefüllt, ausge
 | Umfangreiche Dokumentation | ✅ Ja                 | ❌ Nein             | ✅ Ja                 |
 | Berechtigungssystem        | ❌ Nein               | ✅ Ja               | ❌ Nein               |
 | rexstan-Level              | ⚠️ Unbekannt          | ⚠️ Unbekannt        | 🏆 Level 9            |
+| Automatischer Import       | ❌ Nein               | ❌ Nein             | ✅ Ja                 |
 
 ### Fragen
 
