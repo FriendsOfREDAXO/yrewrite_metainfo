@@ -21,4 +21,8 @@ rex_extension::register(
 
 $_REQUEST['table_name'] = $table_name; /** @phpstan-ignore-line */
 
-include rex_path::plugin('yform', 'manager', 'pages/data_edit.php');
+if(is_file(rex_path::addon('yform', 'pages/manager.data_edit.php'))) {
+    include rex_path::addon('yform', 'pages/manager.data_edit.php');
+} else {
+    include rex_path::plugin('yform', 'manager', 'pages/data_edit.php');
+}
