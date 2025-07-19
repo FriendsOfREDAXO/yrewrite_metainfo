@@ -101,7 +101,7 @@ Damit wird auch die zukünftige Entwicklung dieses Addons gesichert.
 
 ## Lizenz
 
-MIT Lizenz, siehe [LICENSE.md](https://github.com/alexplusde/dummy/blob/master/LICENSE.md)  
+MIT Lizenz, siehe [LICENSE.md](https://github.com/alexplusde/yrewrite_metainfo/blob/master/LICENSE.md)  
 
 ## Autoren
 
@@ -109,6 +109,7 @@ Friends of REDAXO
 
 **Projekt-Lead**  
 [Alexander Walther](https://github.com/alxndr-w)
+
 - <https://www.alexplus.de>  
 - <https://github.com/alexplusde>
 
