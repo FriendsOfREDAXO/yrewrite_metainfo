@@ -4,7 +4,7 @@ namespace FriendsOfRedaxo\YrewriteMetainfo;
 
 use rex_fragment;
 use rex_media;
-use rex_media_plus;
+use Alexplusde\MediaManagerResponsive\Media;
 use rex_path;
 use rex_yform_manager_dataset;
 use rex_yrewrite;
@@ -56,8 +56,8 @@ class Domain extends rex_yform_manager_dataset
     /** @api */
     public function getLogoImg(): ?string
     {
-        if (class_exists('rex_media_plus') && is_object(rex_media_plus::get($this->getValue('logo')))) {
-            return rex_media_plus::get($this->getValue('logo'))->getImg();
+        if (class_exists('Media') && is_object(Media::get($this->getValue('logo')))) {
+            return Media::get($this->getValue('logo'))->getImg();
         }
         if (is_object(rex_media::get($this->getValue('logo')))) {
             // Wenn Addon media_manager_responsive installiert ist, wird das responsive Bild zurückgegeben
