@@ -2,17 +2,17 @@
 
 Kind-Klasse von `rex_yform_manager_dataset`, damit stehen alle Methoden von YOrm-Datasets zur Verfügung. Greift auf die Tabelle `yrewrite_metainfo_icon` zu.
 
-> Es werden nachfolgend zur die durch dieses Addon ergänzte Methoden beschrieben. Lerne mehr über YOrm und den Methoden für Querys, Datasets und Collections in der [YOrm Doku](https://github.com/yakamara/yform/blob/master/docs/04_yorm.md)
+> Es werden nachfolgend nur die durch dieses Addon ergänzten Methoden beschrieben. Lerne mehr über YOrm und den Methoden für Querys, Datasets und Collections in der [YOrm Doku](https://github.com/yakamara/yform/blob/master/docs/04_yorm.md)
 
 ## Alle Einträge erhalten
 
 ```php
 $domain = Domain::getCurrent();
 $icon = $domain->getIcon();
-echo $icon->getIcon16();
-echo $icon->getIcon16Url();
-echo $icon->getIcon32();
-echo $icon->getIcon32Url();
+echo $icon->getFaviconPng96();
+echo $icon->getFaviconPng96Url();
+echo $icon->getFaviconSvg();
+echo $icon->getFaviconSvgUrl();
 echo $icon->getManifest();
 // usw.
 ```
@@ -103,27 +103,6 @@ $dataset->setThemeColor($value);
 $dataset->save();
 ```
 
-### `getYrewriteMetainfoThemeColor()`
-
-Gibt den Wert für das Feld `yrewrite_metainfo_theme_color` (PWA Theme-Farbe) zurück: `<meta name="theme-color">`
-
-Beispiel:
-
-```php
-$dataset = yrewrite_metainfo_icon::get($id);
-echo $dataset->getYrewriteMetainfoThemeColor();
-```
-
-### `setYrewriteMetainfoThemeColor(mixed $value)`
-
-Setzt den Wert für das Feld `yrewrite_metainfo_theme_color` (PWA Theme-Farbe).
-
-```php
-$dataset = yrewrite_metainfo_icon::create();
-$dataset->setYrewriteMetainfoThemeColor($value);
-$dataset->save();
-```
-
 ### `getBackgroundColor()`
 
 Gibt den Wert für das Feld `background_color` (PWA Hintergrund-Farbe) zurück: Hintergrundfarbe, z.B. beim Starten der PWA
@@ -142,27 +121,6 @@ Setzt den Wert für das Feld `background_color` (PWA Hintergrund-Farbe).
 ```php
 $dataset = yrewrite_metainfo_icon::create();
 $dataset->setBackgroundColor($value);
-$dataset->save();
-```
-
-### `getMsapplicationTitleColor()`
-
-Gibt den Wert für das Feld `msapplication_title_color` (PWA Titelleisten-Farbe) zurück: (nur Microsoft Windows), `&lt;meta name="msapplication-TileColor"&gt;`
-
-Beispiel:
-
-```php
-$dataset = yrewrite_metainfo_icon::get($id);
-echo $dataset->getMsapplicationTitleColor();
-```
-
-### `setMsapplicationTitleColor(mixed $value)`
-
-Setzt den Wert für das Feld `msapplication_title_color` (PWA Titelleisten-Farbe).
-
-```php
-$dataset = yrewrite_metainfo_icon::create();
-$dataset->setMsapplicationTitleColor($value);
 $dataset->save();
 ```
 
@@ -187,48 +145,6 @@ $dataset->setShortcutIcon($filename);
 $dataset->save();
 ```
 
-### `getIcon16(bool $asMedia = false)`
-
-Gibt den Wert für das Feld `icon_16` (16x16) zurück: 16×16px
-
-Beispiel:
-
-```php
-$dataset = yrewrite_metainfo_icon::get($id);
-$media = $dataset->getIcon16(true);
-```
-
-### `setIcon16(string $filename)`
-
-Setzt den Wert für das Feld `icon_16` (16x16).
-
-```php
-$dataset = yrewrite_metainfo_icon::create();
-$dataset->setIcon16($filename);
-$dataset->save();
-```
-
-### `getIcon32(bool $asMedia = false)`
-
-Gibt den Wert für das Feld `icon_32` (32x32) zurück: 32×32px
-
-Beispiel:
-
-```php
-$dataset = yrewrite_metainfo_icon::get($id);
-$media = $dataset->getIcon32(true);
-```
-
-### `setIcon32(string $filename)`
-
-Setzt den Wert für das Feld `icon_32` (32x32).
-
-```php
-$dataset = yrewrite_metainfo_icon::create();
-$dataset->setIcon32($filename);
-$dataset->save();
-```
-
 ### `getAppleTouchIcon(bool $asMedia = false)`
 
 Gibt den Wert für das Feld `apple_touch_icon` (Apple Touch) zurück: 180×180px
@@ -250,24 +166,45 @@ $dataset->setAppleTouchIcon($filename);
 $dataset->save();
 ```
 
-### `getSafariPinnedTab(bool $asMedia = false)`
+### `getFaviconPng96(bool $asMedia = false)`
 
-Gibt den Wert für das Feld `safari_pinned_tab` (Safari Pinned Tab) zurück: `safari-pinned-tab.svg`
+Gibt den Wert für das Feld `favicon_png_96` (PNG Favicon 96x96) zurück: `favicon-96x96.png`
 
 Beispiel:
 
 ```php
 $dataset = yrewrite_metainfo_icon::get($id);
-$media = $dataset->getSafariPinnedTab(true);
+$media = $dataset->getFaviconPng96(true);
 ```
 
-### `setSafariPinnedTab(string $filename)`
+### `setFaviconPng96(string $filename)`
 
-Setzt den Wert für das Feld `safari_pinned_tab` (Safari Pinned Tab).
+Setzt den Wert für das Feld `favicon_png_96` (PNG Favicon 96x96).
 
 ```php
 $dataset = yrewrite_metainfo_icon::create();
-$dataset->setSafariPinnedTab($filename);
+$dataset->setFaviconPng96($filename);
+$dataset->save();
+```
+
+### `getFaviconSvg(bool $asMedia = false)`
+
+Gibt den Wert für das Feld `favicon_svg` (SVG Favicon) zurück: `favicon.svg`
+
+Beispiel:
+
+```php
+$dataset = yrewrite_metainfo_icon::get($id);
+$media = $dataset->getFaviconSvg(true);
+```
+
+### `setFaviconSvg(string $filename)`
+
+Setzt den Wert für das Feld `favicon_svg` (SVG Favicon).
+
+```php
+$dataset = yrewrite_metainfo_icon::create();
+$dataset->setFaviconSvg($filename);
 $dataset->save();
 ```
 

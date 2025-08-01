@@ -31,15 +31,12 @@ yrewrite_metainfo_display_notice = Gibt an, wie viel Browser-UI innerhalb der PW
 yrewrite_metainfo_theme_color = PWA Theme-Farbe
 yrewrite_metainfo_background_color_label = PWA Hintergrund-Farbe 
 yrewrite_metainfo_background_color_notice = Hintergrundfarbe, z.B. beim Starten der PWA
-yrewrite_metainfo_msapplication_tile_color = PWA Titelleisten-Farbe
-yrewrite_metainfo_msapplication_tile_color_notice = (nur Microsoft Windows), <code>&lt;meta name="msapplication-TileColor"&gt;</code>
 
 yrewrite_metainfo_shortcut_icon = Favicon
-yrewrite_metainfo_icon_16 = 16x16
-yrewrite_metainfo_icon_32 = 32x32
 yrewrite_metainfo_apple_touch_icon = Apple Touch 
-yrewrite_metainfo_safari_pinned_tab = Safari Pinned Tab
 yrewrite_metainfo_manifest = webmanifest.json
+yrewrite_metainfo_favicon_png_96 = PNG Favicon 96x96
+yrewrite_metainfo_favicon_svg = SVG Favicon
 
 yrewrite_metainfo_add = Hinzufügen
 yrewrite_metainfo_edit = Bearbeiten

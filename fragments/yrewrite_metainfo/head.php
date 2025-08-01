@@ -28,29 +28,21 @@ if ($icon = $domain->getIcon()) {
 <link rel="apple-touch-icon" sizes="180x180"
 	href="<?= $icon->getAppleTouchIconUrl() ?>">
 <?php } ?>
-<?php if ($icon->getIcon32(true)) { ?>
-<link rel="icon" type="image/png" sizes="32x32"
-	href="<?= $icon->getIcon32Url() ?>">
-<?php } ?>
-<?php if ($icon->getIcon16(true)) { ?>
-<link rel="icon" type="image/png" sizes="16x16"
-	href="<?= $icon->getIcon16Url() ?>">
-<?php } ?>
 <?php if ($icon->getManifest()) { ?>
 <link rel="manifest" href="<?= $icon->getManifestUrl() ?>">
-<?php } ?>
-<?php if ($icon->getSafariPinnedTab()) { ?>
-<link rel="mask-icon" href="<?= $icon->getSafariPinnedTabUrl() ?>"
-	color="<?= $icon->getThemeColor() ?>">
 <?php } ?>
 <?php if ($icon->getShortcutIcon()) { ?>
 <link rel="shortcut icon" href="<?= $icon->getShortcutIconUrl() ?>">
 <?php } ?>
+<?php if ($icon->getFaviconPng96()) { ?>
+<link rel="icon" type="image/png" href="<?= $icon->getFaviconPng96Url() ?>" sizes="96x96" />
+<?php } ?>
+<?php if ($icon->getFaviconSvg()) { ?>
+<link rel="icon" type="image/svg+xml" href="<?= $icon->getFaviconSvgUrl() ?>" />
+<?php } ?>
 <meta name="apple-mobile-web-app-title"
 	content="<?= $icon->getShortName() ?>">
 <meta name="application-name" content="<?= $icon->getShortName() ?>">
-<meta name="msapplication-TileColor"
-	content="<?= $icon->getMsapplicationTitleColor() ?>">
 <meta name="theme-color" content="<?= $icon->getThemeColor() ?>">
 <!-- / YRewrite Meta-Infos Icon-Profil -->
 <?php
