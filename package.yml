@@ -6,7 +6,7 @@ supportpage: https://github.com/FriendsOfRedaxo/yrewrite_metainfo/
 requires:
     php:
         version: "^8.3"
-    redaxo: ^5.17
+    redaxo: ^5.19
     packages:
         yrewrite: "^2"
         yform: ">=4,<6"
