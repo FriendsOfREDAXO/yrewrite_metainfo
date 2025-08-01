@@ -43,7 +43,12 @@ if (isset($_FILES['realfaviconzip']) && 0 === $_FILES['realfaviconzip']['error']
 
         $files = glob($extractPath . DIRECTORY_SEPARATOR . '*');
         $manifestPath = $extractPath . DIRECTORY_SEPARATOR . 'site.webmanifest';
-        $manifest = file_exists($manifestPath) ? file_get_contents($manifestPath) : '{}';
+        if (file_exists($manifestPath)) {
+            $manifestContent = file_get_contents($manifestPath);
+            $manifest = ($manifestContent !== false) ? $manifestContent : '{}';
+        } else {
+            $manifest = '{}';
+        }
         $manifest = json_decode($manifest, true);
         if (empty($manifest['short_name'])) {
             $manifest['short_name'] = date('Y-m-d-H-i-s');
