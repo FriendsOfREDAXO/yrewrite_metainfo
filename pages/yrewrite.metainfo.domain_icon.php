@@ -21,6 +21,15 @@ rex_extension::register(
     ['table_name' => $table_name],
 );
 
+rex_mediapool::setAllowedMimeTypes([
+    'png' => ['image/png'],
+    'jpg' => ['image/jpeg'],
+    'jpeg' => ['image/jpeg'],
+    'svg' => ['image/svg+xml'],
+    'ico' => ['image/x-icon', 'image/vnd.microsoft.icon'],
+    'webmanifest' => ['application/json'],
+]);
+
 $_REQUEST['table_name'] = $table_name; /** @phpstan-ignore-line */
 
 // Wenn ein ZIP-File hochgeladen wurde, entpacken und in die Datenbank speichern
@@ -28,15 +37,21 @@ if (isset($_FILES['realfaviconzip']) && 0 === $_FILES['realfaviconzip']['error']
     $zip = new ZipArchive();
     $res = $zip->open($_FILES['realfaviconzip']['tmp_name']);
     if (true === $res) {
-        $zip->extractTo(rex_path::addonCache('yrewrite_metainfo', date('Y-m-d h-i-s')));
+        $extractPath = rex_path::addonCache('yrewrite_metainfo', date('Y-m-d_H-i-s'));
+        $zip->extractTo($extractPath);
         $zip->close();
 
-        $files = glob(rex_path::addonCache('yrewrite_metainfo', date('Y-m-d h-i-s')) . DIRECTORY_SEPARATOR . '*');
-        $manifest = file_get_contents(rex_path::addonCache('yrewrite_metainfo', date('Y-m-d h-i-s')) . DIRECTORY_SEPARATOR . 'site.webmanifest');
-
+        $files = glob($extractPath . DIRECTORY_SEPARATOR . '*');
+        $manifestPath = $extractPath . DIRECTORY_SEPARATOR . 'site.webmanifest';
+        if (file_exists($manifestPath)) {
+            $manifestContent = file_get_contents($manifestPath);
+            $manifest = (false !== $manifestContent) ? $manifestContent : '{}';
+        } else {
+            $manifest = '{}';
+        }
         $manifest = json_decode($manifest, true);
-        if ('' == $manifest['short_name']) {
-            $manifest['short_name'] = date('Y-m-d-h-i-s');
+        if (empty($manifest['short_name'])) {
+            $manifest['short_name'] = date('Y-m-d-H-i-s');
         }
 
         $media_category_id = rex_post('media_category_id', 'int', 0);
@@ -52,12 +67,12 @@ if (isset($_FILES['realfaviconzip']) && 0 === $_FILES['realfaviconzip']['error']
 
         $prefix = rex_string::normalize($manifest['short_name']) . '_';
 
+        // Alle Dateien in den Medienpool importieren
         foreach ($files as $file) {
             if (is_file($file)) {
                 $filename = basename($file);
-
                 $data = [];
-                $data['title'] = 'Icon-Profil: ' . $manifest['name'];
+                $data['title'] = 'Icon-Profil: ' . ($manifest['name'] ?? $manifest['short_name']);
                 $data['category_id'] = $media_category_id;
                 $data['file'] = [
                     'name' => $prefix . $filename,
@@ -67,19 +82,70 @@ if (isset($_FILES['realfaviconzip']) && 0 === $_FILES['realfaviconzip']['error']
             }
         }
 
+        // Zuordnung der wichtigsten Icons aus Manifest und ZIP
+        $icon16 = null;
+        $icon32 = null;
+        $appleTouchIcon = null;
+        $safariPinnedTab = null;
+        $shortcutIcon = null;
+        $manifestFile = null;
+        $icon192 = null;
+        $icon512 = null;
+        $faviconSvg = null;
+
+        // Manifest-Icons auslesen
+        if (!empty($manifest['icons']) && is_array($manifest['icons'])) {
+            foreach ($manifest['icons'] as $icon) {
+                if (isset($icon['sizes'])) {
+                    if ('192x192' === $icon['sizes']) {
+                        $icon192 = $prefix . basename($icon['src']);
+                    }
+                    if ('512x512' === $icon['sizes']) {
+                        $icon512 = $prefix . basename($icon['src']);
+                    }
+                }
+            }
+        }
+
+        // Standard-Dateien aus ZIP
+        foreach ($files as $file) {
+            $filename = basename($file);
+            if (str_ends_with($filename, 'favicon.ico')) {
+                $shortcutIcon = $prefix . $filename;
+            }
+            if (str_ends_with($filename, 'favicon-16x16.png')) {
+                $icon16 = $prefix . $filename;
+            }
+            if (str_ends_with($filename, 'favicon-32x32.png')) {
+                $icon32 = $prefix . $filename;
+            }
+            if (str_ends_with($filename, 'apple-touch-icon.png')) {
+                $appleTouchIcon = $prefix . $filename;
+            }
+            if (str_ends_with($filename, 'safari-pinned-tab.svg')) {
+                $safariPinnedTab = $prefix . $filename;
+            }
+            if (str_ends_with($filename, 'site.webmanifest')) {
+                $manifestFile = $prefix . $filename;
+            }
+            if (str_ends_with($filename, 'favicon.svg')) {
+                $faviconSvg = $prefix . $filename;
+            }
+        }
+
         $dataset = Icon::create();
-        $dataset->setName($manifest['name']);
+        $dataset->setName($manifest['name'] ?? $manifest['short_name']);
         $dataset->setShortName($manifest['short_name']);
-        $dataset->setDisplay($manifest['display']);
-        $dataset->setThemeColor($manifest['theme_color']);
-        $dataset->setBackgroundColor($manifest['background_color']);
-        $dataset->setMsapplicationTitleColor($manifest['theme_color']);
-        $dataset->setShortcutIcon($prefix . 'favicon.ico');
-        $dataset->setIcon16($prefix . 'favicon-16x16.png');
-        $dataset->setIcon32($prefix . 'favicon-32x32.png');
-        $dataset->setAppleTouchIcon($prefix . 'apple-touch-icon.png');
-        $dataset->setSafariPinnedTab($prefix . 'safari-pinned-tab.svg');
-        $dataset->setManifest($prefix . 'site.webmanifest');
+        $dataset->setDisplay($manifest['display'] ?? 'standalone');
+        $dataset->setThemeColor($manifest['theme_color'] ?? '');
+        $dataset->setBackgroundColor($manifest['background_color'] ?? '');
+        $dataset->setMsapplicationTitleColor($manifest['theme_color'] ?? '');
+        $dataset->setShortcutIcon($shortcutIcon ?? $faviconSvg ?? '');
+        $dataset->setIcon16($icon16 ?? $icon192 ?? '');
+        $dataset->setIcon32($icon32 ?? $icon512 ?? '');
+        $dataset->setAppleTouchIcon($appleTouchIcon ?? $icon192 ?? '');
+        $dataset->setSafariPinnedTab($safariPinnedTab ?? '');
+        $dataset->setManifest($manifestFile ?? '');
         $dataset->save();
     }
 }
