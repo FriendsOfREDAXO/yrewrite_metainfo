@@ -170,6 +170,7 @@
                 "search": 0,
                 "table_name": "rex_yrewrite_metainfo_icon",
                 "type_id": "value",
+                "type_name": "be_media",
                 "types": "webmanifest"
             },
             {
