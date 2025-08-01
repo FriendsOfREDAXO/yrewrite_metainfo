@@ -7,6 +7,9 @@ Kind-Klasse von `rex_yform_manager_dataset`, damit stehen alle Methoden von YOrm
 ## Alle Einträge erhalten
 
 ```php
+use FriendsOfREDAXO\YRewriteMetainfo\Domain;
+use FriendsOfREDAXO\YRewriteMetainfo\Icon;
+
 $domain = Domain::getCurrent();
 $icon = $domain->getIcon();
 echo $icon->getFaviconPng96();

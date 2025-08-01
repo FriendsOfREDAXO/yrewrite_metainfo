@@ -191,7 +191,7 @@ class Domain extends rex_yform_manager_dataset
 
     /* Profil (Icons, PWA) */
     /** @api */
-    public function getIcon(): ?rex_yform_manager_dataset
+    public function getIcon(): ?Icon
     {
         return $this->getRelatedDataset('icon');
     }
