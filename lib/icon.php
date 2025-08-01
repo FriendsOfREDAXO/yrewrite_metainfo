@@ -79,13 +79,13 @@ class Icon extends rex_yform_manager_dataset
     }
 
     /* [translate:msapplication_title_color] */
-    /** @api */
+    /** @api @deprecated ab 2025-08-02: Nicht mehr aus ZIP/Manifest befüllbar. */
     public function getMsapplicationTitleColor(): ?string
     {
         return $this->getValue('msapplication_title_color');
     }
 
-    /** @api */
+    /** @api @deprecated ab 2025-08-02: Nicht mehr aus ZIP/Manifest befüllbar. */
     public function setMsapplicationTitleColor(mixed $value): self
     {
         $this->setValue('msapplication_title_color', $value);
@@ -118,7 +118,7 @@ class Icon extends rex_yform_manager_dataset
     }
 
     /* 16x16 */
-    /** @api */
+    /** @api @deprecated ab 2025-08-02: Nicht mehr aus ZIP/Manifest befüllbar. */
     public function getIcon16(bool $asMedia = false): string|rex_media|null
     {
         if ($asMedia) {
@@ -127,13 +127,13 @@ class Icon extends rex_yform_manager_dataset
         return $this->getValue('icon_16');
     }
 
-    /** @api */
+    /** @api @deprecated ab 2025-08-02: Nicht mehr aus ZIP/Manifest befüllbar. */
     public function getIcon16Url(): string
     {
         return rex_url::media() . $this->getValue('icon_16');
     }
 
-    /** @api */
+    /** @api @deprecated ab 2025-08-02: Nicht mehr aus ZIP/Manifest befüllbar. */
     public function setIcon16(string $filename): self
     {
         if (null !== rex_media::get($filename)) {
@@ -143,7 +143,7 @@ class Icon extends rex_yform_manager_dataset
     }
 
     /* 32x32 */
-    /** @api */
+    /** @api @deprecated ab 2025-08-02: Nicht mehr aus ZIP/Manifest befüllbar. */
     public function getIcon32(bool $asMedia = false): string|rex_media|null
     {
         if ($asMedia) {
@@ -152,13 +152,13 @@ class Icon extends rex_yform_manager_dataset
         return $this->getValue('icon_32');
     }
 
-    /** @api */
+    /** @api @deprecated ab 2025-08-02: Nicht mehr aus ZIP/Manifest befüllbar. */
     public function getIcon32Url(): string
     {
         return rex_url::media() . $this->getValue('icon_32');
     }
 
-    /** @api */
+    /** @api @deprecated ab 2025-08-02: Nicht mehr aus ZIP/Manifest befüllbar. */
     public function setIcon32(string $filename): self
     {
         if (null !== rex_media::get($filename)) {
@@ -193,7 +193,7 @@ class Icon extends rex_yform_manager_dataset
     }
 
     /* Safari Pinned Tab */
-    /** @api */
+    /** @api @deprecated ab 2025-08-02: Nicht mehr aus ZIP/Manifest befüllbar. */
     public function getSafariPinnedTab(bool $asMedia = false): string|rex_media|null
     {
         if ($asMedia) {
@@ -202,13 +202,13 @@ class Icon extends rex_yform_manager_dataset
         return $this->getValue('safari_pinned_tab');
     }
 
-    /** @api */
+    /** @api @deprecated ab 2025-08-02: Nicht mehr aus ZIP/Manifest befüllbar. */
     public function getSafariPinnedTabUrl(): string
     {
         return rex_url::media() . $this->getValue('safari_pinned_tab');
     }
 
-    /** @api */
+    /** @api @deprecated ab 2025-08-02: Nicht mehr aus ZIP/Manifest befüllbar. */
     public function setSafariPinnedTab(string $filename): self
     {
         if (null !== rex_media::get($filename)) {
