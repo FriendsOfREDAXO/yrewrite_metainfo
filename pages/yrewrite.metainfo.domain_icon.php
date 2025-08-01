@@ -45,7 +45,7 @@ if (isset($_FILES['realfaviconzip']) && 0 === $_FILES['realfaviconzip']['error']
         $manifestPath = $extractPath . DIRECTORY_SEPARATOR . 'site.webmanifest';
         if (file_exists($manifestPath)) {
             $manifestContent = file_get_contents($manifestPath);
-            $manifest = ($manifestContent !== false) ? $manifestContent : '{}';
+            $manifest = (false !== $manifestContent) ? $manifestContent : '{}';
         } else {
             $manifest = '{}';
         }
