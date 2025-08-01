@@ -46,14 +46,15 @@ rex_extension::register('REX_LIST_GET', static function (rex_extension_point $ep
         $params['table_name'] = 'rex_yrewrite_metainfo';
         $params['rex_yform_manager_popup'] = '0';
         $params['_csrf_token'] = $token['_csrf_token'];
-        $params['func'] = 'add';
 
         if (null !== $domain) {
             $params['data_id'] = $domain->getId();
             $params['func'] = 'edit';
             return '<a href="' . rex_url::backendPage('yrewrite/metainfo/domain', $params) . '">' . rex_i18n::msg('yrewrite_metainfo_edit') . '</a>';
         }
-        // Link zu neuer YRewrite-Metainfo-Domain erstellen
+
+        // Link zur neuen YRewrite-Metainfo-Domain erstellen
+        $params['func'] = 'add';
         return '<a href="' . rex_url::backendPage('yrewrite/metainfo/domain', $params) . '">' . rex_i18n::msg('yrewrite_metainfo_add') . '</a>';
     });
     return $list;
