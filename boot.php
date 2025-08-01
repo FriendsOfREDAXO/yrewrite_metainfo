@@ -38,19 +38,17 @@ rex_extension::register('REX_LIST_GET', static function (rex_extension_point $ep
         $_csrf_key = $table->getCSRFKey();
         $token = rex_csrf_token::factory($_csrf_key)->getUrlParams();
 
-        
         $domain = Domain::query()
             ->where('yrewrite_domain_id', $a['list']->getValue('id'))
             ->findOne();
 
-            $params = [];
+        $params = [];
         $params['table_name'] = 'rex_yrewrite_metainfo';
         $params['rex_yform_manager_popup'] = '0';
         $params['_csrf_token'] = $token['_csrf_token'];
         $params['func'] = 'add';
 
-
-        if ($domain !== null) {
+        if (null !== $domain) {
             $params['data_id'] = $domain->getId();
             $params['func'] = 'edit';
             return '<a href="' . rex_url::backendPage('yrewrite/metainfo/domain', $params) . '">' . rex_i18n::msg('yrewrite_metainfo_edit') . '</a>';

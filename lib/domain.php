@@ -2,9 +2,9 @@
 
 namespace FriendsOfRedaxo\YrewriteMetainfo;
 
+use Alexplusde\MediaManagerResponsive\Media;
 use rex_fragment;
 use rex_media;
-use Alexplusde\MediaManagerResponsive\Media;
 use rex_path;
 use rex_yform_manager_dataset;
 use rex_yrewrite;
