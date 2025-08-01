@@ -92,10 +92,10 @@ if (isset($_FILES['realfaviconzip']) && 0 === $_FILES['realfaviconzip']['error']
         if (!empty($manifest['icons']) && is_array($manifest['icons'])) {
             foreach ($manifest['icons'] as $icon) {
                 if (isset($icon['sizes'])) {
-                    if ($icon['sizes'] === '192x192') {
+                    if ('192x192' === $icon['sizes']) {
                         $icon192 = $prefix . basename($icon['src']);
                     }
-                    if ($icon['sizes'] === '512x512') {
+                    if ('512x512' === $icon['sizes']) {
                         $icon512 = $prefix . basename($icon['src']);
                     }
                 }
