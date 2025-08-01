@@ -96,19 +96,19 @@ if (isset($_FILES['realfaviconzip']) && 0 === $_FILES['realfaviconzip']['error']
         $faviconSvg = null;
         foreach ($files as $file) {
             $filename = basename($file);
-            if ($filename === 'favicon.ico') {
+            if ('favicon.ico' === $filename) {
                 $shortcutIcon = $prefix . $filename;
             }
-            if ($filename === 'apple-touch-icon.png') {
+            if ('apple-touch-icon.png' === $filename) {
                 $appleTouchIcon = $prefix . $filename;
             }
-            if ($filename === 'site.webmanifest') {
+            if ('site.webmanifest' === $filename) {
                 $manifestFile = $prefix . $filename;
             }
-            if ($filename === 'favicon-96x96.png') {
+            if ('favicon-96x96.png' === $filename) {
                 $faviconPng96 = $prefix . $filename;
             }
-            if ($filename === 'favicon.svg') {
+            if ('favicon.svg' === $filename) {
                 $faviconSvg = $prefix . $filename;
             }
         }
