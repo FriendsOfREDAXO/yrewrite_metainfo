@@ -139,7 +139,7 @@
                 "table_name": "rex_yrewrite_metainfo_icon",
                 "type_id": "value",
                 "type_name": "be_media_preview",
-                "types": ""
+                "types": "ico,png,svg"
             },
             {
                 "category": "",
