@@ -10,6 +10,7 @@ requires:
     packages:
         yrewrite: "^2"
         yform: ">=4,<6"
+        yform_field: "^2.11.0"
 
 conflicts:
     packages:

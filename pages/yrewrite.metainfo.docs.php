@@ -31,8 +31,6 @@ if (null !== $page) {
     }
 }
 
-echo rex_view::title($this->i18n('yrewrite_metainfo_title'));
-
 [$Toc, $Content] = rex_markdown::factory()->parseWithToc(rex_file::require((string) $mdFiles[$currentMDFile]), 2, 3, [
     rex_markdown::SOFT_LINE_BREAKS => false,
     rex_markdown::HIGHLIGHT_PHP => true,

@@ -57,5 +57,28 @@ rex_extension::register('REX_LIST_GET', static function (rex_extension_point $ep
         $params['func'] = 'add';
         return '<a href="' . rex_url::backendPage('yrewrite/metainfo/domain', $params) . '">' . rex_i18n::msg('yrewrite_metainfo_add') . '</a>';
     });
+
+    return $list;
+});
+
+rex_extension::register('YFORM_DATA_LIST', static function (rex_extension_point $ep) {
+    /** @var rex_yform_manager_table $table */
+    $table = $ep->getParam('table');
+    if ('rex_yrewrite_metainfo_icon' !== $table->getTableName()) {
+        return;
+    }
+
+    /** @var rex_yform_list $list */
+    $list = $ep->getSubject();
+
+    // set column format for theme_color and background_color columns as bootstrap 3 badges
+    $list->setColumnFormat('theme_color', 'custom', static function ($a) {
+        return '<span class="badge" style="background-color: ' . $a['list']->getValue('theme_color') . '">' . $a['list']->getValue('theme_color') . '</span>';
+    });
+
+    $list->setColumnFormat('background_color', 'custom', static function ($a) {
+        return '<span class="badge" style="background-color: ' . $a['list']->getValue('background_color') . '">' . $a['list']->getValue('background_color') . '</span>';
+    });
+
     return $list;
 });

@@ -7,6 +7,8 @@ Kind-Klasse von `rex_yform_manager_dataset`, damit stehen alle Methoden von YOrm
 ## Infos zur aktuellen Domain erhalten
 
 ```php
+use FriendsOfREDAXO\YRewriteMetainfo\Domain;
+
 $domain = Domain::getCurrent(); // Aktuelle Domain
 $domain->getName(); // Website-Titel
 $domain->getLogo(); // Logo
