@@ -110,6 +110,7 @@ Friends of REDAXO
 **Projekt-Lead**  
 [Alexander Walther](https://github.com/alxndr-w)
 
+- <https://www.alexplus.de>  
 - <https://github.com/alexplusde>
 
 ## Credits
