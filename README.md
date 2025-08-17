@@ -101,7 +101,7 @@ Damit wird auch die zukünftige Entwicklung dieses Addons gesichert.
 
 ## Lizenz
 
-MIT Lizenz, siehe [LICENSE.md](https://github.com/alexplusde/yrewrite_metainfo/blob/master/LICENSE.md)  
+MIT Lizenz, siehe [LICENSE](https://github.com/FriendsOfREDAXO/yrewrite_metainfo/blob/master/LICENSE)  
 
 ## Autoren
 
