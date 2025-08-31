@@ -92,12 +92,8 @@ Füge das Fragment `yrewrite_metainfo/head.php` im Head anstelle der YRewrite-SE
 
 Du möchtest dieses Addon weiterentwickeln oder hast Vorschläge für Verbesserungen? Autor*innen und die Community bedanken sich für deine Unterstützung!
 
-Du hast folgende Möglichkeiten:
+🙏🏻 [Issues](https://github.com/FriendsOfREDAXO/yrewrite_metainfo/issues) lösen und Pull Requests erstellen.
 
-1. 🙏🏻 [Issues](https://github.com/FriendsOfREDAXO/yrewrite_metainfo/issues) lösen und Pull Requests erstellen.
-2. 💶 Projekt finanziell sponsoren: [GitHub Sponsors](https://github.com/alxndr-w) oder [Ko-fi](https://ko-fi.com/alxndr-w)
-
-Damit wird auch die zukünftige Entwicklung dieses Addons gesichert.
 
 ## Lizenz
 
@@ -110,7 +106,6 @@ Friends of REDAXO
 **Projekt-Lead**  
 [Alexander Walther](https://github.com/alxndr-w)
 
-- <https://www.alexplus.de>  
 - <https://github.com/alexplusde>
 
 ## Credits
