@@ -1,0 +1,57 @@
+yrewrite_metainfo = YRewrite Domän Meta-Info
+yrewrite_metainfo_title = Meta-Info
+
+# Menyflikar
+yrewrite_metainfo_domain = Allmänt
+yrewrite_metainfo_domain_icon = Ikoner och PWA-profiler
+yrewrite_metainfo_docs = Dokumentation
+
+# YForm-fält
+rex_yrewrite_metainfo_icon_table = 🌍 Ikoner och PWA-profiler
+rex_yrewrite_metainfo_domain_table = 🌍 Domän Meta-Info
+yrewrite_metainfo_fields = Fält
+
+yrewrite_metainfo_logo_label = Logotyp
+yrewrite_metainfo_logo_notice = Logotyp som kan visas i mallen.
+
+yrewrite_metainfo_type_label = og:type
+yrewrite_metainfo_type_notice = OpenGraph-typ (standard: <code>website</code>)
+yrewrite_metainfo_thumbnail_label = og:image
+yrewrite_metainfo_thumbnail_notification = OpenGraph-bild (länkförhandsvisning, kommer att genereras dynamiskt per artikelsida i en senare version)
+
+yrewrite_metainfo_icon_label = Profil (Ikoner, PWA)
+yrewrite_metainfo_icon_notice = I denna profil kan favicon- och webbläsarikoner, färgschema och många andra egenskaper för Progressive Web Apps anges, eventuellt för flera domäner.
+
+yrewrite_metainfo_icon_name_label = Profilnamn
+yrewrite_metainfo_icon_name_notice = Namn på profilen (används endast för visning under "Allmänt")
+yrewrite_metainfo_shortname_label = PWA Kortnamn (appgenväg)
+yrewrite_metainfo_shortname_notice = Används när webbplatsen visas som PWA-genväg på hemskärmen eller startmenyn.
+yrewrite_metainfo_display_label = PWA Webbläsargränssnitt
+yrewrite_metainfo_display_notice = Anger hur mycket webbläsargränssnitt som fortfarande är synligt i PWA, t.ex. omladdningsknappen
+yrewrite_metainfo_theme_color = PWA Temafärg
+yrewrite_metainfo_background_color_label = PWA Bakgrundsfärg
+yrewrite_metainfo_background_color_notice = Bakgrundsfärg, t.ex. vid start av PWA
+
+yrewrite_metainfo_shortcut_icon = Favicon
+yrewrite_metainfo_apple_touch_icon = Apple Touch
+yrewrite_metainfo_manifest = webmanifest.json
+yrewrite_metainfo_favicon_png_96 = PNG Favicon 96x96
+yrewrite_metainfo_favicon_svg = SVG Favicon
+
+yrewrite_metainfo_add = Lägg till
+yrewrite_metainfo_edit = Redigera
+
+yrewrite_metainfo_domain_icon_zip_upload_title = Ladda upp realfavicongenerator.net ZIP
+yrewrite_metainfo_domain_icon_zip_upload_notice = Ladda upp ett ZIP-arkiv från https://realfavicongenerator.net/ för att automatiskt importera ikonerna.
+yrewrite_metainfo_domain_icon_zip_upload_label = ZIP-fil
+yrewrite_metainfo_domain_icon_zip_upload_submit = Ladda upp och lägg till
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_option_root = -- ingen kategori --
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_option_new = Skapa automatiskt ny kategori
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_label = Mediekategori
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_notice = Mediekategori för de uppladdade filerna
+
+# Dokumentation
+yrewrite_metainfo_docs_intro = Introduktion
+yrewrite_metainfo_docs_domain = Domän Meta-Info
+yrewrite_metainfo_docs_icon_pwa = Ikoner och PWA
+yrewrite_metainfo_docs_fragments = Fragment

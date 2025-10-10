@@ -1,0 +1,57 @@
+yrewrite_metainfo = Meta-Infos de dominio YRewrite
+yrewrite_metainfo_title = Meta-Infos
+
+# Pestañas del menú
+yrewrite_metainfo_domain = General
+yrewrite_metainfo_domain_icon = Iconos y perfiles PWA
+yrewrite_metainfo_docs = Documentación
+
+# Campos YForm
+rex_yrewrite_metainfo_icon_table = 🌍 Iconos y perfiles PWA
+rex_yrewrite_metainfo_domain_table = 🌍 Meta-Infos de dominio
+yrewrite_metainfo_fields = Campos
+
+yrewrite_metainfo_logo_label = Logotipo
+yrewrite_metainfo_logo_notice = Logotipo que se puede mostrar en la plantilla.
+
+yrewrite_metainfo_type_label = og:type
+yrewrite_metainfo_type_notice = Tipo OpenGraph (predeterminado: <code>website</code>)
+yrewrite_metainfo_thumbnail_label = og:image
+yrewrite_metainfo_thumbnail_notification = Imagen OpenGraph (vista previa del enlace, se generará dinámicamente por página de artículo en una versión posterior)
+
+yrewrite_metainfo_icon_label = Perfil (Iconos, PWA)
+yrewrite_metainfo_icon_notice = En este perfil se pueden especificar iconos de favicon y navegador, esquema de colores y muchas otras propiedades para Progressive Web Apps, posiblemente para varios dominios.
+
+yrewrite_metainfo_icon_name_label = Nombre del perfil
+yrewrite_metainfo_icon_name_notice = Nombre del perfil (se usa solo para mostrar en "General")
+yrewrite_metainfo_shortname_label = Nombre corto PWA (acceso directo de aplicación)
+yrewrite_metainfo_shortname_notice = Se usa cuando el sitio web se muestra como acceso directo PWA en la pantalla de inicio o menú de inicio.
+yrewrite_metainfo_display_label = Interfaz de usuario del navegador PWA
+yrewrite_metainfo_display_notice = Especifica cuánta interfaz de usuario del navegador sigue visible dentro de la PWA, por ejemplo, botón de recarga
+yrewrite_metainfo_theme_color = Color de tema PWA
+yrewrite_metainfo_background_color_label = Color de fondo PWA
+yrewrite_metainfo_background_color_notice = Color de fondo, por ejemplo, al iniciar la PWA
+
+yrewrite_metainfo_shortcut_icon = Favicon
+yrewrite_metainfo_apple_touch_icon = Apple Touch
+yrewrite_metainfo_manifest = webmanifest.json
+yrewrite_metainfo_favicon_png_96 = Favicon PNG 96x96
+yrewrite_metainfo_favicon_svg = Favicon SVG
+
+yrewrite_metainfo_add = Añadir
+yrewrite_metainfo_edit = Editar
+
+yrewrite_metainfo_domain_icon_zip_upload_title = Subir ZIP de realfavicongenerator.net
+yrewrite_metainfo_domain_icon_zip_upload_notice = Sube un archivo ZIP desde https://realfavicongenerator.net/ para importar automáticamente los iconos.
+yrewrite_metainfo_domain_icon_zip_upload_label = Archivo ZIP
+yrewrite_metainfo_domain_icon_zip_upload_submit = Subir y añadir
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_option_root = -- sin categoría --
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_option_new = Crear automáticamente nueva categoría
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_label = Categoría de medios
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_notice = Categoría de medios para los archivos subidos
+
+# Documentación
+yrewrite_metainfo_docs_intro = Introducción
+yrewrite_metainfo_docs_domain = Meta-Infos de dominio
+yrewrite_metainfo_docs_icon_pwa = Iconos y PWA
+yrewrite_metainfo_docs_fragments = Fragmentos

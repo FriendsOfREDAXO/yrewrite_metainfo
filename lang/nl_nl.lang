@@ -1,0 +1,57 @@
+yrewrite_metainfo = YRewrite Domein Meta-Infos
+yrewrite_metainfo_title = Meta-Infos
+
+# Menu-tabbladen
+yrewrite_metainfo_domain = Algemeen
+yrewrite_metainfo_domain_icon = Pictogrammen en PWA-profielen
+yrewrite_metainfo_docs = Documentatie
+
+# YForm-velden
+rex_yrewrite_metainfo_icon_table = 🌍 Pictogrammen en PWA-profielen
+rex_yrewrite_metainfo_domain_table = 🌍 Domein Meta-Infos
+yrewrite_metainfo_fields = Velden
+
+yrewrite_metainfo_logo_label = Logo
+yrewrite_metainfo_logo_notice = Logo dat in de sjabloon kan worden weergegeven.
+
+yrewrite_metainfo_type_label = og:type
+yrewrite_metainfo_type_notice = OpenGraph-Type (standaard: <code>website</code>)
+yrewrite_metainfo_thumbnail_label = og:image
+yrewrite_metainfo_thumbnail_notification = OpenGraph-afbeelding (linkvoorbeeld, wordt dynamisch per artikelpagina gegenereerd in een latere versie)
+
+yrewrite_metainfo_icon_label = Profiel (Pictogrammen, PWA)
+yrewrite_metainfo_icon_notice = In dit profiel kunnen favicon- en browserpictogrammen, kleurenschema en vele andere eigenschappen voor Progressive Web Apps worden opgegeven, mogelijk voor meerdere domeinen.
+
+yrewrite_metainfo_icon_name_label = Profielnaam
+yrewrite_metainfo_icon_name_notice = Naam van het profiel (alleen gebruikt voor weergave onder "Algemeen")
+yrewrite_metainfo_shortname_label = PWA Korte naam (app-snelkoppeling)
+yrewrite_metainfo_shortname_notice = Wordt gebruikt wanneer de website wordt weergegeven als PWA-snelkoppeling op het startscherm of startmenu.
+yrewrite_metainfo_display_label = PWA Browser-UI
+yrewrite_metainfo_display_notice = Geeft aan hoeveel browser-UI nog zichtbaar is binnen de PWA, bijvoorbeeld de herlaadknop
+yrewrite_metainfo_theme_color = PWA Themakleur
+yrewrite_metainfo_background_color_label = PWA Achtergrondkleur
+yrewrite_metainfo_background_color_notice = Achtergrondkleur, bijvoorbeeld bij het starten van de PWA
+
+yrewrite_metainfo_shortcut_icon = Favicon
+yrewrite_metainfo_apple_touch_icon = Apple Touch
+yrewrite_metainfo_manifest = webmanifest.json
+yrewrite_metainfo_favicon_png_96 = PNG Favicon 96x96
+yrewrite_metainfo_favicon_svg = SVG Favicon
+
+yrewrite_metainfo_add = Toevoegen
+yrewrite_metainfo_edit = Bewerken
+
+yrewrite_metainfo_domain_icon_zip_upload_title = realfavicongenerator.net ZIP uploaden
+yrewrite_metainfo_domain_icon_zip_upload_notice = Upload een ZIP-archief van https://realfavicongenerator.net/ om de pictogrammen automatisch te importeren.
+yrewrite_metainfo_domain_icon_zip_upload_label = ZIP-bestand
+yrewrite_metainfo_domain_icon_zip_upload_submit = Uploaden en toevoegen
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_option_root = -- geen categorie --
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_option_new = Automatisch nieuwe categorie aanmaken
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_label = Mediacategorie
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_notice = Mediacategorie voor de geüploade bestanden
+
+# Documentatie
+yrewrite_metainfo_docs_intro = Introductie
+yrewrite_metainfo_docs_domain = Domein Meta-Infos
+yrewrite_metainfo_docs_icon_pwa = Pictogrammen en PWA
+yrewrite_metainfo_docs_fragments = Fragmenten

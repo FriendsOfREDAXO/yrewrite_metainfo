@@ -46,7 +46,13 @@ yrewrite_metainfo_domain_icon_zip_upload_notice = Lade ein ZIP-Archiv von https:
 yrewrite_metainfo_domain_icon_zip_upload_label = ZIP-Datei
 yrewrite_metainfo_domain_icon_zip_upload_submit = Hochladen und hinzufügen
 yrewrite_metainfo_domain_icon_zip_upload_media_category_id_option_root = -- keine Kategorie --
-yrewrite_metainfo_domain_icon_zip_upload_media_category_id_option_new = Neue Kategorie autoamtisch anlegen
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_option_new = Neue Kategorie automatisch anlegen
 
 yrewrite_metainfo_domain_icon_zip_upload_media_category_id_label = Medien-Kategorie
-yrewrite_metainfo_domain_icon_zip_upload_media_category_id_notice = Meiden-Kategorie für die hochgeladenen Dateien
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_notice = Medien-Kategorie für die hochgeladenen Dateien
+
+# Dokumentation
+yrewrite_metainfo_docs_intro = Einführung
+yrewrite_metainfo_docs_domain = Domain Meta-Infos
+yrewrite_metainfo_docs_icon_pwa = Icons und PWA
+yrewrite_metainfo_docs_fragments = Fragmente
