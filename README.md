@@ -8,7 +8,13 @@ Ergänzt YRewrite-Domains um die Möglichkeit, Metainformationen an Domains zu v
 
 Durch den Wechsel zu FriendsOfREDAXO, dem Hinzufügen von Namespaces, dem Angleichen von Tabellennamen und dem Entfernen bestimmter Felder & Methoden ist das Upgrade nicht rückwärtskompatibel. Es wird dringend empfohlen, ein Upgrade im Wartungsmodus durchzuführen und die entsprechenden Änderungen zu übernehmen.
 
-Tipp: Die Umbenennung der Tabellendefinition und Tabellen in `rex_yrewrite_metainfo` und `rex_yrewrite_metainfo_icon` vor dem Upgrade ausführen, um die bestehenden Daten zu übernehmen.
+> **Tipp:** Die Umbenennung der Tabellendefinition und Tabellen in `rex_yrewrite_metainfo` und `rex_yrewrite_metainfo_icon` vor dem Upgrade ausführen, um die bestehenden Daten zu übernehmen.
+
+### Upgrade-Hinweis von Version 1/2 auf 3
+
+> **Wichtig**: Der Vendor <https://realfavicongenerator.net/> hat den Aufbau des ZIPs an die aktuellen Anforderungen von Betriebssystemen und PWAs angepasst. Viele Formate sind entfallen, darunter Formate für Windows 8. Dadurch haben sich Methodennamen geändert. Sollte dein Projekt das Fragment `head.php` dieses Add-ons überschreiben, sind beim Upgrade Anpassungen notwendig!
+
+Es wird dringend empfohlen, ein Upgrade im Wartungsmodus durchzuführen und die entsprechenden Änderungen zu übernehmen.
 
 ### Installation
 
@@ -32,7 +38,7 @@ Anschließend werden die passenden Meta-Informationen, soweit ausgefüllt, ausge
 | Aktive Entwicklung         | ❌ Nein               | ⚠️ Unbekannt        | ✅ Ja                 |
 | Multidomain-fähig          | ❌ Nein               | ✅ Ja               | ✅ Ja                 |
 | Mehrsprachigkeit           | ✅ Ja                 | ✅ Ja               | ✅ Ja                 |
-| Backend-Sprachen           | DE, EN, ES, SV        | DE                   | DE, EN, FR, ES, IT, NL, PT, RU, SV |
+| Backend-Sprachen           | DE, EN, ES, SV        | DE                   | Alle Core-Sprachen    |
 | YForm-basiert              | ❌ Nein               | ⚠️ Teilweise        | ✅ Ja                 |
 | Feldtypen                  | ⚠️ 8                  | Alle YForm-Feldtypen | Alle YForm-Feldtypen  |
 | Eigene Feldtypen           | ❌ Nein               | ✅ Ja               | ✅ Ja                 |
