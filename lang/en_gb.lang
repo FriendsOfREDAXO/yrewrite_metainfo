@@ -4,7 +4,11 @@ yrewrite_metainfo_title = Meta-Infos
 # Menu Tabs
 yrewrite_metainfo_domain = General
 yrewrite_metainfo_domain_icon = Icons and PWA Profiles
+yrewrite_metainfo_docs = Docs
 
+# YForm Fields
+rex_yrewrite_metainfo_icon_table = 🌍 Icons and PWA Profiles
+rex_yrewrite_metainfo_domain_table = 🌍 Domain Meta-Infos
 yrewrite_metainfo_fields = Fields
 
 yrewrite_metainfo_logo_label = Logo
@@ -36,3 +40,18 @@ yrewrite_metainfo_favicon_svg = SVG Favicon
 
 yrewrite_metainfo_add = Add
 yrewrite_metainfo_edit = Edit
+
+yrewrite_metainfo_domain_icon_zip_upload_title = Upload realfavicongenerator.net ZIP
+yrewrite_metainfo_domain_icon_zip_upload_notice = Upload a ZIP archive from https://realfavicongenerator.net/ to automatically import the icons.
+yrewrite_metainfo_domain_icon_zip_upload_label = ZIP file
+yrewrite_metainfo_domain_icon_zip_upload_submit = Upload and add
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_option_root = -- no category --
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_option_new = Automatically create new category
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_label = Media category
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_notice = Media category for the uploaded files
+
+# Documentation
+yrewrite_metainfo_docs_intro = Introduction
+yrewrite_metainfo_docs_domain = Domain Meta-Infos
+yrewrite_metainfo_docs_icon_pwa = Icons and PWA
+yrewrite_metainfo_docs_fragments = Fragments

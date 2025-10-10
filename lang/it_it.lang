@@ -1,0 +1,57 @@
+yrewrite_metainfo = Meta-Info del dominio YRewrite
+yrewrite_metainfo_title = Meta-Info
+
+# Schede del menu
+yrewrite_metainfo_domain = Generale
+yrewrite_metainfo_domain_icon = Icone e profili PWA
+yrewrite_metainfo_docs = Documentazione
+
+# Campi YForm
+rex_yrewrite_metainfo_icon_table = 🌍 Icone e profili PWA
+rex_yrewrite_metainfo_domain_table = 🌍 Meta-Info del dominio
+yrewrite_metainfo_fields = Campi
+
+yrewrite_metainfo_logo_label = Logo
+yrewrite_metainfo_logo_notice = Logo che può essere visualizzato nel template.
+
+yrewrite_metainfo_type_label = og:type
+yrewrite_metainfo_type_notice = Tipo OpenGraph (predefinito: <code>website</code>)
+yrewrite_metainfo_thumbnail_label = og:image
+yrewrite_metainfo_thumbnail_notification = Immagine OpenGraph (anteprima del link, sarà generata dinamicamente per pagina articolo in una versione successiva)
+
+yrewrite_metainfo_icon_label = Profilo (Icone, PWA)
+yrewrite_metainfo_icon_notice = In questo profilo è possibile specificare icone favicon e browser, schema di colori e molte altre proprietà per Progressive Web Apps, eventualmente per più domini.
+
+yrewrite_metainfo_icon_name_label = Nome del profilo
+yrewrite_metainfo_icon_name_notice = Nome del profilo (utilizzato solo per la visualizzazione sotto "Generale")
+yrewrite_metainfo_shortname_label = Nome breve PWA (collegamento app)
+yrewrite_metainfo_shortname_notice = Utilizzato quando il sito web viene visualizzato come collegamento PWA sulla schermata iniziale o nel menu di avvio.
+yrewrite_metainfo_display_label = UI del browser PWA
+yrewrite_metainfo_display_notice = Specifica quanta UI del browser è ancora visibile all'interno della PWA, ad esempio il pulsante di ricarica
+yrewrite_metainfo_theme_color = Colore del tema PWA
+yrewrite_metainfo_background_color_label = Colore di sfondo PWA
+yrewrite_metainfo_background_color_notice = Colore di sfondo, ad esempio all'avvio della PWA
+
+yrewrite_metainfo_shortcut_icon = Favicon
+yrewrite_metainfo_apple_touch_icon = Apple Touch
+yrewrite_metainfo_manifest = webmanifest.json
+yrewrite_metainfo_favicon_png_96 = Favicon PNG 96x96
+yrewrite_metainfo_favicon_svg = Favicon SVG
+
+yrewrite_metainfo_add = Aggiungi
+yrewrite_metainfo_edit = Modifica
+
+yrewrite_metainfo_domain_icon_zip_upload_title = Carica ZIP da realfavicongenerator.net
+yrewrite_metainfo_domain_icon_zip_upload_notice = Carica un archivio ZIP da https://realfavicongenerator.net/ per importare automaticamente le icone.
+yrewrite_metainfo_domain_icon_zip_upload_label = File ZIP
+yrewrite_metainfo_domain_icon_zip_upload_submit = Carica e aggiungi
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_option_root = -- nessuna categoria --
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_option_new = Crea automaticamente nuova categoria
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_label = Categoria media
+yrewrite_metainfo_domain_icon_zip_upload_media_category_id_notice = Categoria media per i file caricati
+
+# Documentazione
+yrewrite_metainfo_docs_intro = Introduzione
+yrewrite_metainfo_docs_domain = Meta-Info del dominio
+yrewrite_metainfo_docs_icon_pwa = Icone e PWA
+yrewrite_metainfo_docs_fragments = Frammenti
