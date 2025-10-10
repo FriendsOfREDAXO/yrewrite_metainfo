@@ -32,7 +32,7 @@ Anschließend werden die passenden Meta-Informationen, soweit ausgefüllt, ausge
 | Aktive Entwicklung         | ❌ Nein               | ⚠️ Unbekannt        | ✅ Ja                 |
 | Multidomain-fähig          | ❌ Nein               | ✅ Ja               | ✅ Ja                 |
 | Mehrsprachigkeit           | ✅ Ja                 | ✅ Ja               | ✅ Ja                 |
-| Backend-Sprachen           | DE, EN, ES, SV        | DE                   | DE, EN                |
+| Backend-Sprachen           | DE, EN, ES, SV        | DE                   | DE, EN, FR, ES, IT, NL, PT, RU, SV |
 | YForm-basiert              | ❌ Nein               | ⚠️ Teilweise        | ✅ Ja                 |
 | Feldtypen                  | ⚠️ 8                  | Alle YForm-Feldtypen | Alle YForm-Feldtypen  |
 | Eigene Feldtypen           | ❌ Nein               | ✅ Ja               | ✅ Ja                 |
