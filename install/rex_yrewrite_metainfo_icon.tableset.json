@@ -206,7 +206,7 @@
                 "search": 0,
                 "table_name": "rex_yrewrite_metainfo_icon",
                 "type_id": "value",
-                "type_name": "be_media_preview",
+                "type_name": "yrewrite_metainfo_be_media_preview",
                 "types": ""
             }
         ],

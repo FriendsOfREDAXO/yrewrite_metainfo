@@ -1,7 +1,7 @@
 <?php
 /**
- * @var rex_yform_value_be_media_preview $this
- * @psalm-scope-this rex_yform_value_be_media_preview
+ * @var rex_yform_value_yrewrite_metainfo_be_media_preview $this
+ * @psalm-scope-this rex_yform_value_yrewrite_metainfo_be_media_preview
  */
 
 $counter ??= 1000;
@@ -63,15 +63,21 @@ if ($value) {
     <div class="rex-media-preview-container" style="margin-top: 10px;">
         <?php foreach ($mediaFiles as $file): 
             $media = rex_media::get($file);
-            if ($media && $media->isImage()): ?>
+            if ($media && $media->isImage()): 
+                // Prüfe ob es ein SVG ist - dann direkten Zugriff verwenden
+                $isSvg = strtolower($media->getExtension()) === 'svg';
+                $previewUrl = $isSvg ? rex_url::media($file) : rex_media_manager::getUrl('rex_media_small', $file);
+            ?>
         <div class="rex-media-preview-item" style="display: inline-block; margin: 5px;">
-            <img src="<?= rex_media_manager::getUrl('rex_media_small', $file) ?>" 
-                 class="rex-js-media-preview-click" 
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='%23f8f9fa'/%3E%3C/svg%3E" 
+                 data-lazy-src="<?= $previewUrl ?>"
+                 class="rex-js-media-preview-click rex-media-lazy" 
                  data-filename="<?= rex_escape($file) ?>"
-                 style="width: 80px; height: 80px; object-fit: cover; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;"
+                 style="width: 80px; height: 80px; object-fit: <?= $isSvg ? 'contain' : 'cover' ?>; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; <?= $isSvg ? 'background: #f8f9fa; padding: 8px;' : '' ?>"
                  onmouseover="this.style.borderColor='#337ab7'; this.style.transform='scale(1.05)'"
                  onmouseout="this.style.borderColor='#ddd'; this.style.transform='scale(1)'"
-                 title="<?= rex_i18n::msg('yrewrite_metainfo_click_to_enlarge') ?> - <?= rex_escape($file) ?>">
+                 title="<?= rex_i18n::msg('yrewrite_metainfo_click_to_enlarge') ?> - <?= rex_escape($file) ?> <?= $isSvg ? '(SVG)' : '' ?>"
+                 loading="lazy">
         </div>
         <?php endif; endforeach; ?>
     </div>
@@ -113,21 +119,39 @@ jQuery(function($) {
         $(modalId + ' #rex-media-preview-image-<?= $buttonId ?>').attr('src', imageUrl);
         $(modalId + ' #rex-media-preview-title-<?= $buttonId ?>').text(filename);
         
-        // Media-Informationen laden
+        // Media-Informationen und URLs laden
         var media = <?= json_encode(array_map(function($file) {
             $m = rex_media::get($file);
-            return $m ? [
+            if (!$m) return null;
+            
+            // Korrekte URL für Modal generieren
+            $isSvg = strtolower($m->getExtension()) === 'svg';
+            $modalUrl = $isSvg ? rex_url::media($file) : rex_url::media($file); // Für Modal immer Original verwenden
+            
+            return [
                 'filename' => $m->getFileName(),
                 'title' => $m->getTitle(),
                 'filesize' => $m->getFormattedSize(),
-                'dimensions' => $m->isImage() ? $m->getWidth() . ' × ' . $m->getHeight() . ' px' : null
-            ] : null;
+                'dimensions' => $m->isImage() ? $m->getWidth() . ' × ' . $m->getHeight() . ' px' : null,
+                'url' => $modalUrl,
+                'is_svg' => $isSvg
+            ];
         }, $mediaFiles)) ?>;
         
         var mediaInfo = media.find(function(m) { return m && m.filename === filename; });
+        if (mediaInfo && mediaInfo.url) {
+            // Verwende die im Template generierte URL
+            $(modalId + ' #rex-media-preview-image-<?= $buttonId ?>').attr('src', mediaInfo.url);
+        } else {
+            // Fallback zur ursprünglichen URL-Konstruktion
+            var imageUrl = '<?= rex_url::media('') ?>' + filename;
+            $(modalId + ' #rex-media-preview-image-<?= $buttonId ?>').attr('src', imageUrl);
+        }
+        
         var infoHtml = '';
         if (mediaInfo) {
             infoHtml = '<strong>' + mediaInfo.filename + '</strong>';
+            if (mediaInfo.is_svg) infoHtml += ' <span class="label label-info">SVG</span>';
             if (mediaInfo.title) infoHtml += '<br>Titel: ' + mediaInfo.title;
             if (mediaInfo.dimensions) infoHtml += '<br>Größe: ' + mediaInfo.dimensions;
             infoHtml += '<br>Dateigröße: ' + mediaInfo.filesize;

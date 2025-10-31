@@ -2,12 +2,16 @@
 
 namespace FriendsOfRedaxo\YrewriteMetainfo;
 
+use rex_addon;
 use rex_csrf_token;
 use rex_extension;
 use rex_extension_point;
 use rex_i18n;
 use rex_list;
+use rex_path;
 use rex_url;
+use rex_view;
+use rex_yform;
 use rex_yform_manager_dataset;
 use rex_yform_manager_table;
 
@@ -22,10 +26,16 @@ rex_yform_manager_dataset::setModelClass(
     Icon::class,
 );
 
-// Add CSS for media preview field
+// Register custom YForm template path
+rex_yform::addTemplatePath(rex_path::addon('yrewrite_metainfo', 'ytemplates'));
+
+// Add CSS and JS for media preview field
 if (\rex::isBackend()) {
-    \rex_view::addCssFile(\rex_addon::get('yrewrite_metainfo')->getAssetsUrl('media_preview.css'));
+    rex_view::addCssFile(rex_addon::get('yrewrite_metainfo')->getAssetsUrl('media_preview.css'));
+    rex_view::addJsFile(rex_addon::get('yrewrite_metainfo')->getAssetsUrl('media_preview.js'));
 }
+
+
 
 // Listendarstellung von YRewrite Domains um eine Spalte ergänzen mit Link zu YRewrite Metainfos
 rex_extension::register('REX_LIST_GET', static function (rex_extension_point $ep) {

@@ -1,7 +1,7 @@
 <?php
 /**
- * @var rex_yform_value_be_media_preview $this
- * @psalm-scope-this rex_yform_value_be_media_preview
+ * @var rex_yform_value_yrewrite_metainfo_be_media_preview $this
+ * @psalm-scope-this rex_yform_value_yrewrite_metainfo_be_media_preview
  */
 
 $value = $this->getValue();
@@ -19,13 +19,17 @@ if (empty($files) || (count($files) == 1 && empty($files[0]))): ?>
             $media = rex_media::get($file);
             if (!$media) continue;
             
-            if ($media->isImage()): ?>
+            if ($media->isImage()): 
+                // Prüfe ob es ein SVG ist - dann direkten Zugriff verwenden
+                $isSvg = strtolower($media->getExtension()) === 'svg';
+                $viewUrl = $isSvg ? rex_url::media($file) : rex_media_manager::getUrl('rex_media_small', $file);
+            ?>
                 <div class="rex-media-item" style="display: inline-block; margin: 5px 10px 5px 0;">
-                    <img src="<?= rex_media_manager::getUrl('rex_media_small', $file) ?>" 
+                    <img src="<?= $viewUrl ?>" 
                          class="rex-js-media-preview-view" 
                          data-filename="<?= rex_escape($file) ?>"
-                         style="width: 60px; height: 60px; object-fit: cover; border: 1px solid #ddd; border-radius: 4px; cursor: pointer;"
-                         title="<?= rex_escape($file) ?>">
+                         style="width: 60px; height: 60px; object-fit: <?= $isSvg ? 'contain' : 'cover' ?>; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; <?= $isSvg ? 'background: #f8f9fa; padding: 4px;' : '' ?>"
+                         title="<?= rex_escape($file) ?> <?= $isSvg ? '(SVG)' : '' ?>">
                     <div style="font-size: 11px; max-width: 60px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                         <?= rex_escape($file) ?>
                     </div>

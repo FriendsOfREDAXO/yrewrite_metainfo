@@ -7,7 +7,7 @@
  * @package yrewrite_metainfo
  * @author Friends of REDAXO
  */
-class rex_yform_value_be_media_preview extends rex_yform_value_be_media
+class rex_yform_value_yrewrite_metainfo_be_media_preview extends rex_yform_value_be_media
 {
     public function enterObject()
     {
@@ -18,7 +18,7 @@ class rex_yform_value_be_media_preview extends rex_yform_value_be_media
         if ($this->needsOutput() && $this->isViewable()) {
             if (!$this->isEditable()) {
                 $this->params['form_output'][$this->getId()] = $this->parse(
-                    'value.be_media_preview-view.tpl.php',
+                    'value.yrewrite_metainfo_be_media_preview-view.tpl.php',
                     ['value' => explode(',', $this->getValue()), 'types' => $this->getElement('types') ?? '']
                 );
             } else {
@@ -29,7 +29,7 @@ class rex_yform_value_be_media_preview extends rex_yform_value_be_media
                 
                 // Eigenes Template mit Preview und Modal
                 $this->params['form_output'][$this->getId()] = $this->parse(
-                    'value.be_media_preview.tpl.php', 
+                    'value.yrewrite_metainfo_be_media_preview.tpl.php', 
                     compact('types')
                 );
             }
@@ -40,7 +40,7 @@ class rex_yform_value_be_media_preview extends rex_yform_value_be_media
     {
         return [
             'type' => 'value',
-            'name' => 'be_media_preview',
+            'name' => 'yrewrite_metainfo_be_media_preview',
             'values' => [
                 'name' => ['type' => 'name', 'label' => rex_i18n::msg('yform_values_defaults_name')],
                 'label' => ['type' => 'text', 'label' => rex_i18n::msg('yform_values_defaults_label')],
@@ -64,18 +64,26 @@ class rex_yform_value_be_media_preview extends rex_yform_value_be_media
             if ($file && rex_media::get($file)) {
                 $media = rex_media::get($file);
                 if ($media && $media->isImage()) {
-                    // Thumbnail mit Modal-Link
-                    $return[] = '<img src="' . rex_media_manager::getUrl('rex_media_small', $file) . '" 
-                                     style="width: 40px; height: 40px; object-fit: cover; border-radius: 4px; cursor: pointer;" 
-                                     onclick="openMediaModal(\'' . rex_escape($file) . '\')" 
-                                     title="' . rex_escape($file) . '">';
+                    // Prüfe ob es ein SVG ist - dann direkten Zugriff verwenden
+                    $isSvg = strtolower($media->getExtension()) === 'svg';
+                    $imageUrl = $isSvg ? rex_url::media($file) : rex_media_manager::getUrl('rex_media_small', $file);
+                    
+                    // Thumbnail mit Modal-Link und CSS-Klassen
+                    $return[] = '<img src="' . $imageUrl . '" 
+                                     class="yrewrite-metainfo-preview-img" 
+                                     style="width: 40px; height: 40px; object-fit: cover; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; border: 2px solid #ddd;" 
+                                     onclick="yrewriteMetainfoMediaPreview(\'' . rex_escape($file) . '\')" 
+                                     title="' . rex_i18n::msg('yrewrite_metainfo_click_to_enlarge') . ' - ' . rex_escape($file) . '">';
                 } else {
-                    // Dateiname für nicht-Bilder
-                    $return[] = '<span class="rex-icon rex-icon-file-o"></span> ' . rex_escape($file);
+                    // Dateiname für nicht-Bilder mit Icon
+                    $return[] = '<div style="display: flex; align-items: center; gap: 5px;">
+                                    <span class="rex-icon rex-icon-file-o" style="color: #6c757d;"></span>
+                                    <span style="font-size: 11px;">' . rex_escape($file) . '</span>
+                                 </div>';
                 }
             }
         }
         
-        return implode('<br>', $return);
+        return implode('<div style="margin: 2px 0;"></div>', $return);
     }
 }

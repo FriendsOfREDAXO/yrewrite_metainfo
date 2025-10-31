@@ -42,6 +42,21 @@
     background: #fff;
 }
 
+/* SVG specific styling */
+.rex-media-preview-item img[src$=".svg"],
+.rex-media-preview-item img[title*="(SVG)"] {
+    background: #f8f9fa;
+    padding: 8px;
+    object-fit: contain !important;
+}
+
+.rex-media-preview-view img[src$=".svg"],
+.rex-media-preview-view img[title*="(SVG)"] {
+    background: #f8f9fa;
+    padding: 4px;
+    object-fit: contain !important;
+}
+
 /* Responsive Improvements */
 @media (max-width: 768px) {
     .rex-media-preview-item img {
@@ -56,6 +71,38 @@
     .modal-dialog {
         margin: 15px auto;
     }
+}
+
+/* Lazy Loading Styles */
+.rex-media-lazy {
+    opacity: 0.7;
+    background: #f8f9fa;
+    transition: opacity 0.3s ease;
+    position: relative;
+}
+
+.rex-media-lazy.loaded {
+    opacity: 1;
+}
+
+.rex-media-lazy:not(.loaded)::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    border-top: 2px solid #337ab7;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 /* Dark Mode Support */
@@ -76,5 +123,14 @@
     .rex-media-preview-modal .modal-header {
         background: #343a40;
         border-color: #495057;
+    }
+    
+    .rex-media-lazy {
+        background: #343a40;
+    }
+    
+    .rex-media-lazy:not(.loaded)::after {
+        border-color: #495057;
+        border-top-color: #007bff;
     }
 }
