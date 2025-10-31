@@ -4,6 +4,46 @@
  */
 
 jQuery(function($) {
+    // Lazy Loading Implementation
+    function initLazyLoading() {
+        const lazyImages = document.querySelectorAll('.rex-media-lazy');
+        
+        // Intersection Observer für moderne Browser
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        const src = img.getAttribute('data-lazy-src');
+                        if (src) {
+                            img.src = src;
+                            img.classList.add('loaded');
+                            img.removeAttribute('data-lazy-src');
+                        }
+                        observer.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px',
+                threshold: 0.01
+            });
+            
+            lazyImages.forEach(function(img) {
+                imageObserver.observe(img);
+            });
+        } else {
+            // Fallback für ältere Browser
+            lazyImages.forEach(function(img) {
+                const src = img.getAttribute('data-lazy-src');
+                if (src) {
+                    img.src = src;
+                    img.classList.add('loaded');
+                    img.removeAttribute('data-lazy-src');
+                }
+            });
+        }
+    }
+
     // Global media preview function for list views
     window.yrewriteMetainfoMediaPreview = function(filename) {
         if (!filename) return;
@@ -76,6 +116,18 @@ jQuery(function($) {
             'transform': 'scale(1)',
             'box-shadow': '0 2px 8px rgba(0,0,0,0.1)',
             'border-color': '#ddd'
+        });
+    });
+    
+    // Initialize lazy loading on document ready
+    $(document).ready(function() {
+        initLazyLoading();
+        
+        // Re-initialize after AJAX updates
+        $(document).on('DOMNodeInserted', '.rex-form-group', function() {
+            setTimeout(function() {
+                initLazyLoading();
+            }, 100);
         });
     });
 });
