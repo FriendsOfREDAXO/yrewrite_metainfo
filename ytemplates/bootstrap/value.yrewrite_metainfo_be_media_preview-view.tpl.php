@@ -10,6 +10,9 @@ if ($value) {
     $files = explode(',', $value);
 }
 
+// Eindeutige Modal-ID für View-Modus generieren
+$modalId = 'rex-media-view-modal-' . uniqid();
+
 if (empty($files) || (1 == count($files) && empty($files[0]))): ?>
     <p class="form-control-static">-</p>
 <?php else: ?>
@@ -32,6 +35,7 @@ if (empty($files) || (1 == count($files) && empty($files[0]))): ?>
                     <img src="<?= $viewUrl ?>" 
                          class="rex-js-media-preview-view" 
                          data-filename="<?= rex_escape($file) ?>"
+                         data-modal-target="<?= $modalId ?>"
                          style="width: 60px; height: 60px; object-fit: <?= $isSvg ? 'contain' : 'cover' ?>; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; <?= $isSvg ? 'background: #f8f9fa; padding: 4px;' : '' ?>"
                          title="<?= rex_escape($file) ?> <?= $isSvg ? '(SVG)' : '' ?>">
                     <div style="font-size: 11px; max-width: 60px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
@@ -52,17 +56,17 @@ if (empty($files) || (1 == count($files) && empty($files[0]))): ?>
     </div>
     
     <!-- Modal für View-Modus -->
-    <div class="modal fade" id="rex-media-view-modal" tabindex="-1" role="dialog" style="z-index: 1060;">
+    <div class="modal fade" id="<?= $modalId ?>" tabindex="-1" role="dialog" style="z-index: 1060;">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="<?= rex_i18n::msg('close') ?>">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="rex-media-view-title">Media Preview</h4>
+                    <h4 class="modal-title" id="<?= $modalId ?>-title">Media Preview</h4>
                 </div>
                 <div class="modal-body text-center">
-                    <img id="rex-media-view-image" src="" alt="" style="max-width: 100%; max-height: 70vh; height: auto;">
+                    <img id="<?= $modalId ?>-image" src="" alt="" style="max-width: 100%; max-height: 70vh; height: auto;">
                 </div>
             </div>
         </div>
@@ -70,15 +74,22 @@ if (empty($files) || (1 == count($files) && empty($files[0]))): ?>
     
     <script type="text/javascript">
     jQuery(function($) {
-        $('.rex-js-media-preview-view').click(function(e) {
+        $('[data-modal-target="<?= $modalId ?>"]').click(function(e) {
             e.preventDefault();
             var filename = $(this).data('filename');
             if (!filename) return;
             
+            // Sicherheitsvalidierung
+            filename = filename.replace(/[\/\\]/g, '');
+            if (filename.includes('..')) {
+                console.error('Invalid filename:', filename);
+                return;
+            }
+            
             var imageUrl = '<?= rex_url::media('') ?>' + filename;
-            $('#rex-media-view-image').attr('src', imageUrl);
-            $('#rex-media-view-title').text(filename);
-            $('#rex-media-view-modal').modal('show');
+            $('#<?= $modalId ?>-image').attr('src', imageUrl);
+            $('#<?= $modalId ?>-title').text(filename);
+            $('#<?= $modalId ?>').modal('show');
         });
     });
     </script>

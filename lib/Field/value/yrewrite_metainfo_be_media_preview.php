@@ -36,6 +36,23 @@ class rex_yform_value_yrewrite_metainfo_be_media_preview extends rex_yform_value
         }
     }
 
+    /**
+     * Prefixing-Unterstützung für Feldnamen-Konsistenz
+     */
+    public function getFieldName($name = '')
+    {
+        if ('' === $name) {
+            $name = $this->getName();
+        }
+        
+        $prefix = $this->getElement('prefix') ?? '';
+        if ($prefix) {
+            $name = $prefix . '_' . $name;
+        }
+        
+        return parent::getFieldName($name);
+    }
+
     public function getDefinitions(): array
     {
         return [
@@ -47,6 +64,7 @@ class rex_yform_value_yrewrite_metainfo_be_media_preview extends rex_yform_value
                 'multiple' => ['type' => 'checkbox', 'label' => rex_i18n::msg('yform_values_be_media_multiple')],
                 'category' => ['type' => 'text', 'label' => rex_i18n::msg('yform_values_be_media_category')],
                 'types' => ['type' => 'text', 'label' => rex_i18n::msg('yform_values_be_media_types'), 'notice' => rex_i18n::msg('yform_values_be_media_types_notice')],
+                'prefix' => ['type' => 'text', 'label' => 'Prefix für Feldnamen', 'notice' => 'Optional: Präfix für konsistente Feldnamen (z.B. "meta" für "meta_image")'],
                 'notice' => ['type' => 'text', 'label' => rex_i18n::msg('yform_values_defaults_notice')],
             ],
             'description' => 'Media field with modern preview and modal enlargement',
