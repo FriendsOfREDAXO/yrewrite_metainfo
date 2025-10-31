@@ -22,6 +22,7 @@ pages:
         icon: rex-icon fa-tags
         subpages:
             help: { title: 'translate:package_hhelp', subPath: README.md, itemClass: 'pull-right', icon: 'rex-icon fa-info-circle' }
+            api: { title: 'translate:yrewrite_metainfo_api', subPath: api.md, itemClass: 'pull-right', icon: 'rex-icon fa-code' }
     yrewrite/metainfo/domain:
         title: translate:yrewrite_metainfo_domain
         perm: yrewrite_metainfo[domain]
