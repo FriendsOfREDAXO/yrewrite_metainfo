@@ -1,0 +1,80 @@
+/* YRewrite Metainfo Media Preview Styles */
+
+.rex-media-preview-container {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.rex-media-preview-item {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.rex-media-preview-item:hover {
+    transform: translateY(-2px);
+}
+
+.rex-js-media-preview-click {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.rex-js-media-preview-click:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    transform: scale(1.05);
+}
+
+/* Modal Styling */
+.rex-media-preview-modal .modal-content {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.rex-media-preview-modal .modal-header {
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.rex-media-preview-modal .modal-body {
+    background: #fff;
+}
+
+/* Responsive Improvements */
+@media (max-width: 768px) {
+    .rex-media-preview-item img {
+        width: 60px !important;
+        height: 60px !important;
+    }
+    
+    .modal-lg {
+        max-width: 95vw;
+    }
+    
+    .modal-dialog {
+        margin: 15px auto;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .rex-media-preview-container {
+        background: #343a40;
+    }
+    
+    .rex-js-media-preview-click {
+        border-color: #495057;
+    }
+    
+    .rex-media-preview-modal .modal-content {
+        background: #212529;
+        color: #fff;
+    }
+    
+    .rex-media-preview-modal .modal-header {
+        background: #343a40;
+        border-color: #495057;
+    }
+}

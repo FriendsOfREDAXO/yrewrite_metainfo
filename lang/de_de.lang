@@ -56,3 +56,6 @@ yrewrite_metainfo_docs_intro = Einführung
 yrewrite_metainfo_docs_domain = Domain Meta-Infos
 yrewrite_metainfo_docs_icon_pwa = Icons und PWA
 yrewrite_metainfo_docs_fragments = Fragmente
+
+# Media Preview Field
+yrewrite_metainfo_click_to_enlarge = Zum Vergrößern klicken

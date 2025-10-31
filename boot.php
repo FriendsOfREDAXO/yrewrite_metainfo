@@ -22,6 +22,11 @@ rex_yform_manager_dataset::setModelClass(
     Icon::class,
 );
 
+// Add CSS for media preview field
+if (\rex::isBackend()) {
+    \rex_view::addCssFile(\rex_addon::get('yrewrite_metainfo')->getAssetsUrl('media_preview.css'));
+}
+
 // Listendarstellung von YRewrite Domains um eine Spalte ergänzen mit Link zu YRewrite Metainfos
 rex_extension::register('REX_LIST_GET', static function (rex_extension_point $ep) {
     if ('yrewrite/domains' !== $ep->getSubject()->getParams()['page']) {
