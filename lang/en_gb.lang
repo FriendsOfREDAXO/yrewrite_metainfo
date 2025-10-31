@@ -4,7 +4,6 @@ yrewrite_metainfo_title = Meta-Infos
 # Menu Tabs
 yrewrite_metainfo_domain = General
 yrewrite_metainfo_domain_icon = Icons and PWA Profiles
-yrewrite_metainfo_docs = Docs
 
 # YForm Fields
 rex_yrewrite_metainfo_icon_table = 🌍 Icons and PWA Profiles
@@ -50,8 +49,4 @@ yrewrite_metainfo_domain_icon_zip_upload_media_category_id_option_new = Automati
 yrewrite_metainfo_domain_icon_zip_upload_media_category_id_label = Media category
 yrewrite_metainfo_domain_icon_zip_upload_media_category_id_notice = Media category for the uploaded files
 
-# Documentation
-yrewrite_metainfo_docs_intro = Introduction
-yrewrite_metainfo_docs_domain = Domain Meta-Infos
-yrewrite_metainfo_docs_icon_pwa = Icons and PWA
-yrewrite_metainfo_docs_fragments = Fragments
+

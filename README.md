@@ -1,122 +1,203 @@
-# Meta-Infos und Globale Einstellungen für REDAXO auf Basis von YForm 4 / YForm 5 und YRewrite
+# YRewrite Metainfo
 
-Ergänzt YRewrite-Domains um die Möglichkeit, Metainformationen an Domains zu verwalten. Mit vorgefertigten, einfachen aber sinnvollen Konfigurationsfeldern, passender YOrm-Dataset-Methoden und Backend-Seiten für die Eingabe.
+Meta-Informationen und Einstellungen für YRewrite-Domains
 
-## Installation und Ersteinrichtung
+Ermöglicht die Verwaltung von Metainformationen für YRewrite-Domains. Das Addon stellt vorkonfigurierte Felder, YOrm-Dataset-Methoden und Backend-Seiten zur Verfügung.
 
-### Upgrade-Hinweise von Version 1 auf 2
+## Installation
 
-Durch den Wechsel zu FriendsOfREDAXO, dem Hinzufügen von Namespaces, dem Angleichen von Tabellennamen und dem Entfernen bestimmter Felder & Methoden ist das Upgrade nicht rückwärtskompatibel. Es wird dringend empfohlen, ein Upgrade im Wartungsmodus durchzuführen und die entsprechenden Änderungen zu übernehmen.
-
-> **Tipp:** Die Umbenennung der Tabellendefinition und Tabellen in `rex_yrewrite_metainfo` und `rex_yrewrite_metainfo_icon` vor dem Upgrade ausführen, um die bestehenden Daten zu übernehmen.
-
-### Upgrade-Hinweis von Version 1/2 auf 3
-
-> **Wichtig**: Der Vendor <https://realfavicongenerator.net/> hat den Aufbau des ZIPs an die aktuellen Anforderungen von Betriebssystemen und PWAs angepasst. Viele Formate sind entfallen, darunter Formate für Windows 8. Dadurch haben sich Methodennamen geändert. Sollte dein Projekt das Fragment `head.php` dieses Add-ons überschreiben, sind beim Upgrade Anpassungen notwendig!
-
-Es wird dringend empfohlen, ein Upgrade im Wartungsmodus durchzuführen und die entsprechenden Änderungen zu übernehmen.
-
-### Installation
+### Neuinstallation
 
 Voraussetzungen: YRewrite ^2.10 mit mindestens einer eingerichteten Domain sowie YForm >=4, <6.
 
 1. Installiere das Addon über den REDAXO-Installer
-2. Fülle in `YRewrite` > `Metainfo` Angaben zu deiner YRewrite-Domain aus
-3. Füge in den `<head>`-Bereich deines oder deiner Templates folgenden Code ein: `<?= Domain::getHead() ?>`.
+2. Konfiguriere in `YRewrite` > `Metainfo` die gewünschten Angaben für deine YRewrite-Domain
+3. Füge in den `<head>`-Bereich deines Templates folgenden Code ein: `<?= Domain::getHead() ?>`
 
-Anschließend werden die passenden Meta-Informationen, soweit ausgefüllt, ausgegeben.
+Die konfigurierten Meta-Informationen werden automatisch ausgegeben.
 
 > **Hinweis:** Das YRewrite-SEO-Objekt sowie OpenGraph- und weitere Meta-Tags, die bereits durch dieses Addon kommen, sollten aus deinem Template entfernt werden.
 
-## Features
+### Upgrade von Version 1 auf 2
 
-### Gemeinsamkeiten und Unterschiede zu anderen Addons
+Das Upgrade ist nicht rückwärtskompatibel. Führe das Upgrade im Wartungsmodus durch. Tabellennamen wurden zu `rex_yrewrite_metainfo` und `rex_yrewrite_metainfo_icon` geändert.
 
-| Funktionen                 | Globale Einstellungen | Domain Settings     | YRewrite Metainfo      |
-|----------------------------|-----------------------|---------------------|------------------------|
-| Mindest-Anforderung        | REDAXO ^5.0           | REDAXO 5.3, PHP >=5 | REDAXO 5.17, PHP >=8.3 |
-| Aktive Entwicklung         | ❌ Nein               | ⚠️ Unbekannt        | ✅ Ja                 |
-| Multidomain-fähig          | ❌ Nein               | ✅ Ja               | ✅ Ja                 |
-| Mehrsprachigkeit           | ✅ Ja                 | ✅ Ja               | ✅ Ja                 |
-| Backend-Sprachen           | DE, EN, ES, SV        | DE                   | Alle Core-Sprachen    |
-| YForm-basiert              | ❌ Nein               | ⚠️ Teilweise        | ✅ Ja                 |
-| Feldtypen                  | ⚠️ 8                  | Alle YForm-Feldtypen | Alle YForm-Feldtypen  |
-| Eigene Feldtypen           | ❌ Nein               | ✅ Ja               | ✅ Ja                 |
-| HTML5-Feldtypen            | ❌ Nein               | ✅ Ja               | ✅ Ja                 |
-| YOrm-Dataset-Methoden      | ❌ Nein               | ❌ Nein             | ✅ Ja                 |
-| Head-Fragment              | ❌ Nein               | ❌ Nein             | ✅ Ja                 |
-| Unterstützung von PWA      | ❌ Nein               | ❌ Nein             | ✅ Ja                 |
-| Integration von `url`      | ❌ Nein               | ❌ Nein             | ✅ Ja                 |
-| Integration von `speed_up` | ❌ Nein               | ❌ Nein             | ✅ Ja                 |
-| Integration von `wsm`      | ❌ Nein               | ❌ Nein             | ✅ Ja                 |
-| Umfangreiche Dokumentation | ✅ Ja                 | ❌ Nein             | ✅ Ja                 |
-| Berechtigungssystem        | ❌ Nein               | ✅ Ja               | ❌ Nein               |
-| rexstan-Level              | ⚠️ Unbekannt          | ⚠️ Unbekannt        | 🏆 Level 9            |
-| Automatischer Import       | ❌ Nein               | ❌ Nein             | ✅ Ja                 |
+### Upgrade von Version 2 auf 3
 
-### Fragen
+Methodennamen für Icon-Handling haben sich geändert. Bei überschriebenem `head.php` Fragment sind Anpassungen erforderlich.
 
-#### Was unterscheidet dieses Addon von anderen REDAXO-Addons für Domain-Metainformationen?
+## Funktionen
 
-- Dieses Addon kommt mit sinnvoll vorinstallierten Standard-Feldern als YForm Tableset. Installieren und loslegen!
-- Die Klasse `domain` ist ein YOrm-Dataset. Du hast in deinem Code alle Features von YOrm zur Verfügung und kannst direkt loslegen, z.B. `domain::getCurrent()->getValue('mein_feld')`, oder vorhandene Dataset-Methoden verwendest.
-- Standard-Fragment für den `<head>`-Bereich deiner Templates sind blitzschnell kopiert und eingefügt, wenn du bspw. eigene Metadaten pro Domain oder zusätzliche Einstellungen vergeben willst.
+Das Addon bietet folgende Hauptfunktionen:
 
-#### Kann ich nicht benötigte Standard-Felder auch löschen?
+- Verwaltung von Meta-Informationen für YRewrite-Domains
+- Vorkonfigurierte YForm-Felder für häufig benötigte Metadaten
+- YOrm-Dataset-Klassen für programmatischen Zugriff
+- Integration von PWA-Features und Icon-Management
+- Template-Fragmente für automatische Meta-Tag-Ausgabe
 
-Wenn du dich mit anderen auf YForm basierten Addons wie YCom, Events, Neues, QandA o.ä. auskennst, weißt du, dass dies zwar möglich ist, aber unvorhergesehene Dinge bei Updates oder in der aktiven Verwendung des Addons passieren können. Wenn du bestimmte Felder nicht benötigst, dann blende sie am besten über ein eigenes Backend-CSS aus.
+### Verfügbare Felder
 
-### Die Einstellungsseite
+- Domain-Name und Beschreibung
+- OpenGraph-Metadaten (og:title, og:image, og:type)
+- PWA-Einstellungen (App-Name, Icons, Farben)
+- Favicon und Touch-Icons
+- Custom Meta-Tags
 
-Anders als das Metainfo-Addon selbst oder abgeleitete Addons wie das Addon "Globale Einstellungen" basiert dieses Addon auf YForm. Um sich trotzdem nahtlos in die REDAXO-Struktur einzufügen, ergänzt dieses Addon folgende Backend-Seiten:
+### Backend-Verwaltung
 
-1. `YRewrite` > `Metainfo` > `Allgemein` - Lege hier Meta-Informationen für deine Domain an
-2. `YRewrite` > `Icons und PWA-Profile` - Optional: Verwalte bequem PWA-Angaben und Favicon-Sets über das Backend und den Medienpool - ordne diese einer oder mehreren YRewrite-Domains zu.
+Das Addon basiert auf YForm und integriert sich in die REDAXO-Backend-Struktur mit folgenden Seiten:
 
-> Tipp: Lasse dir das Set passender Icons über den [RealFavicon-Generator](https://realfavicongenerator.net/) erstellen und lade sie in den Medienpool hoch.
+1. `YRewrite` > `Metainfo` > `Allgemein` - Verwaltung der Meta-Informationen für Domains
+2. `YRewrite` > `Icons und PWA-Profile` - Verwaltung von PWA-Einstellungen und Favicon-Sets
 
-### Die Klasse `domain` - Meta-Infos für deine YRewrite-Domain
+Icon-Sets können über den [RealFavicon-Generator](https://realfavicongenerator.net/) erstellt und über den Medienpool verwaltet werden.
 
-Einfache Methoden erleichtern dir die Nutzung:
+## API-Referenz
 
-- `Domain::getCurrent()` Erhalte das YOrm-Dataset mit Meta-Informationen zu deiner aktuellen YRewrite-Domain
-- `$yrewrite_domain = $domain->getYRewrite()` das Original YRewrite-Domain-Objekt
-- `$domain->getName()` Titel der Website, wird verwendet als, PWA-Titel, `og:title` u.a.
-- `$domain->getLogo()` Logo der Website aus dem Medienpool, z.B. `file.svg`;
+### Die Klasse `Domain` - YOrm-Dataset für Meta-Informationen
 
-Weitere Methoden für die vorinstallierten Felder findest du in der Klasse `lib/domain.php` sowie in der zugehörigen Klasse `lib/icon.php` sowie in der Dokumentation.
+Das Addon stellt eine YOrm-Dataset-Klasse zur Verfügung:
+
+#### Grundlegende Methoden
+
+```php
+// Aktuelles Domain-Dataset abrufen
+$domain = Domain::getCurrent();
+
+// Original YRewrite-Domain-Objekt
+$yrewrite_domain = $domain->getYRewrite();
+
+// Domain-ID
+$domain_id = $domain->getId();
+```
+
+#### Meta-Informationen abrufen
+
+```php
+$domain = Domain::getCurrent();
+
+// Website-Titel (für PWA, og:title, etc.)
+$title = $domain->getName();
+
+// Website-Logo aus dem Medienpool
+$logo = $domain->getLogo();
+
+// OpenGraph-Typ
+$og_type = $domain->getType();
+
+// OpenGraph-Bild
+$og_image = $domain->getThumbnail();
+
+// Beschreibung
+$description = $domain->getDescription();
+```
+
+#### Icon/PWA-Verwaltung
+
+```php
+$domain = Domain::getCurrent();
+
+// Icon-Profil abrufen
+$icon_profile = $domain->getIcon();
+
+if ($icon_profile) {
+    // PWA-Name
+    $app_name = $icon_profile->getName();
+    
+    // Kurzer App-Name
+    $short_name = $icon_profile->getShortname();
+    
+    // Theme-Farbe
+    $theme_color = $icon_profile->getThemeColor();
+    
+    // Hintergrundfarbe
+    $bg_color = $icon_profile->getBackgroundColor();
+    
+    // Favicon-Dateien
+    $favicon_png = $icon_profile->getFaviconPng96();
+    $favicon_svg = $icon_profile->getFaviconSvg();
+    $apple_touch = $icon_profile->getAppleTouchIcon();
+}
+```
+
+### Codebeispiele
+
+#### Template-Integration
+
+```php
+// Im Template-Head
+<?= Domain::getHead() ?>
+
+// Manueller Zugriff auf Metadaten
+<?php
+$domain = Domain::getCurrent();
+if ($domain && $domain->getName()) {
+    echo '<title>' . rex_escape($domain->getName()) . '</title>';
+}
+?>
+```
+
+#### Bedingte Ausgaben
+
+```php
+<?php
+$domain = Domain::getCurrent();
+
+// Logo nur ausgeben wenn vorhanden
+if ($domain && $domain->getLogo()) {
+    $media = rex_media::get($domain->getLogo());
+    if ($media) {
+        echo '<img src="' . rex_url::media($media->getFileName()) . '" alt="Logo">';
+    }
+}
+
+// PWA-Manifest nur bei verfügbarem Icon-Profil
+if ($domain && $domain->getIcon()) {
+    echo '<link rel="manifest" href="/manifest.json">';
+}
+?>
+```
+
+#### Eigene Meta-Tags ergänzen
+
+```php
+// Im project-Addon: fragments/yrewrite_metainfo/head.php
+<?php
+// Standard-Head ausgeben
+echo $this->subfragment('yrewrite_metainfo/head.php');
+
+// Zusätzliche Meta-Tags
+$domain = Domain::getCurrent();
+if ($domain) {
+    echo '<meta name="author" content="' . rex_escape($domain->getName()) . '">';
+    echo '<meta name="generator" content="REDAXO">';
+}
+?>
+```
 
 ### Fragmente
 
-#### `head.php` optimiert Metadaten deiner Website/Arikel für soziale Netzwerke
+#### `head.php` - Metadaten für soziale Netzwerke
 
-Die Standard-Methoden von YRewrite zum anpassen des Titelschemas reichen oft nicht aus. Soziale Netzwerke, Messenger und andere Dienste erwarten heute vollständige Metadaten, Redakteure können diese in REDAXO passend pflegen und Besucher deiner Website erhalten beim Teilen von Links eine sinnvolle Linkvorschau.
+Das Fragment erweitert die Standard-YRewrite-Funktionen um zusätzliche Metadaten für soziale Netzwerke, Messenger und andere Dienste. Dies ermöglicht aussagekräftige Linkvorschauen beim Teilen von Inhalten.
 
-Füge das Fragment `yrewrite_metainfo/head.php` im Head anstelle der YRewrite-SEO-Methoden ein. Überschreibe dieses Fragment in deinem `project`-Addon, wenn du zusätzliche Metadaten ausgeben möchtest - z.B. anhand des URL-Addons.
+Das Fragment `yrewrite_metainfo/head.php` kann als Ersatz für die Standard-YRewrite-SEO-Methoden verwendet werden. Bei Bedarf lässt sich das Fragment im `project`-Addon anpassen oder erweitern.
 
-## Weiterentwicklung unterstützen
+## Mitarbeit
 
-Du möchtest dieses Addon weiterentwickeln oder hast Vorschläge für Verbesserungen? Autor*innen und die Community bedanken sich für deine Unterstützung!
+Du möchtest dieses Addon weiterentwickeln oder hast Vorschläge für Verbesserungen? Die Community freut sich über deine Unterstützung!
 
-Du hast folgende Möglichkeiten:
-
-1. 🙏🏻 [Issues](https://github.com/FriendsOfREDAXO/yrewrite_metainfo/issues) lösen und Pull Requests erstellen.
-2. 💶 Projekt finanziell sponsoren: [GitHub Sponsors](https://github.com/alxndr-w) oder [Ko-fi](https://ko-fi.com/alxndr-w)
-
-Damit wird auch die zukünftige Entwicklung dieses Addons gesichert.
+Möglichkeiten zur Mitarbeit:
+- [Issues](https://github.com/FriendsOfREDAXO/yrewrite_metainfo/issues) melden und beheben
+- Pull Requests mit Verbesserungen erstellen
 
 ## Lizenz
 
 MIT Lizenz, siehe [LICENSE](https://github.com/FriendsOfREDAXO/yrewrite_metainfo/blob/master/LICENSE)  
 
-## Autoren
+## Autor
 
-Friends of REDAXO
+**Friends of REDAXO**
 
-**Projekt-Lead**  
-[Alexander Walther](https://github.com/alxndr-w)
-
-- <https://www.alexplus.de>  
-- <https://github.com/alexplusde>
-
-## Credits
+Dank an [Alexander Walther](https://www.alexplus.de) für die ursprüngliche Entwicklung und Projektleitung.

@@ -1,5 +1,5 @@
 package: yrewrite_metainfo
-version: "3.0.0"
+version: "4.0.0"
 author: Friends of REDAXO
 supportpage: https://github.com/FriendsOfRedaxo/yrewrite_metainfo/
 
@@ -10,7 +10,6 @@ requires:
     packages:
         yrewrite: "^2"
         yform: ">=4,<6"
-        yform_field: ">=2.11.0,<4"
 
 conflicts:
     packages:
@@ -20,11 +19,13 @@ pages:
     yrewrite/metainfo:
         title: translate:yrewrite_metainfo_title
         perm: yrewrite_metainfo[]
-        icon: rex-icon fa-globe
+        icon: rex-icon fa-tags
+        subpages:
+            help: { title: 'translate:package_hhelp', subPath: README.md, itemClass: 'pull-right', icon: 'rex-icon fa-info-circle' }
     yrewrite/metainfo/domain:
         title: translate:yrewrite_metainfo_domain
         perm: yrewrite_metainfo[domain]
-        icon: rex-icon fa-globe
+        icon: rex-icon fa-tags
     yrewrite/metainfo/domain_icon:
         title: translate:yrewrite_metainfo_domain_icon
         perm: yrewrite_metainfo[icon]
@@ -33,8 +34,3 @@ pages:
         title: translate:yrewrite_metainfo_fields
         perm: yrewrite_metainfo[fields]
         icon: rex-icon fa-list
-    yrewrite/metainfo/docs:
-        title: translate:yrewrite_metainfo_docs
-        perm: yrewrite_metainfo[]
-        icon: rex-icon fa-info-circle
-        itemClass: pull-right

@@ -4,7 +4,6 @@ yrewrite_metainfo_title = Meta-Infos
 # Menü-Reiter
 yrewrite_metainfo_domain = Allgemein
 yrewrite_metainfo_domain_icon = Icons und PWA-Profile
-yrewrite_metainfo_docs = Docs
 
 # YForm Felder
 rex_yrewrite_metainfo_icon_table = 🌍 Icons und PWA-Profile
@@ -51,8 +50,5 @@ yrewrite_metainfo_domain_icon_zip_upload_media_category_id_option_new = Neue Kat
 yrewrite_metainfo_domain_icon_zip_upload_media_category_id_label = Medien-Kategorie
 yrewrite_metainfo_domain_icon_zip_upload_media_category_id_notice = Medien-Kategorie für die hochgeladenen Dateien
 
-# Dokumentation
-yrewrite_metainfo_docs_intro = Einführung
-yrewrite_metainfo_docs_domain = Domain Meta-Infos
-yrewrite_metainfo_docs_icon_pwa = Icons und PWA
-yrewrite_metainfo_docs_fragments = Fragmente
+# Media Preview Field
+yrewrite_metainfo_click_to_enlarge = Zum Vergrößern klicken
