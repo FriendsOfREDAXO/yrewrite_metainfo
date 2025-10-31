@@ -4,6 +4,7 @@ yrewrite_metainfo_title = Meta-Infos
 # Menü-Reiter
 yrewrite_metainfo_domain = Allgemein
 yrewrite_metainfo_domain_icon = Icons und PWA-Profile
+yrewrite_metainfo_api = API-Dokumentation
 
 # YForm Felder
 rex_yrewrite_metainfo_icon_table = 🌍 Icons und PWA-Profile
