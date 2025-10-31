@@ -10,18 +10,22 @@ if ($value) {
     $files = explode(',', $value);
 }
 
-if (empty($files) || (count($files) == 1 && empty($files[0]))): ?>
+if (empty($files) || (1 == count($files) && empty($files[0]))): ?>
     <p class="form-control-static">-</p>
 <?php else: ?>
     <div class="rex-media-preview-view">
-        <?php foreach ($files as $file): 
-            if (!$file) continue;
+        <?php foreach ($files as $file):
+            if (!$file) {
+            continue;
+            }
             $media = rex_media::get($file);
-            if (!$media) continue;
-            
-            if ($media->isImage()): 
+            if (!$media) {
+            continue;
+            }
+
+            if ($media->isImage()):
                 // Prüfe ob es ein SVG ist - dann direkten Zugriff verwenden
-                $isSvg = strtolower($media->getExtension()) === 'svg';
+                $isSvg = 'svg' === strtolower($media->getExtension());
                 $viewUrl = $isSvg ? rex_url::media($file) : rex_media_manager::getUrl('rex_media_small', $file);
             ?>
                 <div class="rex-media-item" style="display: inline-block; margin: 5px 10px 5px 0;">
@@ -44,7 +48,7 @@ if (empty($files) || (count($files) == 1 && empty($files[0]))): ?>
                     </div>
                 </div>
             <?php endif;
-        endforeach; ?>
+        endforeach ?>
     </div>
     
     <!-- Modal für View-Modus -->
@@ -78,4 +82,4 @@ if (empty($files) || (count($files) == 1 && empty($files[0]))): ?>
         });
     });
     </script>
-<?php endif; ?>
+<?php endif ?>

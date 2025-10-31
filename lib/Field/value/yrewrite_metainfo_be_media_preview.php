@@ -2,7 +2,7 @@
 
 /**
  * YRewrite Metainfo Media Preview Field
- * Modernes Media-Feld mit Vorschau und Modal-Vergrößerung
+ * Modernes Media-Feld mit Vorschau und Modal-Vergrößerung.
  *
  * @package yrewrite_metainfo
  * @author Friends of REDAXO
@@ -19,18 +19,18 @@ class rex_yform_value_yrewrite_metainfo_be_media_preview extends rex_yform_value
             if (!$this->isEditable()) {
                 $this->params['form_output'][$this->getId()] = $this->parse(
                     'value.yrewrite_metainfo_be_media_preview-view.tpl.php',
-                    ['value' => explode(',', $this->getValue()), 'types' => $this->getElement('types') ?? '']
+                    ['value' => explode(',', $this->getValue()), 'types' => $this->getElement('types') ?? ''],
                 );
             } else {
                 $types = $this->getElement('types') ?? '';
                 if ('*' == $types) {
                     $types = '';
                 }
-                
+
                 // Eigenes Template mit Preview und Modal
                 $this->params['form_output'][$this->getId()] = $this->parse(
-                    'value.yrewrite_metainfo_be_media_preview.tpl.php', 
-                    compact('types')
+                    'value.yrewrite_metainfo_be_media_preview.tpl.php',
+                    compact('types'),
                 );
             }
         }
@@ -58,16 +58,16 @@ class rex_yform_value_yrewrite_metainfo_be_media_preview extends rex_yform_value
     public static function getListValue($params)
     {
         $files = explode(',', $params['subject']);
-        
+
         $return = [];
         foreach ($files as $file) {
             if ($file && rex_media::get($file)) {
                 $media = rex_media::get($file);
                 if ($media && $media->isImage()) {
                     // Prüfe ob es ein SVG ist - dann direkten Zugriff verwenden
-                    $isSvg = strtolower($media->getExtension()) === 'svg';
+                    $isSvg = 'svg' === strtolower($media->getExtension());
                     $imageUrl = $isSvg ? rex_url::media($file) : rex_media_manager::getUrl('rex_media_small', $file);
-                    
+
                     // Thumbnail mit Modal-Link und CSS-Klassen
                     $return[] = '<img src="' . $imageUrl . '" 
                                      class="yrewrite-metainfo-preview-img" 
@@ -83,7 +83,7 @@ class rex_yform_value_yrewrite_metainfo_be_media_preview extends rex_yform_value
                 }
             }
         }
-        
+
         return implode('<div style="margin: 2px 0;"></div>', $return);
     }
 }

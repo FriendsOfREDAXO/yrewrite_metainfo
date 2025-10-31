@@ -61,11 +61,11 @@ if ($value) {
     
     <?php if (!empty($mediaFiles)): ?>
     <div class="rex-media-preview-container" style="margin-top: 10px;">
-        <?php foreach ($mediaFiles as $file): 
+        <?php foreach ($mediaFiles as $file):
             $media = rex_media::get($file);
-            if ($media && $media->isImage()): 
+            if ($media && $media->isImage()):
                 // Prüfe ob es ein SVG ist - dann direkten Zugriff verwenden
-                $isSvg = strtolower($media->getExtension()) === 'svg';
+                $isSvg = 'svg' === strtolower($media->getExtension());
                 $previewUrl = $isSvg ? rex_url::media($file) : rex_media_manager::getUrl('rex_media_small', $file);
             ?>
         <div class="rex-media-preview-item" style="display: inline-block; margin: 5px;">
@@ -79,9 +79,9 @@ if ($value) {
                  title="<?= rex_i18n::msg('yrewrite_metainfo_click_to_enlarge') ?> - <?= rex_escape($file) ?> <?= $isSvg ? '(SVG)' : '' ?>"
                  loading="lazy">
         </div>
-        <?php endif; endforeach; ?>
+        <?php endif; endforeach ?>
     </div>
-    <?php endif; ?>
+    <?php endif ?>
     
     <?= $notice ?>
 </div>
@@ -120,21 +120,23 @@ jQuery(function($) {
         $(modalId + ' #rex-media-preview-title-<?= $buttonId ?>').text(filename);
         
         // Media-Informationen und URLs laden
-        var media = <?= json_encode(array_map(function($file) {
+        var media = <?= json_encode(array_map(static function ($file) {
             $m = rex_media::get($file);
-            if (!$m) return null;
-            
+            if (!$m) {
+            return null;
+            }
+
             // Korrekte URL für Modal generieren
-            $isSvg = strtolower($m->getExtension()) === 'svg';
+            $isSvg = 'svg' === strtolower($m->getExtension());
             $modalUrl = $isSvg ? rex_url::media($file) : rex_url::media($file); // Für Modal immer Original verwenden
-            
+
             return [
                 'filename' => $m->getFileName(),
                 'title' => $m->getTitle(),
                 'filesize' => $m->getFormattedSize(),
                 'dimensions' => $m->isImage() ? $m->getWidth() . ' × ' . $m->getHeight() . ' px' : null,
                 'url' => $modalUrl,
-                'is_svg' => $isSvg
+                'is_svg' => $isSvg,
             ];
         }, $mediaFiles)) ?>;
         
