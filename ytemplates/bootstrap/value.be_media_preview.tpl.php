@@ -61,7 +61,7 @@ if ($value) {
     
     <?php if (!empty($mediaFiles)): ?>
     <div class="rex-media-preview-container" style="margin-top: 10px;">
-        <?php foreach ($mediaFiles as $file): 
+        <?php foreach ($mediaFiles as $file):
             $media = rex_media::get($file);
             if ($media && $media->isImage()): ?>
         <div class="rex-media-preview-item" style="display: inline-block; margin: 5px;">
@@ -73,9 +73,9 @@ if ($value) {
                  onmouseout="this.style.borderColor='#ddd'; this.style.transform='scale(1)'"
                  title="<?= rex_i18n::msg('yrewrite_metainfo_click_to_enlarge') ?> - <?= rex_escape($file) ?>">
         </div>
-        <?php endif; endforeach; ?>
+        <?php endif; endforeach ?>
     </div>
-    <?php endif; ?>
+    <?php endif ?>
     
     <?= $notice ?>
 </div>
@@ -114,13 +114,13 @@ jQuery(function($) {
         $(modalId + ' #rex-media-preview-title-<?= $buttonId ?>').text(filename);
         
         // Media-Informationen laden
-        var media = <?= json_encode(array_map(function($file) {
+        var media = <?= json_encode(array_map(static function ($file) {
             $m = rex_media::get($file);
             return $m ? [
                 'filename' => $m->getFileName(),
                 'title' => $m->getTitle(),
                 'filesize' => $m->getFormattedSize(),
-                'dimensions' => $m->isImage() ? $m->getWidth() . ' × ' . $m->getHeight() . ' px' : null
+                'dimensions' => $m->isImage() ? $m->getWidth() . ' × ' . $m->getHeight() . ' px' : null,
             ] : null;
         }, $mediaFiles)) ?>;
         

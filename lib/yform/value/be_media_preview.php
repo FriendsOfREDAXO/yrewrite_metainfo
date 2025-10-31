@@ -2,7 +2,7 @@
 
 /**
  * YRewrite Metainfo Media Preview Field
- * Modernes Media-Feld mit Vorschau und Modal-Vergrößerung
+ * Modernes Media-Feld mit Vorschau und Modal-Vergrößerung.
  *
  * @package yrewrite_metainfo
  * @author Friends of REDAXO
@@ -19,18 +19,18 @@ class rex_yform_value_be_media_preview extends rex_yform_value_be_media
             if (!$this->isEditable()) {
                 $this->params['form_output'][$this->getId()] = $this->parse(
                     'value.be_media_preview-view.tpl.php',
-                    ['value' => explode(',', $this->getValue()), 'types' => $this->getElement('types') ?? '']
+                    ['value' => explode(',', $this->getValue()), 'types' => $this->getElement('types') ?? ''],
                 );
             } else {
                 $types = $this->getElement('types') ?? '';
                 if ('*' == $types) {
                     $types = '';
                 }
-                
+
                 // Eigenes Template mit Preview und Modal
                 $this->params['form_output'][$this->getId()] = $this->parse(
-                    'value.be_media_preview.tpl.php', 
-                    compact('types')
+                    'value.be_media_preview.tpl.php',
+                    compact('types'),
                 );
             }
         }
@@ -58,7 +58,7 @@ class rex_yform_value_be_media_preview extends rex_yform_value_be_media
     public static function getListValue($params)
     {
         $files = explode(',', $params['subject']);
-        
+
         $return = [];
         foreach ($files as $file) {
             if ($file && rex_media::get($file)) {
@@ -75,7 +75,7 @@ class rex_yform_value_be_media_preview extends rex_yform_value_be_media
                 }
             }
         }
-        
+
         return implode('<br>', $return);
     }
 }
