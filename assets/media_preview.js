@@ -48,6 +48,13 @@ jQuery(function($) {
     window.yrewriteMetainfoMediaPreview = function(filename) {
         if (!filename) return;
         
+        // Sicherheitsvalidierung: Path Traversal verhindern
+        filename = filename.replace(/[\/\\]/g, '');
+        if (filename.includes('..')) {
+            console.error('Invalid filename:', filename);
+            return;
+        }
+        
         // Check if modal already exists
         let modal = $('#yrewrite-metainfo-global-modal');
         if (modal.length === 0) {
@@ -119,15 +126,38 @@ jQuery(function($) {
         });
     });
     
-    // Initialize lazy loading on document ready
-    $(document).ready(function() {
+    // Initialize lazy loading
+    function initAll() {
         initLazyLoading();
+    }
+    
+    $(document).ready(function() {
+        initAll();
         
-        // Re-initialize after AJAX updates
-        $(document).on('DOMNodeInserted', '.rex-form-group', function() {
-            setTimeout(function() {
-                initLazyLoading();
-            }, 100);
-        });
+        // Re-initialize after DOM changes using MutationObserver
+        if (window.MutationObserver) {
+            const observer = new MutationObserver(function(mutations) {
+                let shouldReinit = false;
+                mutations.forEach(function(mutation) {
+                    if (mutation.addedNodes.length > 0) {
+                        mutation.addedNodes.forEach(function(node) {
+                            if (node.nodeType === 1 && 
+                                (node.matches && node.matches('.rex-form-group') || 
+                                 node.querySelector && node.querySelector('.rex-form-group'))) {
+                                shouldReinit = true;
+                            }
+                        });
+                    }
+                });
+                if (shouldReinit) {
+                    setTimeout(initLazyLoading, 50);
+                }
+            });
+            
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+        }
     });
 });

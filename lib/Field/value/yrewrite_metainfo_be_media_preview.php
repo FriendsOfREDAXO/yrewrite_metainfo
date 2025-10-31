@@ -61,9 +61,12 @@ class rex_yform_value_yrewrite_metainfo_be_media_preview extends rex_yform_value
 
         $return = [];
         foreach ($files as $file) {
-            if ($file && rex_media::get($file)) {
+            if ($file) {
                 $media = rex_media::get($file);
-                if ($media && $media->isImage()) {
+                if (!$media) {
+                    continue;
+                }
+                if ($media->isImage()) {
                     // Prüfe ob es ein SVG ist - dann direkten Zugriff verwenden
                     $isSvg = 'svg' === strtolower($media->getExtension());
                     $imageUrl = $isSvg ? rex_url::media($file) : rex_media_manager::getUrl('rex_media_small', $file);

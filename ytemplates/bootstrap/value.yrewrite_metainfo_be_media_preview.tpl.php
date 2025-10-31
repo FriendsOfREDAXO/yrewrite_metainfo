@@ -4,7 +4,7 @@
  * @psalm-scope-this rex_yform_value_yrewrite_metainfo_be_media_preview
  */
 
-$counter ??= 1000;
+$counter = isset($counter) ? ++$counter : 1000;
 
 $buttonId = $counter;
 $name = $this->getFieldName();
@@ -138,7 +138,7 @@ jQuery(function($) {
                 'url' => $modalUrl,
                 'is_svg' => $isSvg,
             ];
-        }, $mediaFiles)) ?>;
+        }, $mediaFiles), JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP) ?>;
         
         var mediaInfo = media.find(function(m) { return m && m.filename === filename; });
         if (mediaInfo && mediaInfo.url) {
@@ -150,16 +150,21 @@ jQuery(function($) {
             $(modalId + ' #rex-media-preview-image-<?= $buttonId ?>').attr('src', imageUrl);
         }
         
-        var infoHtml = '';
+        // Sichere Behandlung der Media-Informationen (XSS-Schutz)
+        var $info = $(modalId + ' #rex-media-preview-info-<?= $buttonId ?>').empty();
         if (mediaInfo) {
-            infoHtml = '<strong>' + mediaInfo.filename + '</strong>';
-            if (mediaInfo.is_svg) infoHtml += ' <span class="label label-info">SVG</span>';
-            if (mediaInfo.title) infoHtml += '<br>Titel: ' + mediaInfo.title;
-            if (mediaInfo.dimensions) infoHtml += '<br>Größe: ' + mediaInfo.dimensions;
-            infoHtml += '<br>Dateigröße: ' + mediaInfo.filesize;
+            $('<strong>').text(mediaInfo.filename).appendTo($info);
+            if (mediaInfo.is_svg) {
+                $info.append(' ').append($('<span class="label label-info">').text('SVG'));
+            }
+            if (mediaInfo.title) {
+                $info.append('<br>').append(document.createTextNode('Titel: ' + mediaInfo.title));
+            }
+            if (mediaInfo.dimensions) {
+                $info.append('<br>').append(document.createTextNode('Größe: ' + mediaInfo.dimensions));
+            }
+            $info.append('<br>').append(document.createTextNode('Dateigröße: ' + mediaInfo.filesize));
         }
-        
-        $(modalId + ' #rex-media-preview-info-<?= $buttonId ?>').html(infoHtml);
         $(modalId).modal('show');
     });
 });

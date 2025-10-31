@@ -202,6 +202,7 @@
                 "name": "favicon_svg",
                 "not_required": "",
                 "notice": "<code>favicon.svg<\/code>",
+                "preview": "1",
                 "prio": 14,
                 "search": 0,
                 "table_name": "rex_yrewrite_metainfo_icon",
