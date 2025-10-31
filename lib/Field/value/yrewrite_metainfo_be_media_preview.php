@@ -37,19 +37,19 @@ class rex_yform_value_yrewrite_metainfo_be_media_preview extends rex_yform_value
     }
 
     /**
-     * Prefixing-Unterstützung für Feldnamen-Konsistenz
+     * Prefixing-Unterstützung für Feldnamen-Konsistenz.
      */
     public function getFieldName($name = '')
     {
         if ('' === $name) {
             $name = $this->getName();
         }
-        
+
         $prefix = $this->getElement('prefix') ?? '';
         if ($prefix) {
             $name = $prefix . '_' . $name;
         }
-        
+
         return parent::getFieldName($name);
     }
 
