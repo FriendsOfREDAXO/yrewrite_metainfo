@@ -200,4 +200,4 @@ MIT Lizenz, siehe [LICENSE](https://github.com/FriendsOfREDAXO/yrewrite_metainfo
 
 **Friends of REDAXO**
 
-Dank an [Alexander Walther](https://www.alexplus.de) für die ursprüngliche Entwicklung und Projektleitung.
+Dank an [Alexander Walther](https://github.com/AWqxKAWERbXo) für die ursprüngliche Entwicklung und Projektleitung.
